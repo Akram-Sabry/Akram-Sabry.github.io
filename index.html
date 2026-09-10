@@ -41,7 +41,12 @@
     *{box-sizing:border-box} body{margin:0;font-family:Inter,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
     a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
     .wrap{max-width:1050px;margin:auto;padding:0 24px}
-    header{padding:90px 0 70px;border-bottom:1px solid var(--line)}
+    header{padding:70px 0 60px;border-bottom:1px solid var(--line)}
+    
+    /* تنسيق الصورة الشخصية */
+    .profile-img-container { margin-bottom: 20px; }
+    .profile-img { width: 160px; height: 160px; border-radius: 50%; object-fit: cover; border: 3px solid var(--accent); box-shadow: 0 4px 15px rgba(0,0,0,0.4); }
+
     .tag{display:inline-block;padding:6px 12px;border:1px solid var(--line);border-radius:999px;color:var(--accent);font-size:14px}
     h1{font-size:clamp(36px,6vw,68px);line-height:1.15;margin:22px 0 12px;letter-spacing:-1px}
     h2{font-size:30px;margin-top:0}.lead{font-size:22px;color:var(--muted);max-width:780px}
@@ -51,12 +56,25 @@
     .muted{color:var(--muted)} ul{padding-left:20px;padding-right:20px}.links{display:flex;gap:18px;flex-wrap:wrap}
     footer{padding:40px 0;color:var(--muted);font-size:14px}
     .ar-text{direction:rtl;text-align:right;background:#152238;padding:20px;border-radius:10px;border-right:4px solid var(--accent);margin-top:20px}
-    @media(max-width:700px){.grid{grid-template-columns:1fr}header{padding-top:55px}.lead{font-size:18px}}
+    
+    /* تنسيقات الإعلانات والبرامج التدريبية */
+    .btn-action { display: inline-block; margin-top: 15px; padding: 8px 16px; background: var(--accent); color: #0b1220; font-weight: bold; border-radius: 6px; font-size: 14px; }
+    .btn-action:hover { opacity: 0.9; text-decoration: none; }
+    .courses-list { list-style: none; padding: 0; margin: 15px 0 0 0; }
+    .courses-list li { padding: 10px 0; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; }
+    .courses-list li:last-child { border-bottom: none; }
+    
+    @media(max-width:700px){.grid{grid-template-columns:1fr}header{padding-top:55px}.lead{font-size:18px}.courses-list li{flex-direction: column; align-items: flex-start; gap: 5px;}}
   </style>
 </head>
 <body>
 <header>
   <div class="wrap">
+    <!-- الصورة الشخصية -->
+    <div class="profile-img-container">
+      <img src="profile.jpg" alt="أكرم صبري | Akram Sabry" class="profile-img">
+    </div>
+    
     <span class="tag">أكرم صبري · Akram Sabry</span>
     <h1>أكرم صبري | Akram Sabry</h1>
     <p class="lead">Food Safety &amp; Quality Management Specialist</p>
@@ -74,11 +92,57 @@
 <section>
   <h2>About Akram Sabry / عن أكرم صبري</h2>
   <p>Akram Sabry is a Food Safety and Quality Management Specialist with more than three years of experience in implementing, maintaining, and auditing Food Safety Management Systems within the dairy and chocolate manufacturing industries.</p>
+  <p>He is currently pursuing his <strong>Master's Degree in Food Safety &amp; Quality Management Systems</strong> at the <strong>Arab Academy for Science, Technology and Maritime Transport (AASTMT)</strong>.</p>
   <p>His professional expertise includes HACCP, ISO 22000, ISO 9001, GMP, GHP, BRCGS Food Safety, internal auditing, supplier evaluation, documentation control, risk assessment, CAPA, root cause analysis, and regulatory compliance with the Egyptian National Food Safety Authority (NFSA).</p>
   <p>He is also a Registered and Approved Tutor by Highfield International, with experience in delivering professional food safety and quality training programs.</p>
 
   <div class="ar-text">
-    <p style="margin:0;"><strong>أكرم صبري</strong> هو أخصائي إدارة سلامة وجودة الأغذية، ومراجع معتمد (Lead Auditor)، ومحاضر معتمد من Highfield International بخبرة تزيد عن ثلاث سنوات في تطبيق ومراجعة أنظمة إدارة سلامة الغذاء (HACCP، ISO 22000، ISO 9001، BRCGS) والامتثال لمتطلبات الهيئة القومية لسلامة الغذاء (NFSA).</p>
+    <p style="margin:0;"><strong>أكرم صبري</strong> هو أخصائي إدارة سلامة وجودة الأغذية، ومراجع معتمد (Lead Auditor)، ومحاضر معتمد من Highfield International بخبرة تزيد عن ثلاث سنوات في تطبيق ومراجعة أنظمة إدارة سلامة الغذاء (HACCP، ISO 22000، ISO 9001، BRCGS) والامتثال لمتطلبات الهيئة القومية لسلامة الغذاء (NFSA)، وباحث ماجستير حالياً في نظم إدارة سلامة الأغذية والجودة بـ <strong>الأكاديمية العربية للعلوم والتكنولوجيا والنقل البحري (AASTMT)</strong>.</p>
+  </div>
+</section>
+
+<!-- قسم الإعلانات والبرامج التدريبية -->
+<section>
+  <h2>Training Programs &amp; Courses / البرامج التدريبية والإعلانات</h2>
+  <div class="card" style="border-top: 4px solid var(--accent); direction: rtl; text-align: right;">
+    <span class="tag" style="font-size: 12px; margin-bottom: 10px;">التسجيل متاح / Registration Open</span>
+    <h3 style="margin-top: 5px; color: var(--accent);">البرامج التدريبية المعتمدة في جودة وسلامة الأغذية</h3>
+    <p class="muted">نقدم برامج تدريبية متخصصة ومصممة للتأهيل العملي والأكاديمي لمصانع الأغذية والأفراد:</p>
+    
+    <ul class="courses-list">
+      <li>
+        <strong>1. البرامج الاشتراطية الأولية (PRPs)</strong>
+        <span class="muted" style="font-size: 13px;">(GMPs &amp; GHPs &amp; GSPs)</span>
+      </li>
+      <li>
+        <strong>2. نظام تحليل المخاطر ونقاط التحكم الحرجة (HACCP)</strong>
+        <span class="muted" style="font-size: 13px;">(Hazard Analysis Critical Control Point)</span>
+      </li>
+      <li>
+        <strong>3. نظام إدارة الجودة (ISO 9001)</strong>
+        <span class="muted" style="font-size: 13px;">(Quality Management System)</span>
+      </li>
+      <li>
+        <strong>4. نظام إدارة سلامة الغذاء (ISO 22000)</strong>
+        <span class="muted" style="font-size: 13px;">(Food Safety Management System)</span>
+      </li>
+      <li>
+        <strong>5. المراجع الداخلي لأنظمة الإدارة (ISO 19011)</strong>
+        <span class="muted" style="font-size: 13px;">(Guidelines for Auditing Management Systems)</span>
+      </li>
+      <li>
+        <strong>6. ممارسات التوثيق الجيد (GDPs)</strong>
+        <span class="muted" style="font-size: 13px;">(Good Documentation Practices)</span>
+      </li>
+      <li>
+        <strong>7. متطلبات الهيئة القومية لسلامة الغذاء (NFSA)</strong>
+        <span class="muted" style="font-size: 13px;">(National Food Safety Authority Requirements)</span>
+      </li>
+    </ul>
+
+    <div style="margin-top: 20px;">
+      <a href="https://wa.me/201155780461" class="btn-action" target="_blank">📲 حجز الدورة أو الاستفسار عبر واتساب</a>
+    </div>
   </div>
 </section>
 
@@ -122,16 +186,25 @@
   </div>
 </section>
 
+<!-- قسم المؤهلات العلمية -->
 <section>
-  <h2>Education</h2>
-  <div class="card">
-    <h3>B.Sc. Chemistry for Land Reclamation &amp; Desert Agriculture</h3>
-    <p class="muted">Alexandria University · 2021–2025 · Grade: Very Good</p>
+  <h2>Education / المؤهلات العلمية</h2>
+  <div class="grid">
+    <div class="card" style="border-right: 4px solid var(--accent);">
+      <h3>M.Sc. Candidate in Food Safety &amp; Quality Management Systems</h3>
+      <p class="muted">Arab Academy for Science, Technology and Maritime Transport (AASTMT) · Ongoing</p>
+      <p style="font-size: 14px; margin-top: 8px;">باحث ماجستير حالياً - الأكاديمية العربية للعلوم والتكنولوجيا والنقل البحري</p>
+    </div>
+    
+    <div class="card">
+      <h3>B.Sc. Chemistry for Land Reclamation &amp; Desert Agriculture</h3>
+      <p class="muted">Alexandria University · 2021–2025 · Grade: Very Good</p>
+    </div>
   </div>
 </section>
 
 <section>
-  <h2>Professional Profiles / التوانصل</h2>
+  <h2>Professional Profiles / التواصل</h2>
   <div class="links">
     <a href="https://www.linkedin.com/in/akram-sabry-a543a3239" rel="me noopener" target="_blank">LinkedIn</a>
     <a href="https://www.facebook.com/share/1EzqBCstsi/" rel="me noopener" target="_blank">Facebook</a>
