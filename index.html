@@ -64,20 +64,13 @@
     .courses-list li { padding: 10px 0; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; }
     .courses-list li:last-child { border-bottom: none; }
     
-    /* معرض الصور الجريد للشهادات والتدريب والجودة */
-    .img-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; margin-top: 20px; }
-    .img-card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; transition: transform 0.3s ease, border-color 0.3s ease; }
-    .img-card:hover { transform: translateY(-4px); border-color: var(--accent); }
-    .img-card img { width: 100%; height: 180px; object-fit: cover; display: block; }
-    .img-card .caption { padding: 12px; font-size: 13px; color: var(--muted); text-align: center; font-weight: 500; }
-
     @media(max-width:700px){.grid{grid-template-columns:1fr}header{padding-top:55px}.lead{font-size:18px}.courses-list li{flex-direction: column; align-items: flex-start; gap: 5px;}}
   </style>
 </head>
 <body>
 <header>
   <div class="wrap">
-    <!-- 1. الصورة الشخصية -->
+    <!-- الصورة الشخصية -->
     <div class="profile-img-container">
       <img src="akram-profile.jpeg" alt="المهندس أكرم صبري - أخصائي جودة وسلامة الغذاء" class="profile-img" loading="lazy">
     </div>
@@ -104,11 +97,11 @@
   <p>He is also a Registered and Approved Tutor by Highfield International, with experience in delivering professional food safety and quality training programs.</p>
 
   <div class="ar-text">
-    <p style="margin:0;"><strong>أكرم صبري</strong> هو أخصائي إدارة سلامة وجودة الأغذية، ومراجع معتمد (Lead Auditor)، ومحاضر معتمد من Highfield International بخبرة تزيد عن ثلاث سنوات في تطبيق ومراجعة أنظمة إدارة سلامة الغذاء (HACCP، ISO 22000، ISO 9001، BRCGS) والامتثال لمتطلبات الهيئة القومية لسلامة الغذاء (NFSA)، وباحث ماجستير حالياً في نظم إدارة سلامة الأغذية والجودة بـ <strong>الأكاديمية العربية للعلوم والتكنولوجيا والنقل البحري (AASTMT)</strong>.</p>
+    <p style="margin:0;"><strong>أكرم صبري</strong> هو أخصائي إدارة سلامة وجودة الأغذية، ومراجع معتمد (Lead Auditor)، ومحاضر معتمد من Highfield International بخبرة تزيد عن ثلاث سنوات في تطبيق ومراجع أنظمة إدارة سلامة الغذاء (HACCP، ISO 22000، ISO 9001، BRCGS) والامتثال لمتطلبات الهيئة القومية لسلامة الغذاء (NFSA)، وباحث ماجستير حالياً في نظم إدارة سلامة الأغذية والجودة بـ <strong>الأكاديمية العربية للعلوم والتكنولوجيا والنقل البحري (AASTMT)</strong>.</p>
   </div>
 </section>
 
-<!-- 2. صور قسم البرامج التدريبية والإعلانات -->
+<!-- قسم الإعلانات والبرامج التدريبية -->
 <section>
   <h2>Training Programs &amp; Courses / البرامج التدريبية والإعلانات</h2>
   <div class="card" style="border-top: 4px solid var(--accent); direction: rtl; text-align: right;">
@@ -151,44 +144,20 @@
       <a href="https://wa.me/201155780461" class="btn-action" target="_blank">📲 حجز الدورة أو الاستفسار عبر واتساب</a>
     </div>
   </div>
-
-  <!-- صور معرض التدريب والمحاضرات -->
-  <div class="img-grid">
-    <div class="img-card">
-      <img src="1.jpeg" alt="تدريب وتأهيل أنظمة سلامة الغذاء - أكرم صبري" loading="lazy">
-      <div class="caption">ورش العمل والبرامج التدريبية</div>
-    </div>
-    <div class="img-card">
-      <img src="2.jpeg" alt="محاضرات جودة وسلامة الأغذية" loading="lazy">
-      <div class="caption">محاضرات أنظمة الجودة وHACCP</div>
-    </div>
-  </div>
 </section>
 
-<!-- 3. صور قسم الجودة وسلامة الغذاء والخبرات الميدانية -->
 <section>
-  <h2>Professional Experience &amp; Field Operations</h2>
+  <h2>Professional Experience</h2>
   <div class="grid">
     <article class="card"><h3>Quality Management Specialist</h3><p class="muted">Saint Peter for Chocolate Products · Present</p><ul><li>Maintain and improve the Food Safety Management System.</li><li>Ensure compliance with HACCP, ISO 22000, GMP and GHP.</li><li>Plan and conduct internal audits and follow up CAPA.</li><li>Manage food safety documentation and records.</li><li>Monitor CCPs and verification activities.</li><li>Conduct supplier evaluation and approval.</li><li>Deliver food safety and quality training.</li></ul></article>
     <article class="card"><h3>Quality Engineer</h3><p class="muted">El Fkhama for Dairy Production</p><ul><li>Factory qualification and NFSA White List approval.</li><li>CCP monitoring and GMP/GHP implementation.</li><li>ISO 9001 and ISO 22000 documentation.</li><li>External audit readiness.</li></ul></article>
-  </div>
-
-  <!-- معرض صور العمل الميداني والجودة -->
-  <div class="img-grid">
-    <div class="img-card">
-      <img src="3.jpeg" alt="تطبيق أنظمة سلامة الغذاء والمراجعة الميدانية" loading="lazy">
-      <div class="caption">مراجعة خطوط الإنتاج والاشتراطات الصحية</div>
-    </div>
-    <div class="img-card">
-      <img src="4.jpeg" alt="إدارة الجودة وضبط جودة سلامة الغذاء" loading="lazy">
-      <div class="caption">متابعة نقاط التحكم الحرجة CCPs</div>
-    </div>
+    <article class="card"><h3>Quality Engineer &amp; Accountant</h3><p class="muted">The Device of Egypt’s Future</p><p>Quality control, product inspection, stock auditing, inventory tracking and financial reporting.</p></article>
+    <article class="card"><h3>Agricultural Engineer – Animal Production</h3><p class="muted">St. Mina Farm</p><p>Sheep breeding and feeding programs, biosecurity procedures and preventative vaccination schedules.</p></article>
   </div>
 </section>
 
-<!-- 4. صور قسم الشهادات والاعتمادات -->
 <section>
-  <h2>Certifications / الشهادات والاعتمادات</h2>
+  <h2>Certifications</h2>
   <div class="grid">
     <div class="card"><ul>
       <li>BRCGS Lead Auditor – Food Safety Issue 9</li>
@@ -203,22 +172,6 @@
       <li>Highfield International – Registered &amp; Approved Tutor</li>
       <li>IBCT – Train the Trainer</li>
     </ul></div>
-  </div>
-
-  <!-- معرض صور الشهادات والاعتمادات -->
-  <div class="img-grid">
-    <div class="img-card">
-      <img src="5.jpeg" alt="شهادات واعتمادات أكرم صبري في سلامة الغذاء" loading="lazy">
-      <div class="caption">شهادات BRCGS و ISO 9001 Lead Auditor</div>
-    </div>
-    <div class="img-card">
-      <img src="6.jpeg" alt="اعتمادات Highfield International في الجودة" loading="lazy">
-      <div class="caption">اعتماد Highfield Level 4 & Tutor</div>
-    </div>
-    <div class="img-card">
-      <img src="12.jpeg" alt="شهادات التدريب المعتمدة" loading="lazy">
-      <div class="caption">شهادات التدريب والمراجعة المعتمدة</div>
-    </div>
   </div>
 </section>
 
