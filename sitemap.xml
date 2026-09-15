@@ -1,6 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://akram-sabry.github.io/</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    
+    <!-- الصورة الشخصية -->
+    <image:image>
+      <image:loc>https://akram-sabry.github.io/akram-profile.jpeg</image:loc>
+      <image:title>المهندس أكرم صبري - أخصائي جودة وسلامة الغذاء</image:title>
+    </image:image>
+
+    <!-- صور إعلانات الكورسات -->
+    <image:image>
+      <image:loc>https://akram-sabry.github.io/adress1.jpeg</image:loc>
+      <image:title>إعلان الدورات والبرامج التدريبية - أكرم صبري</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://akram-sabry.github.io/adress2.jpeg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://akram-sabry.github.io/adress3.jpeg</image:loc>
+    </image:image>
+
+    <!-- صور آراء وتقييمات المتدربين -->
+    <image:image><image:loc>https://akram-sabry.github.io/review1.jpeg</image:loc></image:image>
+    <image:image><image:loc>https://akram-sabry.github.io/review2.jpeg</image:loc></image:image>
+    <image:image><image:loc>https://akram-sabry.github.io/review3.jpeg</image:loc></image:image>
+    <image:image><image:loc>https://akram-sabry.github.io/review4.jpeg</image:loc></image:image>
+    <image:image><image:loc>https://akram-sabry.github.io/review5.jpeg</image:loc></image:image>
+    <image:image><image:loc>https://akram-sabry.github.io/review6.jpeg</image:loc></image:image>
+    <image:image><image:loc>https://akram-sabry.github.io/review7.jpeg</image:loc></image:image>
+    <image:image><image:loc>https://akram-sabry.github.io/review8.jpeg</image:loc></image:image>
+    <image:image><image:loc>https://akram-sabry.github.io/review9.jpeg</image:loc></image:image>
+    <image:image><image:loc>https://akram-sabry.github.io/review10.jpeg</image:loc></image:image>
+    <image:image><image:loc>https://akram-sabry.github.io/review11.jpeg</image:loc></image:image>
   </url>
 </urlset>
