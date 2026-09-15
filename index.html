@@ -64,6 +64,12 @@
     .courses-list li { padding: 10px 0; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; }
     .courses-list li:last-child { border-bottom: none; }
     
+    /* تنسيق معرض صور الإعلانات */
+    .ads-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; margin-top: 25px; }
+    .ad-card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; transition: transform 0.3s ease, border-color 0.3s ease; }
+    .ad-card:hover { transform: translateY(-4px); border-color: var(--accent); }
+    .ad-card img { width: 100%; height: auto; display: block; }
+    
     @media(max-width:700px){.grid{grid-template-columns:1fr}header{padding-top:55px}.lead{font-size:18px}.courses-list li{flex-direction: column; align-items: flex-start; gap: 5px;}}
   </style>
 </head>
@@ -97,7 +103,7 @@
   <p>He is also a Registered and Approved Tutor by Highfield International, with experience in delivering professional food safety and quality training programs.</p>
 
   <div class="ar-text">
-    <p style="margin:0;"><strong>أكرم صبري</strong> هو أخصائي إدارة سلامة وجودة الأغذية، ومراجع معتمد (Lead Auditor)، ومحاضر معتمد من Highfield International بخبرة تزيد عن ثلاث سنوات في تطبيق ومراجع أنظمة إدارة سلامة الغذاء (HACCP، ISO 22000، ISO 9001، BRCGS) والامتثال لمتطلبات الهيئة القومية لسلامة الغذاء (NFSA)، وباحث ماجستير حالياً في نظم إدارة سلامة الأغذية والجودة بـ <strong>الأكاديمية العربية للعلوم والتكنولوجيا والنقل البحري (AASTMT)</strong>.</p>
+    <p style="margin:0;"><strong>أكرم صبري</strong> هو أخصائي إدارة سلامة وجودة الأغذية، ومراجع معتمد (Lead Auditor)، ومحاضر معتمد من Highfield International بخبرة تزيد عن ثلاث سنوات في تطبيق ومراجعة أنظمة إدارة سلامة الغذاء (HACCP، ISO 22000، ISO 9001، BRCGS) والامتثال لمتطلبات الهيئة القومية لسلامة الغذاء (NFSA)، وباحث ماجستير حالياً في نظم إدارة سلامة الأغذية والجودة بـ <strong>الأكاديمية العربية للعلوم والتكنولوجيا والنقل البحري (AASTMT)</strong>.</p>
   </div>
 </section>
 
@@ -142,6 +148,19 @@
 
     <div style="margin-top: 20px;">
       <a href="https://wa.me/201155780461" class="btn-action" target="_blank">📲 حجز الدورة أو الاستفسار عبر واتساب</a>
+    </div>
+  </div>
+
+  <!-- صور إعلانات الكورسات والتدريب -->
+  <div class="ads-grid">
+    <div class="ad-card">
+      <img src="adress1.jpeg" alt="إعلان برنامج تدريبي - أكرم صبري" loading="lazy">
+    </div>
+    <div class="ad-card">
+      <img src="adress2.jpeg" alt="إعلان دورات سلامة الغذاء والجودة" loading="lazy">
+    </div>
+    <div class="ad-card">
+      <img src="adress3.jpeg" alt="إعلان ورشة عمل جودة الأغذية" loading="lazy">
     </div>
   </div>
 </section>
