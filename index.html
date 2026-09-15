@@ -69,6 +69,12 @@
     .ad-card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; transition: transform 0.3s ease, border-color 0.3s ease; }
     .ad-card:hover { transform: translateY(-4px); border-color: var(--accent); }
     .ad-card img { width: 100%; height: auto; display: block; }
+
+    /* تنسيق قسم آراء وتقييمات المتدربين */
+    .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; margin-top: 20px; }
+    .review-card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; transition: transform 0.3s ease; }
+    .review-card:hover { transform: scale(1.02); border-color: var(--accent); }
+    .review-card img { width: 100%; height: auto; display: block; }
     
     @media(max-width:700px){.grid{grid-template-columns:1fr}header{padding-top:55px}.lead{font-size:18px}.courses-list li{flex-direction: column; align-items: flex-start; gap: 5px;}}
   </style>
@@ -162,6 +168,26 @@
     <div class="ad-card">
       <img src="adress3.jpeg" alt="إعلان ورشة عمل جودة الأغذية" loading="lazy">
     </div>
+  </div>
+</section>
+
+<!-- قسم آراء وتقييمات المتدربين (Student Testimonials) -->
+<section>
+  <h2>Student Testimonials &amp; Reviews / آراء وتقييمات المتدربين</h2>
+  <p class="muted">جانب من آراء وانطباعات المشاركين والمتدربين في البرامج والدورات التدريبية:</p>
+  
+  <div class="reviews-grid">
+    <div class="review-card"><img src="review1.jpeg" alt="تقييم المتدربين - أكرم صبري" loading="lazy"></div>
+    <div class="review-card"><img src="review2.jpeg" alt="رأي متدرب في دورة سلامة الغذاء" loading="lazy"></div>
+    <div class="review-card"><img src="review3.jpeg" alt="فیدباك المتدربين" loading="lazy"></div>
+    <div class="review-card"><img src="review4.jpeg" alt="تقييم كورس الجودة وسلامة الأغذية" loading="lazy"></div>
+    <div class="review-card"><img src="review5.jpeg" alt="آراء الطلاب والمتدربين" loading="lazy"></div>
+    <div class="review-card"><img src="review6.jpeg" alt="رأي متدرب - أكرم صبري" loading="lazy"></div>
+    <div class="review-card"><img src="review7.jpeg" alt="تقييمات دورات HACCP و ISO" loading="lazy"></div>
+    <div class="review-card"><img src="review8.jpeg" alt="انطباعات المشاركين في التدريب" loading="lazy"></div>
+    <div class="review-card"><img src="review9.jpeg" alt="فیدباك تدريب سلامة الأغذية" loading="lazy"></div>
+    <div class="review-card"><img src="review10.jpeg" alt="آراء المتدربين في المحاضر أكرم صبري" loading="lazy"></div>
+    <div class="review-card"><img src="review11.jpeg" alt="تقييم الكورسات التدريبية" loading="lazy"></div>
   </div>
 </section>
 
