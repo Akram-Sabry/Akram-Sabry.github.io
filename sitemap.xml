@@ -18,18 +18,15 @@
       <image:loc>https://akram-sabry.github.io/adress1.jpeg</image:loc>
       <image:title>إعلان الدورات والبرامج التدريبية - أكرم صبري</image:title>
     </image:image>
-    <image:image>
-      <image:loc>https://akram-sabry.github.io/adress2.jpeg</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://akram-sabry.github.io/adress3.jpeg</image:loc>
-    </image:image>
+    <image:image><image:loc>https://akram-sabry.github.io/adress2.jpeg</image:loc></image:image>
+    <image:image><image:loc>https://akram-sabry.github.io/adress3.jpeg</image:loc></image:image>
 
-    <!-- صور آراء وتقييمات المتدربين -->
+    <!-- صور التقييمات القديمة (review1 إلى review11) -->
     <image:image><image:loc>https://akram-sabry.github.io/review1.jpeg</image:loc></image:image>
     <image:image><image:loc>https://akram-sabry.github.io/review2.jpeg</image:loc></image:image>
     <image:image><image:loc>https://akram-sabry.github.io/review3.jpeg</image:loc></image:image>
     <image:image><image:loc>https://akram-sabry.github.io/review4.jpeg</image:loc></image:image>
+    <image:image><image:loc>https://akram-sabry.jpeg</image:loc></image:image>
     <image:image><image:loc>https://akram-sabry.github.io/review5.jpeg</image:loc></image:image>
     <image:image><image:loc>https://akram-sabry.github.io/review6.jpeg</image:loc></image:image>
     <image:image><image:loc>https://akram-sabry.github.io/review7.jpeg</image:loc></image:image>
@@ -37,5 +34,39 @@
     <image:image><image:loc>https://akram-sabry.github.io/review9.jpeg</image:loc></image:image>
     <image:image><image:loc>https://akram-sabry.github.io/review10.jpeg</image:loc></image:image>
     <image:image><image:loc>https://akram-sabry.github.io/review11.jpeg</image:loc></image:image>
+
+    <!-- صور التقييمات الجديدة (FSA1 إلى FSA32) -->
+    <image:image><image:loc>https://akram-sabry.github.io/FSA1.jpeg</image:loc></image:image>
+    <image:image><image:loc>https://akram-sabry.github.io/FSA2.jpeg</image:loc></image:image>
+    <image:image><image:loc>https://akram-sabry.github.io/FSA3.jpeg</image:loc></image:image>
+    <image:image><image:loc>https://akram-sabry.github.io/FSA4.jpeg</image:loc></image:image>
+    <image:image><image:loc>https://akram-sabry.github.io/FSA5.jpeg</image:loc></image:image>
+    <image:image><image:loc>https://akram-sabry.github.io/FSA6.jpeg</image:loc></image:image>
+    <image:image><image:loc>https://akram-sabry.github.io/FSA7.jpeg</image:loc></image:image>
+    <image:image><image:loc>https://akram-sabry.github.io/FSA8.jpeg</image:loc></image:image>
+    <image:image><image:loc>https://akram-sabry.github.io/FSA9.jpeg</image:loc></image:image>
+    <image:image><image:loc>https://akram-sabry.github.io/FSA10.jpeg</image:loc></image:image>
+    <image:image><image:loc>https://akram-sabry.github.io/FSA11.jpeg</image:loc></image:image>
+    <image:image><image:loc>https://akram-sabry.github.io/FSA12.jpeg</image:loc></image:image>
+    <image:image><image:loc>https://akram-sabry.github.io/FSA13.jpeg</image:loc></image:image>
+    <image:image><image:loc>https://akram-sabry.github.io/FSA14.jpeg</image:loc></image:image>
+    <image:image><image:loc>https://akram-sabry.github.io/FSA15.jpeg</image:loc></image:image>
+    <image:image><image:loc>https://akram-sabry.github.io/FSA16.jpeg</image:loc></image:image>
+    <image:image><image:loc>https://akram-sabry.github.io/FSA17.jpeg</image:loc></image:image>
+    <image:image><image:loc>https://akram-sabry.github.io/FSA18.jpeg</image:loc></image:image>
+    <image:image><image:loc>https://akram-sabry.github.io/FSA19.jpeg</image:loc></image:image>
+    <image:image><image:loc>https://akram-sabry.github.io/FSA20.jpeg</image:loc></image:image>
+    <image:image><image:loc>https://akram-sabry.github.io/FSA21.jpeg</image:loc></image:image>
+    <image:image><image:loc>https://akram-sabry.github.io/FSA22.jpeg</image:loc></image:image>
+    <image:image><image:loc>https://akram-sabry.github.io/FSA23.jpeg</image:loc></image:image>
+    <image:image><image:loc>https://akram-sabry.github.io/FSA24.jpeg</image:loc></image:image>
+    <image:image><image:loc>https://akram-sabry.github.io/FSA25.jpeg</image:loc></image:image>
+    <image:image><image:loc>https://akram-sabry.github.io/FSA26.jpeg</image:loc></image:image>
+    <image:image><image:loc>https://akram-sabry.github.io/FSA27.jpeg</image:loc></image:image>
+    <image:image><image:loc>https://akram-sabry.github.io/FSA28.jpeg</image:loc></image:image>
+    <image:image><image:loc>https://akram-sabry.github.io/FSA29.jpeg</image:loc></image:image>
+    <image:image><image:loc>https://akram-sabry.github.io/FSA30.jpeg</image:loc></image:image>
+    <image:image><image:loc>https://akram-sabry.github.io/FSA31.jpeg</image:loc></image:image>
+    <image:image><image:loc>https://akram-sabry.github.io/FSA32.jpeg</image:loc></image:image>
   </url>
 </urlset>
