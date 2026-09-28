@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>أكرم صبري | Akram Sabry - Food Safety & Quality Management Specialist</title>
-  <meta name="description" content="الموقع الرسمي لأكرم صبري (Akram Sabry) - أخصائي إدارة سلامة وجودة الأغذية، استشاري جودة، ومراجع معتمد (Lead Auditor) ومحاضر معتمد من Highfield International. خبير في ISO 22000 و HACCP و BRCGS.">
-  <meta name="keywords" content="أكرم صبري, Akram Sabry, سلامة الغذاء, Food Safety, ISO 22000, HACCP, BRCGS, ISO 9001, Quality Management, Rainforest Alliance, NFSA White List">
+  <title>المهندس أكرم صبري | Akram Sabry - استشاري جودة وسلامة الغذاء</title>
+  <meta name="description" content="الموقع الرسمي للمهندس أكرم صبري (Akram Sabry) - أخصائي إدارة سلامة وجودة الأغذية، استشاري جودة، ومراجع معتمد (Lead Auditor) ومحاضر معتمد من Highfield International. خبير في ISO 22000 و HACCP و BRCGS.">
+  <meta name="keywords" content="أكرم صبري, Akram Sabry, المهندس أكرم صبري, استشاري جودة, سلامة الغذاء, Food Safety, ISO 22000, HACCP, BRCGS, ISO 9001, Quality Management, NFSA White List">
   <meta name="robots" content="index, follow">
-  <meta property="og:title" content="أكرم صبري | Akram Sabry - Food Safety Specialist & Quality Consultant">
+  <meta property="og:title" content="المهندس أكرم صبري | Akram Sabry - Food Safety Specialist & Quality Consultant">
   <meta property="og:description" content="أخصائي إدارة سلامة وجودة الأغذية | استشاري ومراجع معتمد | Lead Auditor | HACCP | ISO 22000 | ISO 9001 | BRCGS">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://akram-sabry.github.io/">
@@ -64,12 +64,21 @@
       --accent: #63d6b0;
       --line: #26344d;
     }
-    * { box-sizing: border-box; }
+    * { box-sizing: border-box; scroll-behavior: smooth; }
     body { margin: 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
     a { color: var(--accent); text-decoration: none; }
     a:hover { text-decoration: underline; }
     .wrap { max-width: 1050px; margin: auto; padding: 0 24px; }
-    header { padding: 70px 0 60px; border-bottom: 1px solid var(--line); }
+    
+    /* Navbar Style */
+    .navbar { position: sticky; top: 0; background: rgba(11, 18, 32, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); z-index: 1000; padding: 12px 0; }
+    .nav-container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+    .nav-brand { font-weight: bold; color: var(--accent); font-size: 16px; }
+    .nav-links { display: flex; gap: 15px; list-style: none; margin: 0; padding: 0; flex-wrap: wrap; font-size: 14px; }
+    .nav-links a { color: var(--muted); transition: color 0.2s; }
+    .nav-links a:hover { color: var(--accent); text-decoration: none; }
+
+    header { padding: 50px 0 60px; border-bottom: 1px solid var(--line); }
     
     .profile-img-container { margin-bottom: 20px; }
     .profile-img { width: 160px; height: 160px; border-radius: 50%; object-fit: cover; border: 3px solid var(--accent); box-shadow: 0 4px 15px rgba(0,0,0,0.4); }
@@ -107,13 +116,30 @@
     
     @media(max-width: 700px) {
       .grid { grid-template-columns: 1fr; }
-      header { padding-top: 55px; }
+      header { padding-top: 40px; }
       .lead { font-size: 18px; }
       .courses-list li { flex-direction: column; align-items: flex-start; gap: 5px; }
+      .nav-links { display: none; } /* إخفاء القائمة في الشاشات الصغيرة جداً لمنع التكدس، أو يمكن تركها حسب الرغبة */
     }
   </style>
 </head>
 <body>
+
+<!-- Navigation Bar -->
+<nav class="navbar">
+  <div class="wrap nav-container">
+    <div class="nav-brand">م. أكرم صبري</div>
+    <ul class="nav-links">
+      <li><a href="#about">عن المهندس</a></li>
+      <li><a href="#courses">البرامج التدريبية</a></li>
+      <li><a href="#reviews">آراء المتدربين</a></li>
+      <li><a href="#experience">الخبرات المهنية</a></li>
+      <li><a href="#education">المؤهلات</a></li>
+      <li><a href="#contact">التواصل</a></li>
+    </ul>
+  </div>
+</nav>
+
 <header>
   <div class="wrap">
     <div class="profile-img-container">
@@ -134,7 +160,7 @@
 </header>
 
 <main class="wrap">
-<section>
+<section id="about">
   <h2>About Akram Sabry / عن أكرم صبري</h2>
   <p>Akram Sabry is a Food Safety and Quality Management Specialist with over five years of experience in implementing, maintaining, and auditing Food Safety Management Systems within the dairy and chocolate manufacturing industries.</p>
   <p>He is currently pursuing his <strong>Master's Degree in Quality Management</strong> at the <strong>Arab Academy for Science, Technology and Maritime Transport (AASTMT)</strong>.</p>
@@ -146,7 +172,7 @@
   </div>
 </section>
 
-<section>
+<section id="courses">
   <h2>Training Programs &amp; Courses / البرامج التدريبية والإعلانات</h2>
   <div class="card" style="border-top: 4px solid var(--accent); direction: rtl; text-align: right;">
     <span class="tag" style="font-size: 12px; margin-bottom: 10px;">التسجيل متاح / Registration Open</span>
@@ -202,7 +228,7 @@
   </div>
 </section>
 
-<section>
+<section id="reviews">
   <h2>Student Testimonials &amp; Reviews / آراء وتقييمات المتدربين</h2>
   <p class="muted">جانب من آراء وانطباعات المشاركين والمتدربين في البرامج والدورات التدريبية:</p>
   
@@ -221,7 +247,7 @@
   </div>
 </section>
 
-<section>
+<section id="experience">
   <h2>Professional Experience</h2>
   <div class="grid">
     <article class="card">
@@ -327,7 +353,7 @@
   </div>
 </section>
 
-<section>
+<section id="education">
   <h2>Education / المؤهلات العلمية</h2>
   <div class="grid">
     <div class="card" style="border-right: 4px solid var(--accent);">
@@ -343,7 +369,7 @@
   </div>
 </section>
 
-<section>
+<section id="contact">
   <h2>Professional Profiles / التواصل</h2>
   <div class="links">
     <a href="https://www.linkedin.com/in/akram-sabry-a543a3239" rel="me noopener" target="_blank">LinkedIn</a>
