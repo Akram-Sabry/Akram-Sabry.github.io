@@ -1,7 +1,7 @@
 AKRAM SABRY PERSONAL WEBSITE
 
-1) Upload index.html, robots.txt and sitemap.xml to your web hosting.
-2) Replace every occurrence of YOUR-DOMAIN.example with your real domain.
+1) Upload index.html, robots.txt, sitemap.xml, and .nojekyll to your web hosting (https://akram-sabry.github.io).
+2) Replace every occurrence of YOUR-DOMAIN.example with your real domain: https://akram-sabry.github.io.
 3) After publishing, add the site to Google Search Console.
 4) Submit /sitemap.xml in Search Console.
 5) Use URL Inspection to request indexing.
