@@ -6,7 +6,7 @@
     <lastmod>2026-09-28T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    
+
     <!-- الصورة الشخصية -->
     <image:image>
       <image:loc>https://akram-sabry.github.io/akram-profile.jpeg</image:loc>
@@ -26,7 +26,6 @@
     <image:image><image:loc>https://akram-sabry.github.io/review2.jpeg</image:loc></image:image>
     <image:image><image:loc>https://akram-sabry.github.io/review3.jpeg</image:loc></image:image>
     <image:image><image:loc>https://akram-sabry.github.io/review4.jpeg</image:loc></image:image>
-    <image:image><image:loc>https://akram-sabry.jpeg</image:loc></image:image>
     <image:image><image:loc>https://akram-sabry.github.io/review5.jpeg</image:loc></image:image>
     <image:image><image:loc>https://akram-sabry.github.io/review6.jpeg</image:loc></image:image>
     <image:image><image:loc>https://akram-sabry.github.io/review7.jpeg</image:loc></image:image>
