@@ -43,7 +43,8 @@
     "sameAs": [
       "https://www.linkedin.com/in/akram-sabry-a543a3239",
       "https://www.facebook.com/share/1EzqBCstsi/",
-      "https://www.facebook.com/share/1Bn7TuHJ3b/?mibextid=wwXIfr"
+      "https://www.facebook.com/share/1Bn7TuHJ3b/?mibextid=wwXIfr",
+      "https://www.google.com/search?q=Eng.+Akram+Sabry+-+Food+Safety+%26+Quality+Consultant"
     ],
     "telephone": "+201155780461",
     "email": "mailto:akramsabry257@gmail.com",
@@ -107,12 +108,22 @@
     .card { background: var(--card); border: 1px solid var(--line); padding: 25px; border-radius: 14px; }
     .muted { color: var(--muted); }
     ul { padding-right: 20px; padding-left: 20px; }
-    .links { display: flex; gap: 18px; flex-wrap: wrap; }
+    .links { display: flex; gap: 18px; flex-wrap: wrap; align-items: center; }
     footer { padding: 40px 0; color: var(--muted); font-size: 14px; }
     .ar-text { direction: rtl; text-align: right; background: #152238; padding: 20px; border-radius: 10px; border-right: 4px solid var(--accent); margin-top: 20px; }
     
     .btn-action { display: inline-block; margin-top: 15px; padding: 10px 20px; background: var(--accent); color: #0b1220; font-weight: bold; border-radius: 6px; font-size: 15px; transition: background 0.2s ease; }
     .btn-action:hover { opacity: 0.9; text-decoration: none; }
+    
+    .btn-google { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; background: #1a2942; border: 1px solid #4285f4; color: #ffffff; border-radius: 8px; font-weight: 600; font-size: 14px; transition: all 0.2s ease; }
+    .btn-google:hover { background: #4285f4; color: #ffffff; text-decoration: none; transform: translateY(-2px); }
+
+    .btn-review-direct { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; background: #28a745; color: #ffffff; border-radius: 8px; font-weight: 600; font-size: 14px; transition: all 0.2s ease; }
+    .btn-review-direct:hover { background: #218838; color: #ffffff; text-decoration: none; transform: translateY(-2px); }
+
+    .floating-whatsapp { position: fixed; bottom: 20px; left: 20px; background: #25d366; color: #fff; padding: 12px 18px; border-radius: 50px; font-weight: bold; font-size: 14px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); z-index: 9999; display: flex; align-items: center; gap: 8px; transition: transform 0.2s ease; }
+    .floating-whatsapp:hover { transform: scale(1.05); color: #fff; text-decoration: none; }
+
     .courses-list { list-style: none; padding: 0; margin: 15px 0 0 0; }
     .courses-list li { padding: 10px 0; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; }
     .courses-list li:last-child { border-bottom: none; }
@@ -126,6 +137,8 @@
     .review-card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; transition: transform 0.3s ease; }
     .review-card:hover { transform: scale(1.02); border-color: var(--accent); }
     .review-card img { width: 100%; height: auto; display: block; }
+
+    .map-container { width: 100%; height: 260px; border-radius: 12px; overflow: hidden; border: 1px solid var(--line); margin-top: 20px; }
     
     @media(max-width: 700px) {
       .grid { grid-template-columns: 1fr; }
@@ -137,6 +150,11 @@
   </style>
 </head>
 <body>
+
+<!-- زر واتساب العائم -->
+<a href="https://wa.me/201155780461" class="floating-whatsapp" target="_blank" rel="noopener">
+  💬 تواصل عبر واتساب
+</a>
 
 <nav class="navbar">
   <div class="wrap nav-container">
@@ -243,6 +261,15 @@
 <section id="reviews">
   <h2>آراء وتقييمات المتدربين / Student Testimonials &amp; Reviews</h2>
   <p class="muted">جانب من آراء وانطباعات المشاركين والمتدربين في البرامج والدورات التدريبية:</p>
+
+  <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 25px;">
+    <a href="https://www.google.com/search?q=Eng.+Akram+Sabry+-+Food+Safety+%26+Quality+Consultant" class="btn-google" target="_blank" rel="noopener">
+      📍 شاهد الملف والتقييمات على خرائط جوجل
+    </a>
+    <a href="https://www.google.com/search?q=Eng.+Akram+Sabry+-+Food+Safety+%26+Quality+Consultant" class="btn-review-direct" target="_blank" rel="noopener">
+      ⭐ اكتب تقييمك على جوجل
+    </a>
+  </div>
   
   <div class="reviews-grid">
     <!-- التقييمات القديمة -->
@@ -416,13 +443,28 @@
 </section>
 
 <section id="contact">
-  <h2>روابط التواصل المهني / Professional Profiles</h2>
+  <h2>روابط التواصل المهني والموقع / Professional Profiles &amp; Location</h2>
   <div class="links">
     <a href="https://www.linkedin.com/in/akram-sabry-a543a3239" rel="me noopener" target="_blank">لينكد إن (LinkedIn)</a>
     <a href="https://www.facebook.com/share/1EzqBCstsi/" rel="me noopener" target="_blank">فيسبوك (Profile 1)</a>
     <a href="https://www.facebook.com/share/1Bn7TuHJ3b/?mibextid=wwXIfr" rel="me noopener" target="_blank">فيسبوك (Profile 2)</a>
+    <a href="https://www.google.com/search?q=Eng.+Akram+Sabry+-+Food+Safety+%26+Quality+Consultant" rel="me noopener" target="_blank" class="btn-google">📍 نشاطي التجاري والتقييمات على خرائط جوجل</a>
     <a href="mailto:akramsabry257@gmail.com">akramsabry257@gmail.com</a>
     <a href="tel:+201155780461">01155780461</a>
+  </div>
+
+  <!-- خريطة موقع النشاط -->
+  <div class="map-container">
+    <iframe 
+      title="Google Maps Location - Eng. Akram Sabry"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d109312.42858022633!2d29.584346!3d30.880456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCsDUyJzg5LjYiTiAyOcKwMzUnMDMuNiJF!5e0!3m2!1sar!2seg!4v1690000000000!5m2!1sar!2seg" 
+      width="100%" 
+      height="100%" 
+      style="border:0;" 
+      allowfullscreen="" 
+      loading="lazy" 
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
   </div>
 </section>
 </main>
