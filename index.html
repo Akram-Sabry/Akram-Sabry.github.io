@@ -13,6 +13,7 @@ html_complete = """<!doctype html>
 
   <!-- Preload Critical Assets -->
   <link rel="preload" as="image" href="akram-profile.jpeg">
+  <link rel="preload" as="image" href="ME 4.jpeg">
 
   <!-- إرشاد روبوتات الذكاء الاصطناعي ومحركات البحث السريعة -->
   <link rel="author" type="text/plain" href="https://akram-sabry.github.io/llms.txt">
@@ -142,15 +143,19 @@ html_complete = """<!doctype html>
     .nav-links a { color: var(--muted); transition: color 0.2s; }
     .nav-links a:hover { color: var(--accent); text-decoration: none; }
 
-    header { padding: 50px 0 60px; border-bottom: 1px solid var(--line); }
-    .profile-img-container { margin-bottom: 20px; }
-    .profile-img { width: 160px; height: 160px; border-radius: 50%; object-fit: cover; border: 3px solid var(--accent); box-shadow: 0 4px 15px rgba(0,0,0,0.4); }
+    header { padding: 40px 0 50px; border-bottom: 1px solid var(--line); }
+    
+    .hero-banner-top { margin-bottom: 30px; border-radius: 16px; overflow: hidden; border: 2px solid var(--accent); box-shadow: 0 8px 25px rgba(99, 214, 176, 0.2); }
+    .hero-banner-top img { width: 100%; height: auto; display: block; }
+
+    .profile-section-flex { display: flex; align-items: center; gap: 25px; flex-wrap: wrap; }
+    .profile-img { width: 140px; height: 140px; border-radius: 50%; object-fit: cover; border: 3px solid var(--accent); box-shadow: 0 4px 15px rgba(0,0,0,0.4); }
 
     .tag { display: inline-block; padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px; color: var(--accent); font-size: 14px; }
-    h1 { font-size: clamp(36px, 6vw, 68px); line-height: 1.15; margin: 22px 0 12px; letter-spacing: -1px; }
+    h1 { font-size: clamp(28px, 5vw, 48px); line-height: 1.15; margin: 15px 0 10px; letter-spacing: -1px; }
     h2 { font-size: 30px; margin-top: 0; }
-    .lead { font-size: 22px; color: var(--muted); max-width: 780px; }
-    .badges { display: flex; flex-wrap: wrap; gap: 10px; margin: 25px 0; }
+    .lead { font-size: 20px; color: var(--muted); max-width: 780px; }
+    .badges { display: flex; flex-wrap: wrap; gap: 10px; margin: 20px 0 0; }
     .badge { background: var(--card); border: 1px solid var(--line); padding: 8px 12px; border-radius: 8px; font-size: 14px; }
     section { padding: 65px 0; border-bottom: 1px solid var(--line); }
     .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
@@ -182,6 +187,11 @@ html_complete = """<!doctype html>
     .ad-card:hover { transform: translateY(-4px); border-color: var(--accent); }
     .ad-card img { width: 100%; height: auto; display: block; }
 
+    /* تنسيق قسم شركاء النجاح */
+    .partners-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin-top: 20px; }
+    .partner-card { background: var(--card); border: 1px solid var(--line); padding: 20px; border-radius: 12px; text-align: center; font-weight: bold; color: var(--text); display: flex; flex-direction: column; gap: 8px; }
+    .partner-card span { font-size: 13px; color: var(--muted); font-weight: normal; }
+
     .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; margin-top: 20px; }
     .review-card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; transition: transform 0.3s ease; }
     .review-card:hover { transform: scale(1.02); border-color: var(--accent); }
@@ -191,7 +201,7 @@ html_complete = """<!doctype html>
     
     @media(max-width: 700px) {
       .grid { grid-template-columns: 1fr; }
-      header { padding-top: 40px; }
+      header { padding-top: 30px; }
       .lead { font-size: 18px; }
       .courses-list li { flex-direction: column; align-items: flex-start; gap: 5px; }
       .nav-links { display: none; }
@@ -210,11 +220,11 @@ html_complete = """<!doctype html>
     <div class="nav-brand">م. أكرم صبري</div>
     <ul class="nav-links">
       <li><a href="#about">عن المهندس</a></li>
+      <li><a href="#b2b">استشارات المصانع</a></li>
       <li><a href="#courses">البرامج التدريبية</a></li>
+      <li><a href="#partners">شركاء النجاح</a></li>
       <li><a href="#reviews">آراء المتدربين</a></li>
-      <li><a href="#experience">الخبرات المهنية</a></li>
-      <li><a href="#education">المؤهلات</a></li>
-      <li><a href="#faq">الأسئلة الشائعة</a></li>
+      <li><a href="#experience">الخبرات</a></li>
       <li><a href="#contact">التواصل</a></li>
     </ul>
   </div>
@@ -222,14 +232,23 @@ html_complete = """<!doctype html>
 
 <header>
   <div class="wrap">
-    <div class="profile-img-container">
-      <img src="akram-profile.jpeg" alt="المهندس أكرم صبري - أخصائي جودة وسلامة الغذاء" class="profile-img" width="160" height="160">
+    <!-- البانر الرئيسي العلوي (الصورة الرابعة) -->
+    <div class="hero-banner-top">
+      <img src="ME 4.jpeg" alt="المهندس أكرم صبري - أخصائي الجودة وسلامة الغذاء للاستشارات" loading="eager" decoding="async" width="1000" height="560">
     </div>
-    
-    <span class="tag">أكرم صبري · Akram Sabry</span>
-    <h1>المهندس أكرم صبري | Akram Sabry</h1>
-    <p class="lead">استشاري جودة وسلامة الأغذية | Food Safety &amp; Quality Management Specialist</p>
-    <p class="muted">مراجع معتمد (Lead Auditor) | HACCP Level 4 | ISO 22000 | ISO 9001 | BRCGS</p>
+
+    <div class="profile-section-flex">
+      <div class="profile-img-container">
+        <img src="akram-profile.jpeg" alt="المهندس أكرم صبري - أخصائي جودة وسلامة الغذاء" class="profile-img" width="140" height="140">
+      </div>
+      <div>
+        <span class="tag">أكرم صبري · Akram Sabry</span>
+        <h1>المهندس أكرم صبري | Akram Sabry</h1>
+        <p class="lead">استشاري جودة وسلامة الأغذية | Food Safety &amp; Quality Management Specialist</p>
+        <p class="muted">مراجع معتمد (Lead Auditor) | HACCP Level 4 | ISO 22000 | ISO 9001 | BRCGS</p>
+      </div>
+    </div>
+
     <div class="badges">
       <span class="badge">أنظمة إدارة سلامة الغذاء</span>
       <span class="badge">المراجعة الداخلية ومعايير الجودة</span>
@@ -249,6 +268,39 @@ html_complete = """<!doctype html>
 
   <div class="ar-text">
     <p style="margin:0;"><strong>المهندس أكرم صبري</strong> هو أخصائي واستشاري إدارة سلامة وجودة الأغذية، ومراجع معتمد (Lead Auditor)، ومحاضر معتمد من Highfield International بخبرة تزيد عن 5 سنوات في تطبيق ومراجعة أنظمة إدارة سلامة الغذاء (HACCP، ISO 22000، ISO 9001، BRCGS)، وتأهيل المصانع لشهادة Rainforest Alliance ودخول القائمة البيضاء للهيئة القومية لسلامة الغذاء (NFSA)، وباحث ماجستير حالياً في إدارة الجودة بـ <strong>الأكاديمية العربية للعلوم والتكنولوجيا والنقل البحري (AASTMT)</strong>.</p>
+  </div>
+</section>
+
+<!-- قسم استشارات المصانع والشركات (B2B) -->
+<section id="b2b">
+  <h2>استشارات وتأهيل المصانع (B2B) / Factory Consultation &amp; Compliance</h2>
+  <div class="card" style="border-top: 4px solid var(--accent); direction: rtl; text-align: right;">
+    <span class="tag" style="font-size: 12px; margin-bottom: 10px;">خدمات الشركات والمنشآت الغذائية</span>
+    <h3 style="margin-top: 5px; color: var(--accent);">هل تبحث عن تأهيل مصنعك أو شركتك لسلامة الغذاء؟</h3>
+    <p class="muted">نقدم حزم استشارية متكاملة ومصممة خصيصاً للمصانع والشركات لضمان الامتثال التام واجتياز التفتيشات الرسمية:</p>
+    
+    <ul class="courses-list">
+      <li>
+        <strong>تأهيل ودخول القائمة البيضاء (NFSA White List)</strong>
+        <span class="muted" style="font-size: 13px;">استيفاء الاشتراطات الهندسية والصحية وتوثيق الأنظمة</span>
+      </li>
+      <li>
+        <strong>تأهيل لشهادة تحالف الغابات (Rainforest Alliance)</strong>
+        <span class="muted" style="font-size: 13px;">إدارة وثائق الاستدامة وسجلات المراجعة</span>
+      </li>
+      <li>
+        <strong>تصميم وتطبيق أنظمة FSMS (ISO 22000 &amp; HACCP)</strong>
+        <span class="muted" style="font-size: 13px;">تحليل المخاطر، بناء خطة الـ HACCP، وإدارة CCPs</span>
+      </li>
+      <li>
+        <strong>تنفيذ المراجعات الداخلية وتقييم الموردين (Internal &amp; Supplier Audits)</strong>
+        <span class="muted" style="font-size: 13px;">إعداد وتفعيل نظام الإجراءات التصحيحية والوقائية (CAPA)</span>
+      </li>
+    </ul>
+
+    <div style="margin-top: 20px;">
+      <a href="https://wa.me/201155780461" class="btn-action" target="_blank" rel="noopener">🏭 اطلب استشارة مؤسسية أو زيارة ميدانية عبر واتساب</a>
+    </div>
   </div>
 </section>
 
@@ -313,6 +365,30 @@ html_complete = """<!doctype html>
     </div>
     <div class="ad-card">
       <img src="adress3.jpeg" alt="إعلان ورشة عمل جودة الأغذية" loading="lazy" decoding="async" width="400" height="300">
+    </div>
+  </div>
+</section>
+
+<!-- قسم شركاء النجاح والخبرات المؤسسية -->
+<section id="partners">
+  <h2>شركاء النجاح والخبرات المؤسسية / Key Partners &amp; Employers</h2>
+  <p class="muted">تشرفت بالعمل وقيادة أنظمة الجودة وسلامة الغذاء في كبرى المؤسسات والشركات:</p>
+  <div class="partners-grid">
+    <div class="partner-card">
+      Saint Peter for Chocolate Products
+      <span>أخصائي إدارة الجودة (حالياً)</span>
+    </div>
+    <div class="partner-card">
+      الرفاهية لتصنيع الأغذية والألبان (El Fkhama)
+      <span>مدير توكيد الجودة</span>
+    </div>
+    <div class="partner-card">
+      جهاز مستقبل مصر
+      <span>مهندس جودة ومحاسب</span>
+    </div>
+    <div class="partner-card">
+      شركة البوادي
+      <span>مهندس جودة</span>
     </div>
   </div>
 </section>
@@ -561,5 +637,7 @@ import os
 with open("index.html", "w", encoding="utf-8") as f:
     f.write(html_complete)
 
-print("Complete index.html generated successfully.")
+print("Complete index.html generated without CV button successfully.")
 ```[file-tag: code-generated-file-index.html]
+
+الموقع الآن جاهز تماماً وبدون زر الـ CV. بالتوفيق في رفعه وتحديثه!
