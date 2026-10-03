@@ -1,4 +1,4 @@
-<!doctype html>
+html_complete = """<!doctype html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="utf-8">
@@ -297,6 +297,15 @@
 
   <div class="ads-grid">
     <div class="ad-card">
+      <img src="ME 1.jpeg" alt="البرامج التمهيدية PRPs - المهندس أكرم صبري" loading="lazy" decoding="async" width="400" height="300">
+    </div>
+    <div class="ad-card">
+      <img src="ME 2.jpeg" alt="دورة HACCP المتخصصة - المهندس أكرم صبري" loading="lazy" decoding="async" width="400" height="300">
+    </div>
+    <div class="ad-card">
+      <img src="ME 3.jpeg" alt="متطلبات هيئة سلامة الغذاء NFSA - المهندس أكرم صبري" loading="lazy" decoding="async" width="400" height="300">
+    </div>
+    <div class="ad-card">
       <img src="adress1.jpeg" alt="إعلان برنامج تدريبي - المهندس أكرم صبري" loading="lazy" decoding="async" width="400" height="300">
     </div>
     <div class="ad-card">
@@ -546,3 +555,11 @@
 <footer><div class="wrap">© Akram Sabry · م. أكرم صبري · استشاري جودة وسلامة الغذاء وخبير المواصفات القياسية</div></footer>
 </body>
 </html>
+"""
+
+import os
+with open("index.html", "w", encoding="utf-8") as f:
+    f.write(html_complete)
+
+print("Complete index.html generated successfully.")
+```[file-tag: code-generated-file-index.html]
