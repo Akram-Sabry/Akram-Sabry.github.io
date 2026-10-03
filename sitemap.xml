@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
+sitemap_full_code = """<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://akram-sabry.github.io/</loc>
-    <lastmod>2026-09-28T00:00:00+00:00</lastmod>
+    <lastmod>2026-10-03T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
 
@@ -13,13 +13,37 @@
       <image:title>المهندس أكرم صبري - أخصائي جودة وسلامة الغذاء</image:title>
     </image:image>
 
+    <!-- الصور البانرية والتوضيحية الجديدة (ME 1 إلى ME 4) -->
+    <image:image>
+      <image:loc>https://akram-sabry.github.io/ME 4.jpeg</image:loc>
+      <image:title>البانر الرئيسي - المهندس أكرم صبري استشاري سلامة الغذاء</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://akram-sabry.github.io/ME 1.jpeg</image:loc>
+      <image:title>البرامج التمهيدية PRPs - المهندس أكرم صبري</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://akram-sabry.github.io/ME 2.jpeg</image:loc>
+      <image:title>دورة HACCP المتخصصة - المهندس أكرم صبري</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://akram-sabry.github.io/ME 3.jpeg</image:loc>
+      <image:title>متطلبات هيئة سلامة الغذاء NFSA - المهندس أكرم صبري</image:title>
+    </image:image>
+
     <!-- صور إعلانات الكورسات -->
     <image:image>
       <image:loc>https://akram-sabry.github.io/adress1.jpeg</image:loc>
       <image:title>إعلان الدورات والبرامج التدريبية - أكرم صبري</image:title>
     </image:image>
-    <image:image><image:loc>https://akram-sabry.github.io/adress2.jpeg</image:loc></image:image>
-    <image:image><image:loc>https://akram-sabry.github.io/adress3.jpeg</image:loc></image:image>
+    <image:image>
+      <image:loc>https://akram-sabry.github.io/adress2.jpeg</image:loc>
+      <image:title>إعلان دورات سلامة الغذاء والجودة</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://akram-sabry.github.io/adress3.jpeg</image:loc>
+      <image:title>إعلان ورشة عمل جودة الأغذية</image:title>
+    </image:image>
 
     <!-- صور التقييمات القديمة (review1 إلى review11) -->
     <image:image><image:loc>https://akram-sabry.github.io/review1.jpeg</image:loc></image:image>
@@ -69,3 +93,13 @@
     <image:image><image:loc>https://akram-sabry.github.io/FSA32.jpeg</image:loc></image:image>
   </url>
 </urlset>
+"""
+
+import os
+with open("sitemap.xml", "w", encoding="utf-8") as f:
+    f.write(sitemap_full_code)
+
+print("Full sitemap.xml generated successfully.")
+```[file-tag: code-generated-file-sitemap.xml]
+
+فقط انسخ هذا الكود بالكامل وضعه في ملف `sitemap.xml` لديك، وبكدا يبقى كل شيء في الموقع وخريطة الأرشفة جاهز ومظبوط 100%!
