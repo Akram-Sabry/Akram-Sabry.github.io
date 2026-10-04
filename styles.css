@@ -290,3 +290,9 @@ body { font-size: 16px; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior:auto !important; transition-duration:.01ms !important; animation-duration:.01ms !important; }
 }
+
+
+.language-switch { display:inline-flex !important; align-items:center; justify-content:center; min-height:36px !important; padding:6px 10px !important; border:1px solid var(--line); border-radius:8px; color:var(--forest) !important; background:var(--white); font-size:12px; font-weight:800; white-space:nowrap; }
+.language-switch:hover { border-color:#9ccdbf; background:var(--forest-soft); }
+.english-site .nav-cta { padding-inline:12px; }
+@media (max-width:650px) { .language-switch { width:max-content; } }
