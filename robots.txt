@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://akram-sabry.github.io/sitemap.xml
