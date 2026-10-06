@@ -296,3 +296,36 @@ body { font-size: 16px; }
 .language-switch:hover { border-color:#9ccdbf; background:var(--forest-soft); }
 .english-site .nav-cta { padding-inline:12px; }
 @media (max-width:650px) { .language-switch { width:max-content; } }
+
+
+/* Crawlable training-program detail pages */
+.breadcrumb-nav { padding-top: 18px; }
+.breadcrumbs { display:flex; flex-wrap:wrap; gap:8px; list-style:none; padding:0; margin:0; color:var(--muted); font-size:13px; }
+.breadcrumbs li:not(:last-child)::after { content:'›'; margin-inline-start:8px; color:var(--gold); }
+.breadcrumbs a:hover { color:var(--forest); text-decoration:underline; }
+.course-hero { padding:42px 0 52px; background:linear-gradient(180deg,var(--white),var(--cream)); border-bottom:1px solid var(--line); }
+.course-hero h1 { max-width:900px; margin:10px 0 14px; font-size:clamp(32px,5vw,54px); letter-spacing:-.8px; }
+.course-subtitle { max-width:860px; margin:0 0 12px; color:var(--forest); font-size:clamp(18px,2.6vw,24px); font-weight:700; }
+.course-description { max-width:820px; margin:0 0 22px; color:var(--muted); font-size:17px; }
+.course-note { max-width:820px; margin:18px 0 0; padding:12px 15px; border-inline-start:3px solid var(--gold); border-radius:8px; background:var(--white); color:var(--muted); font-size:14px; }
+.course-content-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
+.course-detail-card h2 { font-size:24px; }
+.course-detail-card h3 { font-size:17px; }
+.course-list { display:grid; gap:10px; padding-inline-start:22px; margin:0; color:var(--ink); }
+.course-list li { padding-inline-start:3px; }
+.course-numbered { padding-inline-start:25px; }
+.course-modules { grid-column:1 / -1; }
+.course-faq { grid-column:1 / -1; }
+.course-faq p { margin:0; color:var(--muted); }
+.course-references { max-width:900px; }
+.course-references h2 { font-size:28px; }
+.course-references > p { color:var(--muted); }
+.course-references ul { display:grid; gap:8px; padding-inline-start:22px; margin-bottom:24px; }
+.course-references a:not(.button) { color:var(--forest); text-decoration:underline; text-underline-offset:3px; }
+@media (max-width:650px) {
+  .course-hero { padding:30px 0 38px; }
+  .course-hero h1 { font-size:34px; }
+  .course-description { font-size:16px; }
+  .course-content-grid { grid-template-columns:1fr; }
+  .course-modules,.course-faq { grid-column:auto; }
+}

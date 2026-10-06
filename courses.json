@@ -1,0 +1,179 @@
+{
+  "programs": [
+    {
+      "slug": "prps",
+      "ar": {
+        "title": "البرامج الاشتراطية الأولية (PRPs)",
+        "subtitle": "ممارسات التصنيع الجيد GMP، والنظافة الجيدة GHP، والتخزين الجيد GSP",
+        "description": "تعرف على دور البرامج الاشتراطية الأولية في تهيئة بيئة تشغيل ونظافة مناسبة لسلامة الغذاء، وكيف تُكيّف ممارسات التصنيع والنظافة والتخزين بحسب المنشأة والمنتج والمخاطر.",
+        "audience": ["العاملون والمشرفون في مصانع الأغذية ومرافق تجهيزها وتعبئتها.", "مسؤولو الجودة وسلامة الغذاء وأعضاء فرق HACCP.", "العاملون في مخازن الأغذية والنقل والتوزيع والتموين الغذائي."],
+        "modules": ["مفهوم PRPs وعلاقتها بممارسات النظافة الجيدة ونظام HACCP.", "أساسيات GMP: المنشآت والمعدات وتدفق العمل والصيانة والتحكم في العمليات.", "أساسيات GHP: النظافة الشخصية والتنظيف والتطهير ومنع التلوث ومكافحة الآفات.", "أساسيات GSP: الاستلام وظروف التخزين والفصل بين المواد وتداول المخزون.", "اختيار الممارسات ومتابعتها بما يناسب نشاط المنشأة ومخاطرها، ومتى يلزم تحليل HACCP أو الرجوع للمتطلبات الرسمية."],
+        "takeaways": ["فهم دور البرامج الاشتراطية الأولية وعلاقتها العامة بـHACCP.", "التمييز بين أمثلة ممارسات التصنيع والنظافة والتخزين الجيد.", "التعرف إلى عوامل المنشأة والمنتج التي تؤثر في اختيار الممارسات ومتابعتها.", "معرفة أمثلة للسجلات والملاحظات التي تساعد على متابعة التطبيق."],
+        "faq_q": "هل تكفي PRPs وحدها لضمان سلامة الغذاء؟",
+        "faq_a": "البرامج الاشتراطية الأولية تهيئ ظروف التشغيل والنظافة، لكنها لا تغني وحدها عن تحليل المخاطر والتدابير الأخرى اللازمة بحسب طبيعة المنتج والعملية والمتطلبات المنطبقة.",
+        "sources": [{"label":"مدونة الممارسات الدولية الموصى بها – المبادئ العامة لنظافة الأغذية (Codex CXC 1-1969)","url":"https://openknowledge.fao.org/server/api/core/bitstreams/6866dc55-d2c0-48dd-a528-a4d634f1b0b4/content"},{"label":"بوابة التسجيل الموحد للمنشآت الغذائية – NFSA","url":"https://reg.nfsa.gov.eg/"}]
+      },
+      "en": {
+        "title": "Prerequisite Programmes (PRPs)",
+        "subtitle": "Good Manufacturing, Hygiene and Storage Practices (GMP, GHP and GSP)",
+        "description": "Explore how prerequisite programmes establish suitable operating and hygiene conditions for food safety, and how manufacturing, hygiene and storage practices can be adapted to the site, product and hazards.",
+        "audience": ["Personnel and supervisors in food manufacturing, processing and packaging facilities.", "Quality and food-safety staff, including HACCP team members.", "Food warehouse, transport, distribution and catering personnel."],
+        "modules": ["PRP fundamentals and their relationship to good hygiene practices and HACCP.", "GMP fundamentals: facilities, equipment, workflow, maintenance and process controls.", "GHP fundamentals: personal hygiene, cleaning and disinfection, contamination prevention and pest control.", "GSP fundamentals: receipt, storage conditions, segregation and stock handling.", "Selecting and monitoring practices for the operation and its hazards, and recognizing when HACCP analysis or official requirements need to be consulted."],
+        "takeaways": ["Understand the role of prerequisite programmes and their general relationship to HACCP.", "Distinguish practical examples of good manufacturing, hygiene and storage practices.", "Recognize site- and product-related factors that influence practice selection and monitoring.", "Identify examples of records and observations that help monitor implementation."],
+        "faq_q": "Are PRPs alone enough to ensure food safety?",
+        "faq_a": "Prerequisite programmes establish suitable operating and hygiene conditions, but do not by themselves replace hazard analysis or other controls needed for the product, process and applicable requirements.",
+        "sources": [{"label":"Codex General Principles of Food Hygiene (CXC 1-1969)","url":"https://openknowledge.fao.org/server/api/core/bitstreams/6866dc55-d2c0-48dd-a528-a4d634f1b0b4/content"},{"label":"Egypt NFSA Unified Registration Portal","url":"https://reg.nfsa.gov.eg/"}]
+      }
+    },
+    {
+      "slug": "haccp",
+      "ar": {
+        "title": "نظام تحليل المخاطر ونقاط التحكم الحرجة (HACCP)",
+        "subtitle": "مبادئ النظام وخطوات إعداد خطة ملائمة لطبيعة المنشأة",
+        "description": "مقدمة إلى HACCP وفق مبادئ الدستور الغذائي (Codex)، تشمل البرامج التمهيدية والخطوات التحضيرية ومبادئ تحليل المخاطر والتحكم فيها وتوثيقها.",
+        "audience": ["العاملون في ضمان الجودة وسلامة الغذاء بمصانع وشركات الأغذية.", "المشرفون ومسؤولو الإنتاج والتعبئة والتخزين والنظافة.", "المهنيون المشاركون في إعداد إجراءات سلامة الغذاء أو مراجعتها."],
+        "modules": ["الغرض من HACCP وعلاقته بممارسات النظافة الجيدة والبرامج التمهيدية.", "الخطوات التحضيرية: فريق HACCP، نطاق الدراسة، وصف المنتج والاستخدام المقصود ومخطط تدفق العملية.", "تحليل الأخطار البيولوجية والكيميائية والفيزيائية وتقييم أهميتها.", "مبادئ النظام السبعة: نقاط التحكم الحرجة، الحدود الحرجة، المراقبة، الإجراءات التصحيحية والتحقق.", "التوثيق والسجلات وتطبيق المفاهيم على مثال تعليمي يحتاج إلى تكييفه مع ظروف المنشأة."],
+        "takeaways": ["شرح غرض HACCP وعلاقته بالبرامج التمهيدية.", "تلخيص الخطوات التحضيرية قبل إعداد خطة HACCP.", "التعرف إلى المبادئ السبعة ومصطلحات الخطر وCCP والحد الحرج.", "معرفة أمثلة على الوثائق والسجلات التي قد تدعم التطبيق والتحقق."],
+        "faq_q": "هل تمنح دورة HACCP شهادة للمنشأة؟",
+        "faq_a": "لا. التدريب يساعد على فهم النظام، لكنه لا يمنح المنشأة شهادة مطابقة بحد ذاته ولا يضمن اجتياز التفتيش أو التدقيق. تظل المنشأة مسؤولة عن تصميم النظام وتطبيقه والتحقق منه وفق المتطلبات ذات الصلة.",
+        "sources": [{"label":"Codex General Principles of Food Hygiene (CXC 1-1969)","url":"https://openknowledge.fao.org/server/api/core/bitstreams/6866dc55-d2c0-48dd-a528-a4d634f1b0b4/content"},{"label":"ISO 22000 – Food safety management","url":"https://www.iso.org/iso-22000-food-safety-management.html"}]
+      },
+      "en": {
+        "title": "Hazard Analysis and Critical Control Point (HACCP)",
+        "subtitle": "System principles and a plan tailored to the food operation",
+        "description": "An introduction to HACCP based on Codex principles, covering prerequisite programmes, preparatory steps, hazard analysis, control and documentation.",
+        "audience": ["Food safety and quality assurance personnel in food businesses.", "Supervisors involved in production, packing, storage or sanitation.", "Professionals who contribute to food-safety procedures or their review."],
+        "modules": ["The purpose of HACCP and its relationship to good hygiene practices and prerequisite programmes.", "Preparatory steps: the HACCP team, scope, product description, intended use and process flow diagram.", "Identifying and assessing biological, chemical and physical hazards.", "The seven principles: CCPs, critical limits, monitoring, corrective actions and verification.", "Documentation, records and applying the concepts to a learning example that must be adapted to site conditions."],
+        "takeaways": ["Explain the purpose of HACCP and its relationship to prerequisite programmes.", "Summarize the preparatory steps for developing a HACCP plan.", "Recognize the seven principles and terms such as hazard, CCP and critical limit.", "Identify examples of documents and records that may support implementation and verification."],
+        "faq_q": "Does a HACCP course certify a food business?",
+        "faq_a": "No. Training supports understanding of the system, but does not itself certify a facility or guarantee an inspection or audit outcome. The food business remains responsible for designing, implementing and verifying its system against applicable requirements.",
+        "sources": [{"label":"Codex General Principles of Food Hygiene (CXC 1-1969)","url":"https://openknowledge.fao.org/server/api/core/bitstreams/6866dc55-d2c0-48dd-a528-a4d634f1b0b4/content"},{"label":"ISO 22000 – Food safety management","url":"https://www.iso.org/iso-22000-food-safety-management.html"}]
+      }
+    },
+    {
+      "slug": "iso-9001",
+      "ar": {
+        "title": "نظام إدارة الجودة وفق ISO 9001",
+        "subtitle": "فهم النظام وإدارة العمليات والتحسين المستمر",
+        "description": "نظرة عامة على نظام إدارة الجودة وكيف يساعد المنشأة على ضبط العمليات وتحسين اتساق المنتجات والخدمات ومتابعة الأداء والمتطلبات ذات الصلة.",
+        "audience": ["العاملون في الجودة وضمان الجودة ومراقبة الجودة بالمنشآت الغذائية.", "مديرو ومشرفو الإنتاج والتعبئة والمخازن والمشتريات وخدمة العملاء.", "المهنيون الراغبون في فهم مبادئ نظم إدارة الجودة وأدوارهم في تطبيقها."],
+        "modules": ["الغرض من نظام إدارة الجودة ومبادئ التركيز على العميل والتحسين.", "فهم سياق المنشأة والعمليات والمسؤوليات ونطاق النظام.", "إدارة الموارد والكفاءات والاتصال والمعلومات الموثقة.", "التفكير في المخاطر والفرص وقياس الأداء ومراجعة النتائج.", "معالجة عدم المطابقة والتحسين وعلاقة النظام بمتطلبات سلامة الغذاء دون أن يحل محلها."],
+        "takeaways": ["شرح الغرض من نظام إدارة الجودة وتمييزه عن فحص المنتج وحده.", "التعرف إلى العناصر العامة للعمليات والمسؤوليات والمعلومات الموثقة.", "فهم دور قياس الأداء ومعالجة عدم المطابقة والتحسين.", "توضيح تكامل نظام الجودة مع ممارسات سلامة الغذاء وحدوده."],
+        "faq_q": "هل ISO 9001 خاص بالمصانع الغذائية؟",
+        "faq_a": "لا، فهو معيار لنظام إدارة الجودة قابل للتطبيق في قطاعات وأنواع مختلفة من المؤسسات. وتحتاج المنشآت الغذائية إلى مراعاة متطلبات سلامة الغذاء والاشتراطات القانونية المنطبقة إلى جانبه.",
+        "sources": [{"label":"ISO 9001 – Quality management systems","url":"https://www.iso.org/standard/9001.html"}]
+      },
+      "en": {
+        "title": "Quality Management Systems according to ISO 9001",
+        "subtitle": "Understanding the system, process management and continual improvement",
+        "description": "An overview of quality management systems and how they help organizations control processes, improve consistency, monitor performance and address relevant requirements.",
+        "audience": ["Quality assurance, quality control and quality professionals in food businesses.", "Managers and supervisors in production, packing, warehousing, procurement and customer service.", "Professionals seeking to understand quality management systems and their implementation roles."],
+        "modules": ["The purpose of a quality management system, customer focus and improvement.", "Understanding organizational context, processes, responsibilities and system scope.", "Managing resources, competence, communication and documented information.", "Risk and opportunity, performance measurement and review.", "Nonconformity handling, improvement and how quality management relates to—but does not replace—food-safety requirements."],
+        "takeaways": ["Explain the purpose of a quality management system and distinguish it from product inspection alone.", "Recognize general elements of process, responsibility and documented-information management.", "Understand the role of performance measurement, nonconformity handling and improvement.", "Explain how quality management can complement food-safety practices and its limits."],
+        "faq_q": "Is ISO 9001 specific to food factories?",
+        "faq_a": "No. It is a quality management system standard applicable across different sectors and organizations. Food businesses also need to address applicable food-safety and legal requirements.",
+        "sources": [{"label":"ISO 9001 – Quality management systems","url":"https://www.iso.org/standard/9001.html"}]
+      }
+    },
+    {
+      "slug": "iso-22000",
+      "ar": {
+        "title": "نظام إدارة سلامة الغذاء ISO 22000",
+        "subtitle": "متطلبات النظام لمنظمات السلسلة الغذائية",
+        "description": "مقدمة إلى نظام إدارة سلامة الغذاء ISO 22000، مع التركيز على برامج المتطلبات الأولية وتحليل المخاطر وتخطيط وسائل التحكم ومراجعة النظام.",
+        "audience": ["العاملون في ضمان الجودة وسلامة الغذاء بالمنشآت الغذائية.", "المسؤولون عن الإنتاج والتصنيع والتعبئة والتخزين والنقل أو تقديم الطعام.", "أعضاء فرق سلامة الغذاء وHACCP ومسؤولو أنظمة الإدارة."],
+        "modules": ["نطاق النظام ومسؤوليات المنشأة ضمن السلسلة الغذائية.", "برامج المتطلبات الأولية وممارسات النظافة الجيدة ودورها كأساس للنظام.", "تحديد أخطار سلامة الغذاء وتقييمها وتخطيط وسائل التحكم.", "مفاهيم PRPs وOPRPs وCCPs على مستوى تمهيدي.", "المراقبة والتعامل مع الانحرافات والتوثيق ومراجعة الأداء والتحسين."],
+        "takeaways": ["شرح الغرض العام من ISO 22000 ونطاقه عبر السلسلة الغذائية.", "توضيح دور PRPs وممارسات النظافة قبل تحليل المخاطر والتحكم فيها.", "التعرف إلى الخطوات العامة لتحليل مخاطر سلامة الغذاء.", "تحديد موضوعات وسجلات يمكن للفريق مراجعتها لمتابعة النظام."],
+        "faq_q": "هل دورة ISO 22000 تمنح شهادة للمنشأة؟",
+        "faq_a": "لا. التدريب لا يمنح المنشأة شهادة ISO ولا يثبت الامتثال وحده. إذا اختارت المنشأة السعي إلى الشهادة، فيتم تقييم نظامها من جهة منح شهادات مستقلة وفق المتطلبات المنطبقة.",
+        "sources": [{"label":"ISO 22000 – Food safety management","url":"https://www.iso.org/iso-22000-food-safety-management.html"},{"label":"Codex General Principles of Food Hygiene (CXC 1-1969)","url":"https://openknowledge.fao.org/server/api/core/bitstreams/6866dc55-d2c0-48dd-a528-a4d634f1b0b4/content"}]
+      },
+      "en": {
+        "title": "ISO 22000 Food Safety Management Systems",
+        "subtitle": "Management-system requirements for organizations in the food chain",
+        "description": "An introduction to ISO 22000 food safety management systems, focusing on prerequisite programmes, hazard analysis, control planning and system review.",
+        "audience": ["Food safety and quality assurance personnel in food businesses.", "Professionals responsible for production, processing, packing, storage, transport or food service.", "Food-safety and HACCP team members and management-system coordinators."],
+        "modules": ["System scope and organizational responsibilities across the food chain.", "Prerequisite programmes and good hygiene practices as foundations of the system.", "Identifying and assessing food-safety hazards and planning controls.", "Introductory concepts: PRPs, OPRPs and CCPs.", "Monitoring, responding to deviations, documented information, performance review and improvement."],
+        "takeaways": ["Explain the general purpose and food-chain scope of ISO 22000.", "Describe the role of PRPs and good hygiene practices before hazard analysis and control.", "Recognize the broad steps of food-safety hazard analysis.", "Identify topics and records a site team can review when monitoring its system."],
+        "faq_q": "Does an ISO 22000 course certify a facility?",
+        "faq_a": "No. Training does not certify a facility or establish compliance on its own. If an organization chooses to pursue certification, an independent certification body assesses its system against applicable requirements.",
+        "sources": [{"label":"ISO 22000 – Food safety management","url":"https://www.iso.org/iso-22000-food-safety-management.html"},{"label":"Codex General Principles of Food Hygiene (CXC 1-1969)","url":"https://openknowledge.fao.org/server/api/core/bitstreams/6866dc55-d2c0-48dd-a528-a4d634f1b0b4/content"}]
+      }
+    },
+    {
+      "slug": "iso-19011-internal-auditor",
+      "ar": {
+        "title": "تأهيل المراجع الداخلي وفق إرشادات ISO 19011",
+        "subtitle": "تخطيط المراجعة وجمع الأدلة وكتابة النتائج ومتابعتها",
+        "description": "محتوى تعريفي عن منهجية مراجعة أنظمة الإدارة داخليًا، من تحديد النطاق ومعايير المراجعة إلى جمع الأدلة وكتابة النتائج ومتابعة الإجراءات التصحيحية.",
+        "audience": ["العاملون في الجودة وسلامة الغذاء الراغبون في المشاركة بالمراجعات الداخلية.", "منسقو أنظمة الإدارة والتدقيق ومشرفو العمليات والسجلات.", "يُفيد الإلمام بعمليات المنشأة أو بنظام الإدارة الذي سيجري مراجعته."],
+        "modules": ["مبادئ المراجعة وأنواعها والاستقلالية والسرية والاستناد إلى الأدلة.", "إدارة برنامج المراجعة وتحديد الأهداف والنطاق والمعايير والأولويات.", "التحضير للمراجعة ومراجعة المعلومات الموثقة وإعداد خطة وقائمة تحقق.", "تنفيذ المقابلات والملاحظة وأخذ العينات وفحص السجلات وتوثيق الأدلة.", "صياغة النتائج والتقرير ومتابعة الإجراءات التصحيحية وفعاليتها."],
+        "takeaways": ["شرح الفرق بين إرشادات ISO 19011 ومتطلبات معيار النظام محل المراجعة.", "المساهمة في التخطيط لمراجعة داخلية وجمع أدلة مناسبة.", "صياغة نتائج موضوعية مرتبطة بمعايير المراجعة والأدلة.", "فهم خطوات إعداد التقرير ومتابعة الإجراءات التصحيحية."],
+        "faq_q": "هل ISO 19011 معيارًا يمنح شهادة لنظام الإدارة؟",
+        "faq_a": "لا. ISO 19011 يقدم إرشادات لمراجعة أنظمة الإدارة، وليس معيار متطلبات لإصدار شهادة للنظام. كما أن حضور برنامج تدريبي لا يثبت وحده الكفاءة المهنية للمراجع.",
+        "sources": [{"label":"ISO 19011 – Guidelines for auditing management systems","url":"https://www.iso.org/standard/19011.html"},{"label":"Codex General Principles of Food Hygiene (CXC 1-1969)","url":"https://openknowledge.fao.org/server/api/core/bitstreams/6866dc55-d2c0-48dd-a528-a4d634f1b0b4/content"}]
+      },
+      "en": {
+        "title": "Internal Auditor Training: ISO 19011 Guidelines",
+        "subtitle": "Audit planning, evidence gathering, reporting and follow-up",
+        "description": "An introduction to internal management-system auditing, from defining scope and criteria to gathering evidence, reporting findings and following up corrective actions.",
+        "audience": ["Quality and food-safety staff who participate in internal audits.", "Management-system and audit coordinators, operations supervisors and staff responsible for records.", "Some familiarity with the operation or system being audited is helpful."],
+        "modules": ["Audit principles and types, independence, confidentiality and evidence-based auditing.", "Audit-program management and setting objectives, scope, criteria and priorities.", "Audit preparation, documented-information review, audit plans and checklists.", "Interviews, observation, sampling, record review and evidence documentation.", "Objective findings, reporting and corrective-action follow-up and effectiveness."],
+        "takeaways": ["Explain the difference between ISO 19011 guidance and the requirements of the system being audited.", "Contribute to planning an internal audit and gathering relevant evidence.", "Draft objective findings tied to audit criteria and evidence.", "Understand audit reporting and corrective-action follow-up."],
+        "faq_q": "Is ISO 19011 a certification standard for management systems?",
+        "faq_a": "No. ISO 19011 provides guidelines for auditing management systems; it is not a requirements standard for system certification. Attendance at training alone also does not establish an auditor’s professional competence.",
+        "sources": [{"label":"ISO 19011 – Guidelines for auditing management systems","url":"https://www.iso.org/standard/19011.html"},{"label":"Codex General Principles of Food Hygiene (CXC 1-1969)","url":"https://openknowledge.fao.org/server/api/core/bitstreams/6866dc55-d2c0-48dd-a528-a4d634f1b0b4/content"}]
+      }
+    },
+    {
+      "slug": "good-documentation-practices",
+      "ar": {
+        "title": "ممارسات التوثيق الجيد (GDP) للمنشآت الغذائية",
+        "subtitle": "إعداد الوثائق والسجلات ومراجعتها وضبطها",
+        "description": "مقدمة عملية إلى إعداد الوثائق والسجلات ومراجعتها وضبطها في عمليات المنشآت الغذائية، بما يدعم وضوح المعلومات وإمكانية تتبع تطبيق الإجراءات.",
+        "audience": ["العاملون في الجودة وسلامة الغذاء ونظم الإدارة.", "مشرفو الإنتاج والتشغيل والمخازن والمعامل الذين ينشئون السجلات أو يستخدمونها.", "منسقو الوثائق وأعضاء فرق HACCP والمراجعون الداخليون."],
+        "modules": ["الفرق بين الوثيقة والسجل ودور التوثيق في سلامة الغذاء وأنظمة الإدارة.", "إنشاء الوثائق وضبطها: المسؤوليات والمراجعة والإصدارات والنسخ السارية.", "استكمال السجلات بدقة ووضوح وتوقيت مناسب والتعامل مع التصحيحات.", "حفظ الوثائق والسجلات واسترجاعها والاحتفاظ بها وفق إجراءات المنشأة.", "مراجعة أمثلة تطبيقية واكتشاف مشكلات التوثيق واقتراح تحسينات."],
+        "takeaways": ["التمييز بين الوثائق والسجلات وشرح دورها في النظام.", "تحديد ممارسات تساعد على تحسين وضوح السجلات ودقتها وقابليتها للتتبع.", "التعرف إلى عناصر ضبط الوثائق والسجلات ومراجعتها وحفظها.", "رصد قصور شائع في التوثيق واقتراح تحسين مناسب."],
+        "faq_q": "هل المقصود بـGDP هنا ممارسات التوزيع الجيد؟",
+        "faq_a": "لا. المقصود هنا Good Documentation Practices، أي ممارسات التوثيق الجيد في سياق المنشآت الغذائية. وهي مختلفة عن Good Distribution Practices المستخدمة في سياقات أخرى، ومنها توزيع المنتجات الطبية.",
+        "sources": [{"label":"ISO 22000 – Food safety management","url":"https://www.iso.org/iso-22000-food-safety-management.html"},{"label":"Codex General Principles of Food Hygiene (CXC 1-1969)","url":"https://openknowledge.fao.org/server/api/core/bitstreams/6866dc55-d2c0-48dd-a528-a4d634f1b0b4/content"}]
+      },
+      "en": {
+        "title": "Good Documentation Practices (GDP) for Food Businesses",
+        "subtitle": "Creating, completing, reviewing and controlling documents and records",
+        "description": "A practical introduction to creating, completing, reviewing and controlling documents and records in food operations, supporting clear information and traceable implementation.",
+        "audience": ["Food safety, quality assurance and management-system personnel.", "Production, operations, warehouse and laboratory supervisors who create or use records.", "Document-control coordinators, HACCP team members and internal auditors."],
+        "modules": ["Documents versus records and the role of documentation in food safety and management systems.", "Creating and controlling documents: responsibilities, review, versions and current copies.", "Completing records accurately, clearly and on time, including how to handle corrections.", "Storing, retrieving and retaining records under site procedures.", "Reviewing practical examples, identifying documentation weaknesses and suggesting improvements."],
+        "takeaways": ["Distinguish documents from records and explain their role in a system.", "Identify practices that improve record clarity, accuracy and traceability.", "Recognize elements of document and record control, review and retention.", "Spot common documentation weaknesses and suggest improvements."],
+        "faq_q": "Does GDP here mean Good Distribution Practices?",
+        "faq_a": "No. Here GDP means Good Documentation Practices in the context of food businesses. It is different from Good Distribution Practices used in other contexts, including pharmaceutical distribution.",
+        "sources": [{"label":"ISO 22000 – Food safety management","url":"https://www.iso.org/iso-22000-food-safety-management.html"},{"label":"Codex General Principles of Food Hygiene (CXC 1-1969)","url":"https://openknowledge.fao.org/server/api/core/bitstreams/6866dc55-d2c0-48dd-a528-a4d634f1b0b4/content"}]
+      }
+    },
+    {
+      "slug": "nfsa-requirements",
+      "ar": {
+        "title": "متطلبات الهيئة القومية لسلامة الغذاء المصرية (NFSA)",
+        "subtitle": "فهم المتطلبات والاستعداد العملي للرقابة والتفتيش",
+        "description": "محتوى تعريفي يساعد العاملين في المنشآت الغذائية على الرجوع إلى المصادر الرسمية وتنظيم الاستعداد للرقابة والتفتيش وفق نوع النشاط والمتطلبات السارية.",
+        "audience": ["مسؤولو ومشرفو الجودة وسلامة الغذاء في المنشآت الغذائية.", "مديرو المنشآت والعاملون المسؤولون عن التشغيل والنظافة والتوثيق.", "فرق الامتثال والتجهيز للتفتيش في أنشطة تصنيع أو تداول أو تقديم الغذاء."],
+        "modules": ["مصادر المعلومات الرسمية ودور بوابة التسجيل الموحد للمنشآت الغذائية.", "تحديد نوع المنشأة ونشاطها ونطاق المتطلبات التي ينبغي التحقق منها.", "مراجعة ممارسات النظافة والتحكم بالمخاطر كسياق عام للجاهزية.", "تنظيم الوثائق والسجلات ومراجعة ممارسات التشغيل ذات الصلة بالنشاط.", "الاستعداد للتفتيش وتوثيق الملاحظات والإجراءات التصحيحية ومتابعتها."],
+        "takeaways": ["التعرف إلى مصادر المعلومات الرسمية ذات الصلة بالنشاط.", "تحديد مجالات الجاهزية التشغيلية والتوثيق التي يمكن مراجعتها.", "تنظيم السجلات ورصد نقاط تحتاج إلى إجراء أو استيضاح.", "إعداد خطوات متابعة أولية مع الرجوع إلى الهيئة لتأكيد المتطلبات المنطبقة."],
+        "faq_q": "هل هذه الصفحة قائمة رسمية كاملة بمتطلبات NFSA؟",
+        "faq_a": "لا. هي صفحة تعريفية ومحاور تدريب عامة، وليست قائمة قانونية شاملة أو بديلًا عن الرجوع إلى الهيئة. تختلف المتطلبات بحسب نوع المنشأة والنشاط والمنتجات وقد تتغير، لذلك يجب تأكيدها من المصادر الرسمية والجهات المختصة.",
+        "sources": [{"label":"الموقع الرسمي للهيئة القومية لسلامة الغذاء","url":"https://nfsa.gov.eg/"},{"label":"بوابة التسجيل الموحد للمنشآت الغذائية","url":"https://reg.nfsa.gov.eg/"},{"label":"Codex Alimentarius – المعايير الدولية للأغذية","url":"https://www.fao.org/fao-who-codexalimentarius/codex-texts/all-standards/en/"}]
+      },
+      "en": {
+        "title": "Egyptian National Food Safety Authority (NFSA) Requirements",
+        "subtitle": "Understanding requirements and preparing for oversight and inspection",
+        "description": "An introduction to official information sources and practical inspection-readiness for food businesses, tailored to the activity and current applicable requirements.",
+        "audience": ["Quality and food-safety managers and supervisors in food businesses.", "Establishment managers and staff responsible for operations, hygiene or records.", "Compliance and inspection-readiness teams across food manufacturing, handling and food service."],
+        "modules": ["Official information sources and the NFSA unified registration portal.", "Identifying the establishment’s activity and the requirements that need to be checked.", "Reviewing hygiene and hazard-control practices as general readiness context.", "Organizing records and reviewing operational practices relevant to the activity.", "Inspection preparation, documenting observations and following corrective actions."],
+        "takeaways": ["Recognize official information sources relevant to the activity.", "Identify operational-readiness and documentation areas that can be reviewed.", "Organize records and note issues needing action or clarification.", "Plan initial follow-up steps and confirm applicable requirements with the Authority."],
+        "faq_q": "Is this a complete official list of NFSA requirements?",
+        "faq_a": "No. This is an introductory page and general training outline, not a comprehensive legal checklist or a substitute for consulting the Authority. Requirements vary by establishment, activity and product, and may change, so confirm them with official sources and competent authorities.",
+        "sources": [{"label":"Egyptian National Food Safety Authority (NFSA)","url":"https://nfsa.gov.eg/"},{"label":"Unified Registration Portal for Food Establishments","url":"https://reg.nfsa.gov.eg/"},{"label":"Codex Alimentarius – International Food Standards","url":"https://www.fao.org/fao-who-codexalimentarius/codex-texts/all-standards/en/"}]
+      }
+    }
+  ]
+}

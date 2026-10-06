@@ -19,3 +19,24 @@ Contact:
 - WhatsApp/Phone: +201155780461
 - Email: akramsabry257@gmail.com
 - LinkedIn: https://www.linkedin.com/in/akram-sabry-a543a3239/
+
+## Training program directory
+
+- Arabic directory: https://akram-sabry.github.io/courses/
+- English directory: https://akram-sabry.github.io/en/courses/
+- PRPs, GMP, GHP and GSP (Arabic): https://akram-sabry.github.io/courses/prps.html
+- PRPs, GMP, GHP and GSP (English): https://akram-sabry.github.io/en/courses/prps.html
+- HACCP (Arabic): https://akram-sabry.github.io/courses/haccp.html
+- HACCP (English): https://akram-sabry.github.io/en/courses/haccp.html
+- ISO 9001 (Arabic): https://akram-sabry.github.io/courses/iso-9001.html
+- ISO 9001 (English): https://akram-sabry.github.io/en/courses/iso-9001.html
+- ISO 22000 (Arabic): https://akram-sabry.github.io/courses/iso-22000.html
+- ISO 22000 (English): https://akram-sabry.github.io/en/courses/iso-22000.html
+- ISO 19011 Internal Auditor (Arabic): https://akram-sabry.github.io/courses/iso-19011-internal-auditor.html
+- ISO 19011 Internal Auditor (English): https://akram-sabry.github.io/en/courses/iso-19011-internal-auditor.html
+- Good Documentation Practices (Arabic): https://akram-sabry.github.io/courses/good-documentation-practices.html
+- Good Documentation Practices (English): https://akram-sabry.github.io/en/courses/good-documentation-practices.html
+- Egyptian NFSA requirements (Arabic): https://akram-sabry.github.io/courses/nfsa-requirements.html
+- Egyptian NFSA requirements (English): https://akram-sabry.github.io/en/courses/nfsa-requirements.html
+
+Program outlines are introductory and may be adapted to the organization and participant level. Contact the site owner to confirm course availability, final content, dates, fees, delivery format and any certificate details.
