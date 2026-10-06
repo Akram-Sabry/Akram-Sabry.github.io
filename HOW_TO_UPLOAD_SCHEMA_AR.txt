@@ -1,0 +1,23 @@
+تحديث Schema.org لصفحات البرامج
+
+هذه الحزمة تستبدل مجلدي courses و en/courses بصفحات محدثة. أبقِ بنية المجلدات كما هي، لأن روابط الموقع تشير إلى:
+- courses/prps.html وغيرها للصفحات العربية.
+- en/courses/prps.html وغيرها للصفحات الإنجليزية.
+
+الرفع من GitHub:
+1. فك ضغط ZIP على جهازك.
+2. في جذر المستودع اختر Add file ثم Upload files.
+3. اسحب مجلدي courses و en إلى منطقة الرفع. لا ترفع HTML منفردًا ولا ترفع ZIP نفسه.
+4. قبل Commit، تأكد من ظهور مسارات مثل courses/prps.html و en/courses/prps.html.
+5. اعمل Commit على main (أو أنشئ Pull Request إذا كان الفرع محميًا).
+
+ما أُضيف:
+- في كل صفحة تفاصيل: JSON-LD من نوع Course مع الاسم والوصف والرابط واللغة والجهة المزودة ومخرجات التعلم الموجودة على الصفحة؛ بالإضافة إلى BreadcrumbList.
+- في كل دليل لغوي: ItemList للفهرس مع ترتيب وروابط الصفحات التفصيلية، بالإضافة إلى BreadcrumbList.
+
+لم أضع مدة أو مواعيد أو سعرًا أو شهادة أو جهة اعتماد غير مؤكدة. ينبغي أن يطابق كل ما في structured data المحتوى الظاهر للزائر. لا تضمن البيانات المنظمة ظهور نتيجة منسّقة أو ترتيبًا أعلى.
+
+تنبيه متعلق بنتائج Google: وثائق Google الحالية تذكر أن نتيجة Course list متاحة باللغة الإنجليزية فقط، وتتطلب الالتزام بشروطها الخاصة بالمحتوى والقائمة. وجود JSON-LD لا يضمن الأهلية أو الظهور. راجع واختبر الصفحات المنشورة في Rich Results Test وSearch Console بعد الرفع:
+- https://developers.google.com/search/docs/appearance/structured-data/course
+- https://developers.google.com/search/docs/appearance/structured-data/carousel
+- https://search.google.com/test/rich-results
