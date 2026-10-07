@@ -6,13 +6,64 @@
   <title>منشئ شهادات أكاديمية خطوة | أكرم صبري</title>
   <meta name="robots" content="noindex,follow">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap');
-    :root{--forest:#2b271d;--forest-dark:#1a1814;--gold:#b58d32;--ink:#2b2924;--muted:#6b675e;--line:#ded7c8;--cream:#fbfaf7}
-    *{box-sizing:border-box}body{margin:0;background:var(--cream);color:var(--ink);font-family:'IBM Plex Sans Arabic','Cairo',sans-serif;line-height:1.65}
-    .toolbar{max-width:1220px;margin:24px auto;padding:0 18px;display:grid;grid-template-columns:minmax(280px,370px) 1fr;gap:20px;align-items:start}.form-panel{background:#fff;padding:22px;border:1px solid var(--line);border-radius:16px;box-shadow:0 12px 30px #17252b0d}.form-panel h1{font-size:22px;color:var(--forest-dark);margin:0 0 4px}.form-panel p{font-size:13px;color:var(--muted);margin:0 0 18px}.field{margin:0 0 13px}.field label{display:block;font-size:13px;font-weight:700;margin-bottom:5px}.field input,.field select{width:100%;border:1px solid #bfcfc8;border-radius:9px;padding:10px 11px;font:inherit;background:#fff}.field input[type=date]{direction:ltr;text-align:left}.token-row{display:flex;gap:7px}.token-row input{direction:ltr;text-align:left;font-family:monospace}.token-row button,.actions button,.copy-button{border:0;border-radius:9px;padding:10px 13px;font:inherit;font-weight:800;cursor:pointer}.token-row button,.secondary{background:#edf6f2;color:var(--forest-dark)}.primary{background:var(--forest);color:white}.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}.actions button:disabled{opacity:.45;cursor:not-allowed}.hint{font-size:12px!important;line-height:1.6}.row-out{display:none;margin-top:14px}.row-out pre{white-space:pre-wrap;overflow-wrap:anywhere;direction:ltr;text-align:left;background:#f5f7f6;border-radius:8px;padding:10px;font-size:11px}.copy-button{background:#f4efe3;color:#64481c}
-    .certificate-wrap{overflow:auto;padding:0 4px 12px}.certificate{position:relative;width:min(100%,1120px);aspect-ratio:297/210;margin:0 auto;background:#fff;border:1px solid #d5ddd9;box-shadow:0 16px 42px #17252b14;padding:26px;display:flex;flex-direction:column;align-items:center;text-align:center;overflow:hidden}.certificate::before{content:'';position:absolute;inset:13px;border:2px solid var(--forest);pointer-events:none}.certificate::after{content:'';position:absolute;inset:19px;border:1px solid var(--gold);pointer-events:none}.corner{position:absolute;width:40px;height:40px;border-color:var(--gold);z-index:1}.corner.tl{top:9px;left:9px;border-top:4px solid;border-left:4px solid}.corner.tr{top:9px;right:9px;border-top:4px solid;border-right:4px solid}.corner.bl{bottom:9px;left:9px;border-bottom:4px solid;border-left:4px solid}.corner.br{bottom:9px;right:9px;border-bottom:4px solid;border-right:4px solid}.brand{position:relative;z-index:2;display:flex;align-items:center;gap:9px;margin-top:4px;color:var(--forest-dark)}.mark{width:34px;height:34px;display:grid;place-items:center;background:var(--forest);color:#fff;border-radius:11px;font:800 12px Arial,sans-serif}.brand-text{font-size:15px;font-weight:800}.brand-text small{display:block;color:var(--muted);font-size:10px;font-weight:500}.certificate h2{position:relative;z-index:2;color:var(--forest-dark);font-size:clamp(20px,3vw,32px);line-height:1.2;margin:12px 0 3px}.certificate h2 small{display:block;color:#41555c;font-size:.55em;font-weight:600;letter-spacing:1px;direction:ltr}.intro{position:relative;z-index:2;margin:3px 0;color:var(--muted);font-size:clamp(11px,1.3vw,15px)}.person{position:relative;z-index:2;max-width:90%;margin:6px 0 5px;padding:0 14px 4px;border-bottom:2px solid var(--gold);color:#17252b;font-size:clamp(22px,3.8vw,40px);font-weight:800;line-height:1.2}.statement{position:relative;z-index:2;max-width:78%;margin:4px 0;color:#41555c;font-size:clamp(10px,1.25vw,14px)}.course{position:relative;z-index:2;color:var(--forest);font-size:clamp(15px,2vw,23px);font-weight:800;line-height:1.3;margin:3px 0}.course-en{position:relative;z-index:2;color:var(--muted);font-size:clamp(9px,1vw,12px);direction:ltr;margin:0}.details{position:relative;z-index:2;width:78%;display:flex;justify-content:center;gap:28px;margin:10px 0 7px;font-size:clamp(9px,1.05vw,12px)}.detail{min-width:100px}.detail strong{display:block;color:var(--forest-dark);font-size:1.05em}.bottom{position:relative;z-index:2;width:83%;margin-top:auto;display:grid;grid-template-columns:1fr 100px 1fr;align-items:end;gap:18px}.sign{border-top:1px solid #9aa9a3;padding-top:5px;color:#43545a;font-size:10px}.sign strong{display:block;color:#17252b;font-size:11px}.seal{display:flex;flex-direction:column;align-items:center;gap:3px}.qr{width:64px;height:64px;background:#fff;display:grid;place-items:center}.qr canvas,.qr img{width:64px!important;height:64px!important}.serial{font:700 8px Arial,sans-serif;direction:ltr;color:#41555c;letter-spacing:.2px}.verification-note{font-size:8px;color:var(--muted);max-width:120px;line-height:1.3}.controls-note{max-width:1220px;margin:0 auto 24px;padding:0 18px;color:var(--muted);font-size:12px}
+    @import url('https://fonts.googleapis.com/css2?family=Aref+Ruqaa+Ink:wght@400;700&family=Cairo:wght@400;600;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap');
+    :root{--forest:#183f36;--forest-dark:#102e28;--gold:#b69348;--gold-light:#e6d8b4;--ink:#252c29;--muted:#68736d;--line:#d9d4c6;--cream:#f2f1eb;--paper:#fffdf8}
+    *{box-sizing:border-box}
+    body{margin:0;background:radial-gradient(circle at 12% 12%,#e8eee8 0,transparent 32%),var(--cream);color:var(--ink);font-family:'IBM Plex Sans Arabic','Cairo',sans-serif;line-height:1.65}
+    .toolbar{max-width:1460px;margin:26px auto;padding:0 20px;display:grid;grid-template-columns:minmax(290px,370px) minmax(0,1fr);gap:22px;align-items:start}
+    .form-panel{background:#fff;padding:24px;border:1px solid var(--line);border-radius:18px;box-shadow:0 16px 38px #102e2810}
+    .form-panel h1{font-size:22px;color:var(--forest-dark);margin:0 0 5px}
+    .form-panel p{font-size:13px;color:var(--muted);margin:0 0 18px}
+    .field{margin:0 0 13px}.field label{display:block;font-size:13px;font-weight:700;margin-bottom:5px}
+    .field input,.field select{width:100%;border:1px solid #d0d9d2;border-radius:10px;padding:10px 11px;font:inherit;background:#fff}
+    .field input:focus,.field select:focus{outline:2px solid #b693483d;border-color:var(--gold)}
+    .field input[type=date]{direction:ltr;text-align:left}.token-row{display:flex;gap:7px}.token-row input{direction:ltr;text-align:left;font-family:monospace}
+    .token-row button,.actions button,.copy-button{border:0;border-radius:10px;padding:10px 13px;font:inherit;font-weight:800;cursor:pointer;transition:transform .15s ease,filter .15s ease}
+    .token-row button:hover,.actions button:hover,.copy-button:hover{filter:brightness(.97);transform:translateY(-1px)}
+    .token-row button,.secondary{background:#edf2ec;color:var(--forest-dark)}.primary{background:var(--forest);color:#fff}
+    .actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}.actions button:disabled{opacity:.45;cursor:not-allowed}
+    .hint{font-size:12px!important;line-height:1.6}.row-out{display:none;margin-top:14px}
+    .row-out pre{white-space:pre-wrap;overflow-wrap:anywhere;direction:ltr;text-align:left;background:#f3f5f2;border-radius:9px;padding:10px;font-size:11px}
+    .copy-button{background:#f5efe1;color:#644d1e}.certificate-wrap{overflow:auto;padding:0 4px 14px}
+    .certificate{position:relative;isolation:isolate;width:min(100%,1120px);aspect-ratio:297/210;margin:0 auto;background:radial-gradient(ellipse at 50% 0%,#f3ead7 0,transparent 32%),var(--paper);border:1px solid var(--gold);box-shadow:0 20px 55px #102e2818;padding:30px 42px;display:flex;flex-direction:column;align-items:center;text-align:center;overflow:hidden}
+    .certificate::before{content:'';position:absolute;inset:13px;border:2px solid var(--forest);pointer-events:none;z-index:-1}
+    .certificate::after{content:'';position:absolute;inset:20px;border:1px solid #b6934880;pointer-events:none;z-index:-1}
+    .corner{position:absolute;width:40px;height:40px;border-color:var(--gold);z-index:1}
+    .corner.tl{top:9px;left:9px;border-top:4px solid;border-left:4px solid}.corner.tr{top:9px;right:9px;border-top:4px solid;border-right:4px solid}
+    .corner.bl{bottom:9px;left:9px;border-bottom:4px solid;border-left:4px solid}.corner.br{bottom:9px;right:9px;border-bottom:4px solid;border-right:4px solid}
+    .brand{position:relative;z-index:2;display:flex;align-items:center;gap:12px;margin-top:5px;color:var(--forest-dark)}
+    .brand-logo{width:64px;height:64px;object-fit:contain;border-radius:50%;border:2px solid var(--gold);background:#fff;padding:2px;box-shadow:0 3px 10px #102e2818}
+    .brand-text{font-size:16px;font-weight:800;text-align:right}.brand-text small{display:block;color:var(--muted);font-size:10px;font-weight:500}
+    .certificate h2{position:relative;z-index:2;color:var(--forest-dark);font-family:'Cairo','IBM Plex Sans Arabic',sans-serif;font-size:clamp(21px,3vw,34px);line-height:1.2;margin:12px 0 2px}
+    .certificate h2 small{display:block;color:var(--gold);font-family:Arial,sans-serif;font-size:.42em;font-weight:700;letter-spacing:3px;direction:ltr;margin-top:5px}
+    .divider{position:relative;z-index:2;width:68%;height:1px;margin:8px auto 5px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+    .divider::after{content:'◆';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:var(--paper);color:var(--gold);padding:0 8px;font-size:9px}
+    .intro{position:relative;z-index:2;margin:4px 0;color:var(--muted);font-size:clamp(11px,1.25vw,15px)}
+    .person{position:relative;z-index:2;max-width:90%;margin:6px 0 5px;padding:0 20px 5px;border-bottom:2px solid var(--gold);color:var(--forest-dark);font-size:clamp(24px,3.8vw,42px);font-weight:800;line-height:1.25}
+    .statement{position:relative;z-index:2;max-width:78%;margin:4px 0;color:#56635d;font-size:clamp(10px,1.2vw,14px)}
+    .course-panel{position:relative;z-index:2;min-width:42%;max-width:78%;margin:5px 0;padding:8px 26px 9px;border-inline-start:3px solid var(--gold);border-inline-end:3px solid var(--gold);border-radius:12px;background:#f5f1e7}
+    .course{color:var(--forest);font-size:clamp(16px,2vw,24px);font-weight:800;line-height:1.3;margin:0}
+    .course-en{color:var(--muted);font-size:clamp(9px,1vw,12px);direction:ltr;margin:1px 0 0}
+    .details{position:relative;z-index:2;width:70%;display:flex;justify-content:center;gap:18px;margin:7px 0;font-size:clamp(9px,1.05vw,12px)}
+    .detail{min-width:145px;padding:5px 12px;border:1px solid #e3dece;border-radius:9px;background:#ffffffa8;color:var(--muted)}
+    .detail strong{display:block;color:var(--forest-dark);font-size:1.05em;margin-top:1px}
+    .bottom{position:relative;z-index:2;width:88%;margin-top:auto;display:grid;grid-template-columns:1fr 120px 1fr;align-items:end;gap:18px;direction:ltr}
+    .signature-block{min-height:112px;display:flex;flex-direction:column;align-items:center;justify-content:end;gap:2px;direction:rtl;color:var(--forest-dark)}
+    .signature-mark{font-family:'Aref Ruqaa Ink','Cairo',serif;font-size:clamp(24px,2.6vw,34px);font-weight:700;line-height:1.15;color:var(--forest);transform:rotate(-3deg);padding:0 12px 2px}
+    .signature-line{width:min(76%,190px);border-bottom:1px solid #9fa99f;margin:1px 0 3px}
+    .signature-block strong{font-size:11px}.signature-block small{font-size:8px;color:var(--muted)}
+    .qr-panel{display:flex;flex-direction:column;align-items:center;gap:3px;direction:rtl}
+    .qr{width:68px;height:68px;padding:3px;background:#fff;border:1px solid var(--gold-light);border-radius:7px;display:grid;place-items:center}
+    .qr canvas,.qr img{width:60px!important;height:60px!important}
+    .serial{font:700 8px Arial,sans-serif;direction:ltr;color:var(--forest-dark);letter-spacing:.3px}
+    .verification-note{font-size:8px;color:var(--muted);max-width:124px;line-height:1.3}
+    .issuer-stamp{position:relative;width:104px;height:104px;margin:0 auto 3px;border:2px solid var(--forest);border-radius:50%;outline:1px solid var(--gold);outline-offset:-7px;background:#fdfbf5;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;color:var(--forest-dark);transform:rotate(-6deg);box-shadow:0 2px 8px #102e2810}
+    .issuer-stamp::before{content:'';position:absolute;inset:9px;border:1px solid #b6934880;border-radius:50%;pointer-events:none}
+    .stamp-top,.stamp-bottom,.stamp-type{position:relative;z-index:1}.stamp-top{font-size:8px;font-weight:700}.stamp-word{position:relative;z-index:1;font-size:22px;line-height:1.1;font-weight:800;color:var(--forest)}
+    .stamp-bottom{font-size:7px}.stamp-type{font:700 5px Arial,sans-serif;letter-spacing:1px;color:var(--gold);direction:ltr;margin-top:2px}
+    .controls-note{max-width:1460px;margin:0 auto 24px;padding:0 20px;color:var(--muted);font-size:12px}
     @media(max-width:850px){.toolbar{grid-template-columns:1fr}.certificate{min-width:760px}.certificate-wrap{padding-bottom:16px}}
-    @media print{@page{size:A4 landscape;margin:0}html,body{width:297mm;height:210mm;background:#fff!important;margin:0!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}.toolbar{display:block;margin:0;padding:0}.form-panel,.controls-note{display:none!important}.certificate-wrap{overflow:visible;padding:0}.certificate{width:297mm;height:210mm;min-width:0;aspect-ratio:auto;margin:0;border:0;box-shadow:none;padding:9mm}.certificate::before{inset:4.5mm}.certificate::after{inset:6.5mm}.corner{width:12mm;height:12mm}.corner.tl{top:3.5mm;left:3.5mm}.corner.tr{top:3.5mm;right:3.5mm}.corner.bl{bottom:3.5mm;left:3.5mm}.corner.br{bottom:3.5mm;right:3.5mm}.brand{margin-top:3mm}.mark{width:9mm;height:9mm}.brand-text{font-size:14pt}.brand-text small{font-size:9pt}.certificate h2{font-size:26pt;margin:5mm 0 1mm}.intro{font-size:11pt}.person{font-size:31pt;margin:2mm 0}.statement{font-size:10pt}.course{font-size:19pt}.course-en{font-size:10pt}.details{font-size:10pt;margin:3mm 0}.bottom{grid-template-columns:1fr 28mm 1fr}.qr,.qr canvas,.qr img{width:23mm!important;height:23mm!important}.sign{font-size:9pt}.sign strong{font-size:10pt}.serial{font-size:7pt}.verification-note{font-size:7pt}}
+    @media print{@page{size:A4 landscape;margin:0}html,body{width:297mm;height:210mm;background:#fff!important;margin:0!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}.toolbar{display:block;margin:0;padding:0}.form-panel,.controls-note{display:none!important}.certificate-wrap{overflow:visible;padding:0}.certificate{width:297mm;height:210mm;min-width:0;aspect-ratio:auto;margin:0;border:0;box-shadow:none;padding:9mm}.certificate::before{inset:4.5mm}.certificate::after{inset:6.5mm}.corner{width:12mm;height:12mm}.corner.tl{top:3.5mm;left:3.5mm}.corner.tr{top:3.5mm;right:3.5mm}.corner.bl{bottom:3.5mm;left:3.5mm}.corner.br{bottom:3.5mm;right:3.5mm}.brand{margin-top:2mm}.brand-logo{width:17mm;height:17mm}.brand-text{font-size:14pt}.brand-text small{font-size:8pt}.certificate h2{font-size:27pt;margin:3mm 0 1mm}.divider{margin:2mm auto 2mm}.intro{font-size:10pt}.person{font-size:31pt;margin:1mm 0 2mm}.statement{font-size:9pt}.course-panel{margin:2mm 0;padding:2mm 8mm}.course{font-size:18pt}.course-en{font-size:9pt}.details{font-size:9pt;margin:2mm 0}.detail{min-width:42mm;padding:1.5mm 3mm}.bottom{grid-template-columns:1fr 28mm 1fr;width:88%;gap:8mm}.signature-block{min-height:28mm}.signature-mark{font-size:25pt}.signature-block strong{font-size:9pt}.signature-block small{font-size:7pt}.issuer-stamp{width:29mm;height:29mm}.stamp-top{font-size:7pt}.stamp-word{font-size:18pt}.stamp-bottom{font-size:6pt}.stamp-type{font-size:4pt}.qr,.qr canvas,.qr img{width:21mm!important;height:21mm!important}.qr{padding:1mm}.serial{font-size:6pt}.verification-note{font-size:6pt}}
   </style>
   <script src="qrcode.min.js"></script>
 </head>
@@ -35,18 +86,18 @@
     <div class="certificate-wrap">
       <article class="certificate" id="certificate" aria-label="معاينة الشهادة">
         <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
-        <div class="brand"><img src="assets/khotwa-logo.jpg" alt="شعار أكاديمية خطوة للتعليم والجودة" width="58" height="58" loading="eager" style="width:58px;height:58px;object-fit:cover;border-radius:50%;border:2px solid var(--gold);background:#fff"><div class="brand-text">أكاديمية خطوة<small>للتعليم والجودة · Training &amp; Quality</small></div></div>
+        <div class="brand"><img class="brand-logo" src="assets/khotwa-logo.jpg" alt="شعار أكاديمية خطوة" width="64" height="64" loading="eager"><div class="brand-text">أكاديمية خطوة<small>للتعليم والجودة · Training &amp; Quality</small></div></div>
         <h2>شهادة تدريب<small>TRAINING CERTIFICATE</small></h2>
+        <div class="divider" aria-hidden="true"></div>
         <p class="intro">تُمنح هذه الشهادة إلى / This certificate is awarded to</p>
         <div class="person" id="p-name">اسم المتدرب</div>
         <p class="statement" id="p-statement">لإتمام متطلبات البرنامج التدريبي / for completing the training requirements</p>
-        <div class="course" id="p-course">اسم الدورة التدريبية</div>
-        <div class="course-en" id="p-course-en" dir="ltr"></div>
+        <div class="course-panel"><div class="course" id="p-course">اسم الدورة التدريبية</div><div class="course-en" id="p-course-en" dir="ltr"></div></div>
         <div class="details"><div class="detail"><span>تاريخ الدورة / Course date</span><strong id="p-course-date">—</strong></div><div class="detail"><span>تاريخ الإصدار / Issue date</span><strong id="p-issue-date">—</strong></div></div>
         <div class="bottom">
-          <div class="sign"><strong>م. أكرم صبري</strong>المُصدر / Issued by</div>
-          <div class="seal"><div class="qr" id="qr"><span style="font:10px Arial;color:#617078">QR</span></div><div class="serial" id="p-number">CERTIFICATE NO.</div><div class="verification-note">امسح الرمز للتحقق من سجل الشهادة</div></div>
-          <div class="sign"><strong>التوقيع / Signature</strong>التوقيع والختم / Signature &amp; seal</div>
+          <div class="signature-block" aria-label="اسم المُصدر بخط زخرفي"><div class="signature-mark">أكرم صبري</div><div class="signature-line"></div><strong>م. أكرم صبري · المُصدر</strong><small>اسم المُصدر بخط زخرفي / Styled issuer name</small></div>
+          <div class="qr-panel"><div class="qr" id="qr"><span style="font:10px Arial;color:#617078">QR</span></div><div class="serial" id="p-number">CERTIFICATE NO.</div><div class="verification-note">امسح الرمز للتحقق من سجل الشهادة</div></div>
+          <div class="issuer-stamp" aria-label="ختم إلكتروني تصميمي لأكاديمية خطوة"><span class="stamp-top">أكاديمية</span><strong class="stamp-word">خطوة</strong><span class="stamp-bottom">للتعليم والجودة</span><span class="stamp-type">TRAINING &amp; QUALITY</span></div>
         </div>
       </article>
     </div>
@@ -73,7 +124,7 @@
       $('p-number').textContent=$('number').value.trim();
       const qr=$('qr'); qr.replaceChildren();
       if(typeof QRCode==='undefined'){alert('لم يتم تحميل مكتبة QR. تأكد أن ملف qrcode.min.js بجانب هذا الملف.');return false;}
-      new QRCode(qr,{text:VERIFY_BASE+'?id='+encodeURIComponent($('token').value.trim().toUpperCase()),width:220,height:220,colorDark:'#17252b',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.M});
+      new QRCode(qr,{text:VERIFY_BASE+'?id='+encodeURIComponent($('token').value.trim().toUpperCase()),width:220,height:220,colorDark:'#183f36',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.M});
       $('print').disabled=false;
       return true;
     }
