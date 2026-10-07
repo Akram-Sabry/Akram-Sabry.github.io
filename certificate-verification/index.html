@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="theme-color" content="#0b5d4f">
+  <title>التحقق من شهادة تدريب | أكرم صبري</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap');
+    :root{--forest:#0b5d4f;--forest-dark:#06463d;--gold:#c99a45;--ink:#22343a;--muted:#617078;--cream:#f8faf9;--line:#d9e4df;--red:#a8332a}
+    *{box-sizing:border-box}body{margin:0;background:var(--cream);color:var(--ink);font-family:'IBM Plex Sans Arabic','Cairo',sans-serif;line-height:1.75}
+    .top{background:#fff;border-bottom:1px solid var(--line)}.top-inner{max-width:920px;margin:auto;padding:18px 24px;display:flex;align-items:center;justify-content:space-between;gap:12px}.brand{font-weight:800;color:var(--forest-dark)}.brand small{display:block;color:var(--muted);font-size:12px;font-weight:500}
+    main{max-width:760px;margin:44px auto;padding:0 20px}.panel{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 16px 40px #17252b0d;overflow:hidden}.accent{height:7px;background:linear-gradient(90deg,var(--forest),var(--gold))}.content{padding:30px}.eyebrow{color:var(--gold);font-size:13px;font-weight:800}.title{margin:4px 0 6px;color:#17252b;font-size:clamp(26px,5vw,36px);line-height:1.25}.subtitle{margin:0 0 24px;color:var(--muted)}
+    form{display:flex;gap:10px;flex-wrap:wrap}input{flex:1;min-width:230px;border:1px solid #bfcfc8;border-radius:10px;padding:13px 14px;font:inherit;direction:ltr;text-align:left}button{border:0;border-radius:10px;padding:12px 20px;background:var(--forest);color:#fff;font:inherit;font-weight:800;cursor:pointer}button:hover{background:var(--forest-dark)}.hint{font-size:12px;color:var(--muted);margin:9px 0 0}
+    #result{margin-top:22px}.notice{padding:14px 16px;border-radius:12px;background:#f1f6f4;color:var(--muted);border:1px solid var(--line)}.notice.error{background:#fff4f2;color:var(--red);border-color:#f2d2ce}.result-card{border:1px solid var(--line);border-radius:14px;overflow:hidden}.result-head{padding:15px 18px;background:#edf6f2;display:flex;justify-content:space-between;align-items:center;gap:12px}.result-head.revoked{background:#fff1ef}.badge{padding:5px 11px;border-radius:100px;background:var(--forest);color:#fff;font-weight:800;font-size:12px;white-space:nowrap}.badge.revoked{background:var(--red)}.fields{padding:8px 18px 16px}.field{display:grid;grid-template-columns:150px 1fr;gap:14px;padding:12px 0;border-bottom:1px solid #edf1ef}.field:last-child{border:0}.label{color:var(--muted);font-size:13px}.value{font-weight:700;overflow-wrap:anywhere}.foot{padding:15px 18px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}footer{max-width:920px;margin:0 auto;padding:0 24px 32px;color:var(--muted);font-size:12px;text-align:center}
+    @media(max-width:560px){main{margin:24px auto}.content{padding:22px 18px}.field{grid-template-columns:1fr;gap:2px}.result-head{align-items:flex-start;flex-direction:column}}
+  </style>
+</head>
+<body>
+  <header class="top"><div class="top-inner"><div class="brand">م. أكرم صبري<small>استشاري جودة وسلامة الغذاء</small></div><div lang="en" dir="ltr" style="text-align:left;color:#617078;font-size:12px">TRAINING CERTIFICATE CHECK</div></div></header>
+  <main>
+    <section class="panel" aria-labelledby="page-title">
+      <div class="accent"></div>
+      <div class="content">
+        <div class="eyebrow">خدمة التحقق الإلكتروني</div>
+        <h1 class="title" id="page-title">التحقق من شهادة تدريب</h1>
+        <p class="subtitle">امسح رمز QR الموجود على الشهادة، أو أدخل رمز التحقق المكوّن من 32 حرفًا/رقمًا.</p>
+        <form id="lookup-form">
+          <label for="token" class="visually-hidden" style="position:absolute;clip:rect(0,0,0,0)">رمز التحقق</label>
+          <input id="token" name="token" maxlength="32" minlength="32" pattern="[A-Fa-f0-9]{32}" autocomplete="off" spellcheck="false" placeholder="رمز التحقق" required>
+          <button type="submit">تحقق من الشهادة</button>
+        </form>
+        <p class="hint">يعرض الموقع بيانات الشهادة المطابقة لهذا الرمز فقط. لا توجد قائمة عامة بأسماء المتدربين.</p>
+        <div id="result" aria-live="polite"><div class="notice">أدخل رمز التحقق للبدء.</div></div>
+      </div>
+    </section>
+  </main>
+  <footer>هذه الصفحة للتحقق من سجل الشهادة لدى مُصدرها، ولا تعني اعتمادًا من جهة خارجية.</footer>
+  <script>
+    // Public read-only Apps Script endpoint; it returns only the certificate matching one token.
+    const API_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzboYWjlEuNfyWw2NcaTSKZrIjU1NbACHQoqVlmjTyRZshpqrHNeCmaYMi0Wz5u-VV3/exec';
+    const form = document.getElementById('lookup-form');
+    const tokenInput = document.getElementById('token');
+    const resultBox = document.getElementById('result');
+
+    function showNotice(message, error=false) {
+      resultBox.replaceChildren();
+      const box = document.createElement('div');
+      box.className = 'notice' + (error ? ' error' : '');
+      box.textContent = message;
+      resultBox.appendChild(box);
+    }
+    function addField(container, label, value) {
+      const row = document.createElement('div'); row.className = 'field';
+      const name = document.createElement('div'); name.className = 'label'; name.textContent = label;
+      const val = document.createElement('div'); val.className = 'value'; val.textContent = value || '—';
+      row.append(name, val); container.appendChild(row);
+    }
+    function renderCertificate(c) {
+      resultBox.replaceChildren();
+      const card = document.createElement('article'); card.className = 'result-card';
+      const head = document.createElement('div');
+      const revoked = c.status === 'REVOKED';
+      head.className = 'result-head' + (revoked ? ' revoked' : '');
+      const title = document.createElement('strong'); title.textContent = revoked ? 'الشهادة مُلغاة' : 'الشهادة مسجّلة وصحيحة';
+      const badge = document.createElement('span'); badge.className = 'badge' + (revoked ? ' revoked' : ''); badge.textContent = revoked ? 'REVOKED' : 'VALID';
+      head.append(title, badge);
+      const fields = document.createElement('div'); fields.className = 'fields';
+      addField(fields, 'رقم الشهادة', c.number);
+      addField(fields, 'اسم المتدرب', c.name);
+      addField(fields, 'الدورة التدريبية', c.course);
+      addField(fields, 'نوع الشهادة', c.type);
+      addField(fields, 'تاريخ الدورة', c.courseDate);
+      addField(fields, 'تاريخ الإصدار', c.issueDate);
+      const foot = document.createElement('div'); foot.className = 'foot'; foot.textContent = 'تمت مطابقة هذه البيانات مع سجل الشهادات الخاص لدى أكرم صبري.';
+      card.append(head, fields, foot); resultBox.appendChild(card);
+    }
+    function lookup(token) {
+      if (!/^[A-Fa-f0-9]{32}$/.test(token)) { showNotice('رمز التحقق غير مكتمل أو غير صالح.', true); return; }
+      if (!API_ENDPOINT.startsWith('https://script.google.com/macros/s/') || !API_ENDPOINT.endsWith('/exec')) {
+        showNotice('صفحة التحقق قيد الإعداد. يرجى المحاولة لاحقًا.', true); return;
+      }
+      showNotice('جارٍ التحقق من السجل…');
+      const callback = 'certcb_' + crypto.randomUUID().replace(/-/g, '').slice(0, 24);
+      let timedOut = false;
+      const timer = setTimeout(() => { timedOut = true; delete window[callback]; script.remove(); showNotice('تعذر الوصول إلى خدمة التحقق الآن. أعد المحاولة لاحقًا.', true); }, 12000);
+      window[callback] = (data) => {
+        clearTimeout(timer); delete window[callback]; script.remove();
+        if (timedOut) return;
+        if (!data || !data.found || !data.certificate) { showNotice('لم نعثر على شهادة مطابقة لهذا الرمز. تحقق من الرمز أو تواصل مع مُصدر الشهادة.', true); return; }
+        renderCertificate(data.certificate);
+      };
+      const script = document.createElement('script');
+      script.referrerPolicy = 'no-referrer';
+      script.onerror = () => { clearTimeout(timer); delete window[callback]; showNotice('تعذر الوصول إلى خدمة التحقق الآن. أعد المحاولة لاحقًا.', true); };
+      script.src = API_ENDPOINT + '?id=' + encodeURIComponent(token.toUpperCase()) + '&prefix=' + encodeURIComponent(callback);
+      document.head.appendChild(script);
+    }
+    form.addEventListener('submit', (event) => { event.preventDefault(); lookup(tokenInput.value.trim()); });
+    const initialToken = new URLSearchParams(location.search).get('id');
+    if (initialToken) { tokenInput.value = initialToken; lookup(initialToken); }
+  </script>
+</body>
+</html>
