@@ -31,7 +31,7 @@
           <input id="token" name="token" maxlength="32" minlength="32" pattern="[A-Fa-f0-9]{32}" autocomplete="off" spellcheck="false" placeholder="رمز التحقق" required>
           <button type="submit">تحقق من الشهادة</button>
         </form>
-        <p class="hint">يعرض الموقع بيانات الشهادة المطابقة لهذا الرمز فقط. لا توجد قائمة عامة بأسماء المتدربين.</p>
+        <p class="hint">يعرض الموقع بيانات الشهادة المطابقة لهذا الرمز فقط، بما في ذلك عدد ساعات التدريب إذا كان مسجلًا. لا توجد قائمة عامة بأسماء المتدربين.</p>
         <div id="result" aria-live="polite"><div class="notice">أدخل رمز التحقق للبدء.</div></div>
       </div>
     </section>
@@ -73,6 +73,9 @@
       addField(fields, 'نوع الشهادة', c.type);
       addField(fields, 'تاريخ الدورة', c.courseDate);
       addField(fields, 'تاريخ الإصدار', c.issueDate);
+      if (c.hours !== undefined && c.hours !== null && String(c.hours).trim() !== '') {
+        addField(fields, 'عدد ساعات التدريب', String(c.hours).trim() + ' ساعة تدريبية');
+      }
       const foot = document.createElement('div'); foot.className = 'foot'; foot.textContent = 'تمت مطابقة هذه البيانات مع سجل الشهادات الخاص لدى أكرم صبري.';
       card.append(head, fields, foot); resultBox.appendChild(card);
     }
