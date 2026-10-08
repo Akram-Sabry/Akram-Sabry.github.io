@@ -45,11 +45,12 @@
     .course{color:var(--forest);font-size:clamp(16px,2vw,24px);font-weight:800;line-height:1.3;margin:0}
     .course-en{color:var(--muted);font-size:clamp(9px,1vw,12px);direction:ltr;margin:1px 0 0}
     .details{position:relative;z-index:2;width:70%;display:flex;justify-content:center;gap:18px;margin:7px 0;font-size:clamp(9px,1.05vw,12px)}
+    .iso-seals{position:relative;z-index:2;width:92%;display:flex;justify-content:center;align-items:center;gap:3px;margin:4px 0 2px;overflow:hidden}.iso-seals img{width:clamp(42px,5.2vw,74px);height:auto;max-height:56px;object-fit:contain}
     .detail{min-width:145px;padding:5px 12px;border:1px solid #e3dece;border-radius:9px;background:#ffffffa8;color:var(--muted)}
     .detail strong{display:block;color:var(--forest-dark);font-size:1.05em;margin-top:1px}
     .bottom{position:relative;z-index:2;width:88%;margin-top:auto;display:grid;grid-template-columns:1fr 120px 1fr;align-items:end;gap:18px;direction:ltr}
     .signature-block{min-height:112px;display:flex;flex-direction:column;align-items:center;justify-content:end;gap:2px;direction:rtl;color:var(--forest-dark)}
-    .signature-mark{font-family:'Aref Ruqaa Ink','Cairo',serif;font-size:clamp(24px,2.6vw,34px);font-weight:700;line-height:1.15;color:var(--forest);transform:rotate(-3deg);padding:0 12px 2px}
+    .signature-mark{display:none}.signature-image{display:block;width:min(100%,220px);height:auto;object-fit:contain;margin:0 auto 2px}
     .signature-line{width:min(76%,190px);border-bottom:1px solid #9fa99f;margin:1px 0 3px}
     .signature-block strong{font-size:11px}.signature-block small{font-size:8px;color:var(--muted)}
     .qr-panel{display:flex;flex-direction:column;align-items:center;gap:3px;direction:rtl}
@@ -57,13 +58,11 @@
     .qr canvas,.qr img{width:60px!important;height:60px!important}
     .serial{font:700 8px Arial,sans-serif;direction:ltr;color:var(--forest-dark);letter-spacing:.3px}
     .verification-note{font-size:8px;color:var(--muted);max-width:124px;line-height:1.3}
-    .issuer-stamp{position:relative;width:104px;height:104px;margin:0 auto 3px;border:2px solid var(--forest);border-radius:50%;outline:1px solid var(--gold);outline-offset:-7px;background:#fdfbf5;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;color:var(--forest-dark);transform:rotate(-6deg);box-shadow:0 2px 8px #102e2810}
-    .issuer-stamp::before{content:'';position:absolute;inset:9px;border:1px solid #b6934880;border-radius:50%;pointer-events:none}
-    .stamp-top,.stamp-bottom,.stamp-type{position:relative;z-index:1}.stamp-top{font-size:8px;font-weight:700}.stamp-word{position:relative;z-index:1;font-size:22px;line-height:1.1;font-weight:800;color:var(--forest)}
-    .stamp-bottom{font-size:7px}.stamp-type{font:700 5px Arial,sans-serif;letter-spacing:1px;color:var(--gold);direction:ltr;margin-top:2px}
+    .issuer-stamp{position:relative;width:180px;height:auto;max-width:100%;margin:0 auto 3px;display:block;object-fit:contain;transform:rotate(0deg)}
+    .issuer-stamp::before{content:none}.stamp-top,.stamp-bottom,.stamp-type{display:none}
     .controls-note{max-width:1460px;margin:0 auto 24px;padding:0 20px;color:var(--muted);font-size:12px}
     @media(max-width:850px){.toolbar{grid-template-columns:1fr}.certificate{min-width:760px}.certificate-wrap{padding-bottom:16px}}
-    @media print{@page{size:A4 landscape;margin:0}html,body{width:297mm;height:210mm;background:#fff!important;margin:0!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}.toolbar{display:block;margin:0;padding:0}.form-panel,.controls-note{display:none!important}.certificate-wrap{overflow:visible;padding:0}.certificate{width:297mm;height:210mm;min-width:0;aspect-ratio:auto;margin:0;border:0;box-shadow:none;padding:9mm}.certificate::before{inset:4.5mm}.certificate::after{inset:6.5mm}.corner{width:12mm;height:12mm}.corner.tl{top:3.5mm;left:3.5mm}.corner.tr{top:3.5mm;right:3.5mm}.corner.bl{bottom:3.5mm;left:3.5mm}.corner.br{bottom:3.5mm;right:3.5mm}.brand{margin-top:2mm}.brand-logo{width:17mm;height:17mm}.brand-text{font-size:14pt}.brand-text small{font-size:8pt}.certificate h2{font-size:27pt;margin:3mm 0 1mm}.divider{margin:2mm auto 2mm}.intro{font-size:10pt}.person{font-size:31pt;margin:1mm 0 2mm}.statement{font-size:9pt}.course-panel{margin:2mm 0;padding:2mm 8mm}.course{font-size:18pt}.course-en{font-size:9pt}.details{font-size:9pt;margin:2mm 0}.detail{min-width:42mm;padding:1.5mm 3mm}.bottom{grid-template-columns:1fr 28mm 1fr;width:88%;gap:8mm}.signature-block{min-height:28mm}.signature-mark{font-size:25pt}.signature-block strong{font-size:9pt}.signature-block small{font-size:7pt}.issuer-stamp{width:29mm;height:29mm}.stamp-top{font-size:7pt}.stamp-word{font-size:18pt}.stamp-bottom{font-size:6pt}.stamp-type{font-size:4pt}.qr,.qr canvas,.qr img{width:21mm!important;height:21mm!important}.qr{padding:1mm}.serial{font-size:6pt}.verification-note{font-size:6pt}}
+    @media print{@page{size:A4 landscape;margin:0}html,body{width:297mm;height:210mm;background:#fff!important;margin:0!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}.toolbar{display:block;margin:0;padding:0}.form-panel,.controls-note{display:none!important}.certificate-wrap{overflow:visible;padding:0}.certificate{width:297mm;height:210mm;min-width:0;aspect-ratio:auto;margin:0;border:0;box-shadow:none;padding:9mm}.certificate::before{inset:4.5mm}.certificate::after{inset:6.5mm}.corner{width:12mm;height:12mm}.corner.tl{top:3.5mm;left:3.5mm}.corner.tr{top:3.5mm;right:3.5mm}.corner.bl{bottom:3.5mm;left:3.5mm}.corner.br{bottom:3.5mm;right:3.5mm}.brand{margin-top:2mm}.brand-logo{width:17mm;height:17mm}.brand-text{font-size:14pt}.brand-text small{font-size:8pt}.certificate h2{font-size:27pt;margin:3mm 0 1mm}.divider{margin:2mm auto 2mm}.intro{font-size:10pt}.person{font-size:31pt;margin:1mm 0 2mm}.statement{font-size:9pt}.course-panel{margin:2mm 0;padding:2mm 8mm}.course{font-size:18pt}.course-en{font-size:9pt}.details{font-size:9pt;margin:2mm 0}.detail{min-width:42mm;padding:1.5mm 3mm}.iso-seals{width:92%;gap:1mm;margin:1mm 0;max-height:17mm}.iso-seals img{width:16mm;max-height:17mm}.bottom{grid-template-columns:1fr 28mm 1fr;width:88%;gap:8mm}.signature-block{min-height:28mm}.signature-image{width:58mm;max-width:100%;height:auto}.signature-mark{display:none}.signature-block strong{font-size:9pt}.signature-block small{font-size:7pt}.issuer-stamp{width:48mm;height:auto;max-width:48mm}.stamp-top,.stamp-word,.stamp-bottom,.stamp-type{display:none}.qr,.qr canvas,.qr img{width:21mm!important;height:21mm!important}.qr{padding:1mm}.serial{font-size:6pt}.verification-note{font-size:6pt}}
   </style>
   <script src="qrcode.min.js"></script>
 </head>
@@ -76,6 +75,7 @@
       <div class="field"><label for="course">اسم الدورة / Course title</label><input id="course" autocomplete="off" required></div>
       <div class="field"><label for="type">نوع الشهادة / Certificate type</label><select id="type"><option value="إتمام متطلبات البرنامج التدريبي / Completed training requirements">إتمام متطلبات البرنامج التدريبي / Completion</option><option value="حضور البرنامج التدريبي / Attended the training program">حضور البرنامج التدريبي / Attendance</option></select></div>
       <div class="field"><label for="number">رقم الشهادة / Certificate number</label><input id="number" placeholder="AS-2026-HACCP-0001" autocomplete="off" required></div>
+      <div class="field"><label for="hours">عدد ساعات التدريب / Training hours</label><input id="hours" type="number" min="1" max="999" step="0.5" placeholder="مثال: 24" required></div>
       <div class="field"><label for="course-date">تاريخ الدورة / Course date</label><input id="course-date" type="date" required></div>
       <div class="field"><label for="issue-date">تاريخ الإصدار / Issue date</label><input id="issue-date" type="date" required></div>
       <div class="field"><label for="token">رمز تحقق عشوائي (32 خانة) / Verification token</label><div class="token-row"><input id="token" maxlength="32" minlength="32" pattern="[A-Fa-f0-9]{32}" autocomplete="off" required><button type="button" id="new-token" class="secondary">توليد</button></div></div>
@@ -93,11 +93,23 @@
         <div class="person" id="p-name">اسم المتدرب</div>
         <p class="statement" id="p-statement">لإتمام متطلبات البرنامج التدريبي / for completing the training requirements</p>
         <div class="course-panel"><div class="course" id="p-course">اسم الدورة التدريبية</div><div class="course-en" id="p-course-en" dir="ltr"></div></div>
-        <div class="details"><div class="detail"><span>تاريخ الدورة / Course date</span><strong id="p-course-date">—</strong></div><div class="detail"><span>تاريخ الإصدار / Issue date</span><strong id="p-issue-date">—</strong></div></div>
+        <div class="details"><div class="detail"><span>عدد الساعات / Training hours</span><strong id="p-hours">—</strong></div><div class="detail"><span>تاريخ الدورة / Course date</span><strong id="p-course-date">—</strong></div><div class="detail"><span>تاريخ الإصدار / Issue date</span><strong id="p-issue-date">—</strong></div></div>
+        <div class="iso-seals" aria-label="أختام ومعايير ISO">
+          <img src="assets/iso-seals/iso-9001.png" alt="ISO 9001" width="74" height="98">
+          <img src="assets/iso-seals/iso-21001.png" alt="ISO 21001" width="74" height="98">
+          <img src="assets/iso-seals/iso-27001-a.png" alt="ISO 27001" width="74" height="98">
+          <img src="assets/iso-seals/iso-27001-b.png" alt="ISO 27001" width="74" height="98">
+          <img src="assets/iso-seals/iso-26000.png" alt="ISO 26000" width="74" height="98">
+          <img src="assets/iso-seals/iso-26002.png" alt="ISO 26002" width="74" height="98">
+          <img src="assets/iso-seals/iso-10002-a.png" alt="ISO 10002" width="74" height="98">
+          <img src="assets/iso-seals/iso-10002-b.png" alt="ISO 10002" width="74" height="98">
+          <img src="assets/iso-seals/iso-45001-a.png" alt="ISO 45001" width="74" height="98">
+          <img src="assets/iso-seals/iso-45001-b.png" alt="ISO 45001" width="74" height="98">
+        </div>
         <div class="bottom">
-          <div class="signature-block" aria-label="اسم المُصدر بخط زخرفي"><div class="signature-mark">أكرم صبري</div><div class="signature-line"></div><strong>م. أكرم صبري · المُصدر</strong><small>اسم المُصدر بخط زخرفي / Styled issuer name</small></div>
+          <div class="signature-block" aria-label="اسم المُصدر بخط زخرفي"><img class="signature-image" src="assets/akram-signature.png" alt="توقيع أكرم صبري" width="220" height="110"><strong>م. أكرم صبري · المُصدر</strong></div>
           <div class="qr-panel"><div class="qr" id="qr"><span style="font:10px Arial;color:#617078">QR</span></div><div class="serial" id="p-number">CERTIFICATE NO.</div><div class="verification-note">امسح الرمز للتحقق من سجل الشهادة</div></div>
-          <div class="issuer-stamp" aria-label="ختم إلكتروني تصميمي لأكاديمية خطوة"><span class="stamp-top">أكاديمية</span><strong class="stamp-word">خطوة</strong><span class="stamp-bottom">للتعليم والجودة</span><span class="stamp-type">TRAINING &amp; QUALITY</span></div>
+          <img class="issuer-stamp" src="assets/approved-stamp.png" alt="ختم معتمد أكاديمية خطوة" width="180" height="98">
         </div>
       </article>
     </div>
@@ -106,19 +118,20 @@
   <script>
     const VERIFY_BASE = 'https://akram-sabry.github.io/certificate-verification/';
     const $ = (id) => document.getElementById(id);
-    const fields = ['recipient','course','type','number','course-date','issue-date','token'];
+    const fields = ['recipient','course','type','number','hours','course-date','issue-date','token'];
     const today = new Date();
     $('issue-date').value = [today.getFullYear(),String(today.getMonth()+1).padStart(2,'0'),String(today.getDate()).padStart(2,'0')].join('-');
     function randomToken(){const bytes=new Uint8Array(16);crypto.getRandomValues(bytes);return Array.from(bytes,b=>b.toString(16).padStart(2,'0')).join('').toUpperCase();}
     function prettyDate(value){if(!value)return '—';const [y,m,d]=value.split('-').map(Number);return new Intl.DateTimeFormat('ar-EG',{day:'numeric',month:'long',year:'numeric'}).format(new Date(y,m-1,d));}
     function valid(){return fields.every(id=>$(id).value.trim()) && /^[A-Fa-f0-9]{32}$/.test($('token').value.trim());}
     function refresh(){
-      if(!valid()){alert('أكمل الاسم والدورة ورقم الشهادة والتاريخين ورمز التحقق (32 خانة).');return false;}
+      if(!valid()){alert('أكمل الاسم والدورة ورقم الشهادة وعدد الساعات والتاريخين ورمز التحقق (32 خانة).');return false;}
       const type=$('type').value;
       $('p-name').textContent=$('recipient').value.trim();
       $('p-course').textContent=$('course').value.trim();
       $('p-course-en').textContent='';
       $('p-statement').textContent=type;
+      $('p-hours').textContent=$('hours').value.trim()+' ساعة / hours';
       $('p-course-date').textContent=prettyDate($('course-date').value);
       $('p-issue-date').textContent=prettyDate($('issue-date').value);
       $('p-number').textContent=$('number').value.trim();
@@ -133,7 +146,7 @@
     $('print').addEventListener('click',()=>{if(refresh())window.print();});
     $('copy-row').addEventListener('click',async()=>{
       if(!valid()){alert('أكمل كل البيانات أولًا.');return;}
-      const values=[$('token').value.trim().toUpperCase(),$('number').value.trim(),$('recipient').value.trim(),$('course').value.trim(),$('type').value,$('course-date').value,$('issue-date').value,'VALID'];
+      const values=[$('token').value.trim().toUpperCase(),$('number').value.trim(),$('recipient').value.trim(),$('course').value.trim(),$('type').value,$('course-date').value,$('issue-date').value,'VALID',$('hours').value.trim()];
       const text=values.join('\t');
       try{await navigator.clipboard.writeText(text);}catch(e){const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand('copy');ta.remove();}
       $('row-text').textContent=values.join(' | ');
