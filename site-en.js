@@ -1,6 +1,15 @@
 (() => {
   'use strict';
 
+  document.documentElement.classList.add('js-enabled');
+
+  // Defer web fonts so they never block the first paint; system fonts remain the immediate fallback.
+  if (document.head && !document.querySelector('link[data-site-fonts]')) {
+    const preconnect = document.createElement('link'); preconnect.rel = 'preconnect'; preconnect.href = 'https://fonts.googleapis.com'; document.head.appendChild(preconnect);
+    const fontHost = document.createElement('link'); fontHost.rel = 'preconnect'; fontHost.href = 'https://fonts.gstatic.com'; fontHost.crossOrigin = 'anonymous'; document.head.appendChild(fontHost);
+    const fontCss = document.createElement('link'); fontCss.rel = 'stylesheet'; fontCss.href = 'https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap'; fontCss.media = 'print'; fontCss.dataset.siteFonts = 'true'; fontCss.onload = () => { fontCss.media = 'all'; }; document.head.appendChild(fontCss);
+  }
+
   const menuButton = document.querySelector('.menu-toggle');
   const nav = document.querySelector('#site-nav');
   const closeMenu = () => {
