@@ -6,8 +6,15 @@
   <meta name="robots" content="noindex,nofollow,noarchive">
   <meta name="theme-color" content="#0b5d4f">
   <title>التحقق من شهادة تدريب | أكرم صبري</title>
+  <meta name="description" content="تحقق من سجل شهادة التدريب مباشرة من مُصدرها عبر رمز تحقق فريد.">
+  <meta property="og:title" content="التحقق من شهادة تدريب | أكرم صبري">
+  <meta property="og:description" content="افتح الرابط للتحقق من سجل شهادة التدريب لدى مُصدرها.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap"></noscript>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap');
     :root{--forest:#0b5d4f;--forest-dark:#06463d;--gold:#c99a45;--ink:#22343a;--muted:#617078;--cream:#f8faf9;--line:#d9e4df;--red:#a8332a}
     *{box-sizing:border-box}body{margin:0;background:var(--cream);color:var(--ink);font-family:'IBM Plex Sans Arabic','Cairo',sans-serif;line-height:1.75}
     .top{background:#fff;border-bottom:1px solid var(--line)}.top-inner{max-width:920px;margin:auto;padding:18px 24px;display:flex;align-items:center;justify-content:space-between;gap:12px}.brand{font-weight:800;color:var(--forest-dark)}.brand small{display:block;color:var(--muted);font-size:12px;font-weight:500}
@@ -15,6 +22,17 @@
     form{display:flex;gap:10px;flex-wrap:wrap}input{flex:1;min-width:230px;border:1px solid #bfcfc8;border-radius:10px;padding:13px 14px;font:inherit;direction:ltr;text-align:left}button{border:0;border-radius:10px;padding:12px 20px;background:var(--forest);color:#fff;font:inherit;font-weight:800;cursor:pointer}button:hover{background:var(--forest-dark)}.hint{font-size:12px;color:var(--muted);margin:9px 0 0}
     #result{margin-top:22px}.notice{padding:14px 16px;border-radius:12px;background:#f1f6f4;color:var(--muted);border:1px solid var(--line)}.notice.error{background:#fff4f2;color:var(--red);border-color:#f2d2ce}.result-card{border:1px solid var(--line);border-radius:14px;overflow:hidden}.result-head{padding:15px 18px;background:#edf6f2;display:flex;justify-content:space-between;align-items:center;gap:12px}.result-head.revoked{background:#fff1ef}.badge{padding:5px 11px;border-radius:100px;background:var(--forest);color:#fff;font-weight:800;font-size:12px;white-space:nowrap}.badge.revoked{background:var(--red)}.fields{padding:8px 18px 16px}.field{display:grid;grid-template-columns:150px 1fr;gap:14px;padding:12px 0;border-bottom:1px solid #edf1ef}.field:last-child{border:0}.label{color:var(--muted);font-size:13px}.value{font-weight:700;overflow-wrap:anywhere}.foot{padding:15px 18px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}footer{max-width:920px;margin:0 auto;padding:0 24px 32px;color:var(--muted);font-size:12px;text-align:center}
     @media(max-width:560px){main{margin:24px auto}.content{padding:22px 18px}.field{grid-template-columns:1fr;gap:2px}.result-head{align-items:flex-start;flex-direction:column}}
+  </style>
+  <style>
+    .share-panel{margin-top:16px;padding:16px;border:1px solid var(--line);border-radius:14px;background:#f8faf9}
+    .share-panel h2{margin:0 0 5px;color:var(--forest-dark);font-size:17px}
+    .share-panel p{margin:0 0 12px;color:var(--muted);font-size:12px}
+    .share-actions{display:flex;flex-wrap:wrap;gap:9px}
+    .share-button{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:9px 14px;border:1px solid var(--line);border-radius:9px;background:#fff;color:var(--forest-dark);font:inherit;font-size:13px;font-weight:700;text-decoration:none;cursor:pointer}
+    .share-button:hover{border-color:#9ccdbf;background:#edf6f2}
+    .share-button.primary{border-color:var(--forest);background:var(--forest);color:#fff}
+    .share-feedback{min-height:1.5em;margin:9px 0 0!important;color:var(--forest-dark)!important;font-weight:700}
+    @media(max-width:560px){.share-actions{display:grid;grid-template-columns:1fr 1fr}.share-button{width:100%;min-height:46px}.share-button.primary{grid-column:1/-1}}
   </style>
 </head>
 <body>
@@ -58,7 +76,8 @@
       const val = document.createElement('div'); val.className = 'value'; val.textContent = value || '—';
       row.append(name, val); container.appendChild(row);
     }
-    function renderCertificate(c) {
+    function renderCertificate(c, token) {
+      resultBox.removeAttribute('aria-busy');
       resultBox.replaceChildren();
       const card = document.createElement('article'); card.className = 'result-card';
       const head = document.createElement('div');
@@ -79,6 +98,43 @@
       }
       const foot = document.createElement('div'); foot.className = 'foot'; foot.textContent = 'تمت مطابقة هذه البيانات مع سجل الشهادات الخاص لدى أكرم صبري.';
       card.append(head, fields, foot); resultBox.appendChild(card);
+
+      // Share a verifiable URL only after a matching certificate record is found.
+      const shareUrl = new URL(location.pathname, location.origin);
+      shareUrl.searchParams.set('id', token.toUpperCase());
+      const shareText = 'تحقق من سجل شهادة التدريب عبر الرابط التالي:';
+      const panel = document.createElement('section'); panel.className = 'share-panel'; panel.setAttribute('aria-labelledby','share-title');
+      const panelTitle = document.createElement('h2'); panelTitle.id = 'share-title'; panelTitle.textContent = 'شارك رابط التحقق من الشهادة';
+      const privacy = document.createElement('p'); privacy.textContent = 'عند مشاركة الرابط سيتمكن من يفتحه من رؤية بيانات الشهادة المعروضة. لا تشاركه إلا بموافقة صاحب الشهادة.';
+      const actions = document.createElement('div'); actions.className = 'share-actions';
+      const feedback = document.createElement('p'); feedback.className = 'share-feedback'; feedback.setAttribute('role','status'); feedback.setAttribute('aria-live','polite');
+      const addShareLink = (label, href) => {
+        const link = document.createElement('a'); link.className = 'share-button'; link.textContent = label; link.href = href; link.target = '_blank'; link.rel = 'noopener noreferrer'; actions.appendChild(link);
+      };
+      if (navigator.share) {
+        const shareButton = document.createElement('button'); shareButton.type = 'button'; shareButton.className = 'share-button primary'; shareButton.textContent = 'مشاركة…';
+        shareButton.addEventListener('click', async () => {
+          try { await navigator.share({title:'التحقق من شهادة تدريب | أكرم صبري',text:shareText,url:shareUrl.toString()}); }
+          catch (error) { if (error.name !== 'AbortError') feedback.textContent = 'تعذرت المشاركة من هذا الجهاز؛ استخدم أحد الروابط أو انسخ الرابط.'; }
+        });
+        actions.appendChild(shareButton);
+      }
+      const whatsapp = 'https://wa.me/?text=' + encodeURIComponent(shareText + '\n' + shareUrl.toString());
+      const linkedin = new URL('https://www.linkedin.com/sharing/share-offsite/'); linkedin.searchParams.set('url',shareUrl.toString());
+      const facebook = new URL('https://www.facebook.com/sharer/sharer.php'); facebook.searchParams.set('u',shareUrl.toString());
+      addShareLink('WhatsApp',whatsapp); addShareLink('LinkedIn',linkedin.toString()); addShareLink('Facebook',facebook.toString());
+      const copyButton = document.createElement('button'); copyButton.type='button'; copyButton.className='share-button'; copyButton.textContent='نسخ رابط التحقق';
+      copyButton.addEventListener('click', async () => {
+        try {
+          if (navigator.clipboard && window.isSecureContext) await navigator.clipboard.writeText(shareUrl.toString());
+          else {
+            const temp=document.createElement('textarea'); temp.value=shareUrl.toString(); temp.setAttribute('readonly',''); temp.style.position='fixed'; temp.style.opacity='0'; document.body.appendChild(temp); temp.select();
+            const copied=document.execCommand('copy'); temp.remove(); if(!copied) throw new Error('copy unavailable');
+          }
+          feedback.textContent='تم نسخ رابط التحقق.';
+        } catch (_) { feedback.textContent='تعذر النسخ تلقائيًا. افتح الشهادة ثم انسخ رابط الصفحة من شريط العنوان.'; }
+      });
+      actions.appendChild(copyButton); panel.append(panelTitle,privacy,actions,feedback); resultBox.appendChild(panel);
     }
     function lookup(token) {
       if (!/^[A-Fa-f0-9]{32}$/.test(token)) { showNotice('رمز التحقق غير مكتمل أو غير صالح.', true); return; }
@@ -95,7 +151,7 @@
         clearTimeout(timer); delete window[callback]; script.remove();
         if (timedOut) return;
         if (!data || !data.found || !data.certificate) { showNotice('لم نعثر على شهادة مطابقة لهذا الرمز. تحقق من الرمز أو تواصل مع مُصدر الشهادة.', true); return; }
-        renderCertificate(data.certificate);
+        renderCertificate(data.certificate, token.toUpperCase());
       };
       const script = document.createElement('script');
       script.referrerPolicy = 'no-referrer';
