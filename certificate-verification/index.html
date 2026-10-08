@@ -45,6 +45,7 @@
     const resultBox = document.getElementById('result');
 
     function showNotice(message, error=false) {
+      resultBox.removeAttribute('aria-busy');
       resultBox.replaceChildren();
       const box = document.createElement('div');
       box.className = 'notice' + (error ? ' error' : '');
@@ -85,7 +86,9 @@
         showNotice('صفحة التحقق قيد الإعداد. يرجى المحاولة لاحقًا.', true); return;
       }
       showNotice('جارٍ التحقق من السجل…');
-      const callback = 'certcb_' + crypto.randomUUID().replace(/-/g, '').slice(0, 24);
+      resultBox.setAttribute('aria-busy','true');
+      const randomId = (crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).slice(2) + Date.now().toString(36));
+      const callback = 'certcb_' + randomId.replace(/-/g, '').slice(0, 24);
       let timedOut = false;
       const timer = setTimeout(() => { timedOut = true; delete window[callback]; script.remove(); showNotice('تعذر الوصول إلى خدمة التحقق الآن. أعد المحاولة لاحقًا.', true); }, 12000);
       window[callback] = (data) => {
@@ -96,7 +99,7 @@
       };
       const script = document.createElement('script');
       script.referrerPolicy = 'no-referrer';
-      script.onerror = () => { clearTimeout(timer); delete window[callback]; showNotice('تعذر الوصول إلى خدمة التحقق الآن. أعد المحاولة لاحقًا.', true); };
+      script.onerror = () => { clearTimeout(timer); delete window[callback]; script.remove(); showNotice('تعذر الوصول إلى خدمة التحقق الآن. أعد المحاولة لاحقًا.', true); };
       script.src = API_ENDPOINT + '?id=' + encodeURIComponent(token.toUpperCase()) + '&prefix=' + encodeURIComponent(callback);
       document.head.appendChild(script);
     }
