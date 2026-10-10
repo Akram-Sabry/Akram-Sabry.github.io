@@ -88,7 +88,8 @@
       <div class="field"><label for="issue-date">تاريخ الإصدار / Issue date</label><input id="issue-date" type="date" required></div>
       <div class="field"><label for="token">رمز تحقق عشوائي (32 خانة) / Verification token</label><div class="token-row"><input id="token" maxlength="32" minlength="32" pattern="[A-Fa-f0-9]{32}" autocomplete="off" required><button type="button" id="new-token" class="secondary">توليد</button></div></div>
       <p class="hint">رمز التحقق يُنشأ عشوائيًا على جهازك. رقم الشهادة يُنشأ تلقائيًا عند أول تحديث للمعاينة، والتسلسل محفوظ في هذا المتصفح فقط؛ استخدم الجهاز والمتصفح نفسيهما، وراجع جدول السجل قبل الإصدار من جهاز آخر.</p>
-      <div class="actions"><button id="refresh" class="primary" type="button">تحديث الشهادة والـQR</button><button id="copy-row" class="copy-button" type="button">نسخ صف السجل</button><button id="export-pdf" class="secondary" type="button" disabled>تصدير PDF عالي الجودة</button><button id="print" class="secondary" type="button" disabled>طباعة / حفظ PDF</button></div>
+      <div class="actions"><button id="refresh" class="primary" type="button">تحديث الشهادة والـQR</button><button id="copy-row" class="copy-button" type="button">نسخ صف السجل</button><button id="export-pdf" class="secondary" type="button" disabled>حفظ الشهادة PDF</button><button id="print" class="secondary" type="button" disabled>طباعة / حفظ PDF</button></div>
+      <p class="hint">على الهاتف، زر «حفظ الشهادة PDF» يفتح نافذة الطباعة لتختار «حفظ كـ PDF». على الكمبيوتر يُنزّل الملف مباشرة.</p>
       <div id="row-out" class="row-out"><strong>انسخ هذا الصف والصقه في Google Sheet بدءًا من العمود A (الساعات في آخر عمود):</strong><pre id="row-text"></pre></div>
     </section>
     <div class="certificate-wrap">
@@ -194,6 +195,9 @@
     }
     async function exportPdf(){
       if(!refresh()) return;
+      const mobileDevice=window.matchMedia('(max-width: 850px)').matches||/Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent)||(navigator.maxTouchPoints>1&&/MacIntel/.test(navigator.platform));
+      // html2canvas clips the fixed-width canvas on narrow mobile viewports; use native A4 print there.
+      if(mobileDevice&&typeof window.print==='function'){window.print();return;}
       try{await loadPdfLibrary();}catch(error){console.error(error);alert('لم يتم تحميل أداة PDF. استخدم زر الطباعة كبديل.');return;}
       const source=$('certificate');
       await document.fonts.ready;
