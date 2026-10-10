@@ -15,9 +15,6 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap"></noscript>
   
-  <!-- إضافة مكتبة التقاط الصور -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-
   <style>
     :root{--forest:#0b5d4f;--forest-dark:#06463d;--gold:#c99a45;--ink:#22343a;--muted:#617078;--cream:#f8faf9;--line:#d9e4df;--red:#a8332a}
     *{box-sizing:border-box}body{margin:0;background:var(--cream);color:var(--ink);font-family:'IBM Plex Sans Arabic','Cairo',sans-serif;line-height:1.75}
@@ -26,6 +23,14 @@
     form{display:flex;gap:10px;flex-wrap:wrap}input{flex:1;min-width:230px;border:1px solid #bfcfc8;border-radius:10px;padding:13px 14px;font:inherit;direction:ltr;text-align:left}button{border:0;border-radius:10px;padding:12px 20px;background:var(--forest);color:#fff;font:inherit;font-weight:800;cursor:pointer}button:hover{background:var(--forest-dark)}.hint{font-size:12px;color:var(--muted);margin:9px 0 0}
     #result{margin-top:22px}.notice{padding:14px 16px;border-radius:12px;background:#f1f6f4;color:var(--muted);border:1px solid var(--line)}.notice.error{background:#fff4f2;color:var(--red);border-color:#f2d2ce}.result-card{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}.result-head{padding:15px 18px;background:#edf6f2;display:flex;justify-content:space-between;align-items:center;gap:12px}.result-head.revoked{background:#fff1ef}.badge{padding:5px 11px;border-radius:100px;background:var(--forest);color:#fff;font-weight:800;font-size:12px;white-space:nowrap}.badge.revoked{background:var(--red)}.fields{padding:8px 18px 16px}.field{display:grid;grid-template-columns:150px 1fr;gap:14px;padding:12px 0;border-bottom:1px solid #edf1ef}.field:last-child{border:0}.label{color:var(--muted);font-size:13px}.value{font-weight:700;overflow-wrap:anywhere}.foot{padding:15px 18px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}footer{max-width:920px;margin:0 auto;padding:0 24px 32px;color:var(--muted);font-size:12px;text-align:center}
     @media(max-width:560px){main{margin:24px auto}.content{padding:22px 18px}.field{grid-template-columns:1fr;gap:2px}.result-head{align-items:flex-start;flex-direction:column}}
+
+    /* إعدادات الطباعة النظيفة لإخفاء أي قوائم جانبية أو أزرار وطباعة البطاقة فقط بجودة أصلية */
+    @media print {
+      body * { visibility: hidden; }
+      #result, #result *, .result-card, .result-card * { visibility: visible; }
+      .result-card { position: absolute; left: 0; top: 0; width: 100%; border: none; box-shadow: none; }
+      .share-panel { display: none !important; }
+    }
   </style>
   <style>
     .share-panel{margin-top:16px;padding:16px;border:1px solid var(--line);border-radius:14px;background:#f8faf9}
@@ -138,66 +143,16 @@
       });
       actions.appendChild(copyButton); 
 
-      // === زر تحميل البطاقة كصورة PNG مع عزل تام وتثبيت العرض والخطوط ===
-      const downloadImgBtn = document.createElement('button');
-      downloadImgBtn.type = 'button';
-      downloadImgBtn.className = 'share-button primary';
-      downloadImgBtn.textContent = 'تحميل الشهادة PNG';
-      downloadImgBtn.addEventListener('click', () => {
-        const originalBtnText = downloadImgBtn.textContent;
-        downloadImgBtn.textContent = 'جاري التصدير...';
-        downloadImgBtn.disabled = true;
-
-        html2canvas(card, { 
-          scale: 3,
-          useCORS: true, 
-          allowTaint: true, 
-          backgroundColor: '#ffffff',
-          onclone: (clonedDoc) => {
-            const clonedCard = clonedDoc.querySelector('article');
-            if (clonedCard) {
-              clonedCard.style.width = '750px';
-              clonedCard.style.margin = '0 auto';
-              clonedCard.style.direction = 'rtl';
-              clonedCard.style.fontFamily = "'Cairo', 'IBM Plex Sans Arabic', sans-serif";
-            }
-            // تحويل الحقول إلى نظام تباعد نظيف وواضح لا يتأثر بأبعاد الشاشة
-            const clonedRows = clonedDoc.querySelectorAll('.field');
-            clonedRows.forEach(row => {
-              row.style.display = 'block';
-              row.style.padding = '14px 20px';
-              row.style.borderBottom = '1px solid #edf1ef';
-            });
-            const clonedLabels = clonedDoc.querySelectorAll('.label');
-            clonedLabels.forEach(lbl => {
-              lbl.style.color = '#617078';
-              lbl.style.fontSize = '13px';
-              lbl.style.marginBottom = '4px';
-            });
-            const clonedValues = clonedDoc.querySelectorAll('.value');
-            clonedValues.forEach(val => {
-              val.style.color = '#22343a';
-              val.style.fontSize = '16px';
-              val.style.fontWeight = '700';
-            });
-          }
-        }).then(canvas => {
-          const link = document.createElement('a');
-          link.href = canvas.toDataURL('image/png');
-          link.download = (c.number ? c.number : 'Certificate') + '.png';
-          document.body.appendChild(link);
-          link.click();
-          document.body.removeChild(link);
-          downloadImgBtn.textContent = originalBtnText;
-          downloadImgBtn.disabled = false;
-        }).catch(() => {
-          alert('حدث خطأ أثناء حفظ الصورة.');
-          downloadImgBtn.textContent = originalBtnText;
-          downloadImgBtn.disabled = false;
-        });
+      // === زر الحفظ والطباعة الاحترافي (بدون أي أخطاء أو تغيرات) ===
+      const savePdfBtn = document.createElement('button');
+      savePdfBtn.type = 'button';
+      savePdfBtn.className = 'share-button primary';
+      savePdfBtn.textContent = 'حفظ الشهادة كملف PDF';
+      savePdfBtn.addEventListener('click', () => {
+        window.print();
       });
-      actions.appendChild(downloadImgBtn);
-      // ===================================================================
+      actions.appendChild(savePdfBtn);
+      // ========================================================
 
       panel.append(panelTitle,privacy,actions,feedback); resultBox.appendChild(panel);
     }
