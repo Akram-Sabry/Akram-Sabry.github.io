@@ -110,11 +110,11 @@
       <div class="field"><label for="issue-date">تاريخ الإصدار / Issue date</label><input id="issue-date" type="date" required></div>
       <div class="field"><label for="token">رمز تحقق عشوائي (32 خانة) / Verification token</label><div class="token-row"><input id="token" maxlength="32" minlength="32" pattern="[A-Fa-f0-9]{32}" autocomplete="off" required><button type="button" id="new-token" class="secondary">توليد</button><button type="button" id="copy-token" class="secondary">نسخ</button></div></div>
       <p class="hint">رمز التحقق يُنشأ عشوائيًا على جهازك. رقم الشهادة يُنشأ تلقائيًا عند أول تحديث للمعاينة، والتسلسل محفوظ في هذا المتصفح فقط؛ استخدم الجهاز والمتصفح نفسيهما، وراجع جدول السجل قبل الإصدار من جهاز آخر.</p>
-      <div class="actions"><button id="refresh" class="primary" type="button">معاينة الشهادة</button><button id="sample-data" class="copy-button" type="button">بيانات تجريبية</button><button id="copy-row" class="copy-button" type="button">نسخ صف السجل</button><button id="export-pdf" class="secondary" type="button" disabled>تحميل الشهادة PDF</button><button id="print" class="secondary" type="button" disabled>طباعة / حفظ PDF</button><button id="reset-form" class="secondary" type="button">مسح البيانات</button></div>
+      <div class="actions"><button id="refresh" class="primary" type="button">معاينة الشهادة</button><button id="sample-data" class="copy-button" type="button">بيانات تجريبية</button><button id="copy-row" class="copy-button" type="button">نسخ صف السجل</button><button id="export-pdf" class="secondary" type="button" disabled>تحميل الشهادة PDF</button><button id="download-png" class="secondary" type="button" disabled>تحميل PNG عالي الجودة</button><button id="print" class="secondary" type="button" disabled>طباعة / حفظ PDF</button><button id="reset-form" class="secondary" type="button">مسح البيانات</button></div>
       <label class="seals-toggle"><input id="show-seals" type="checkbox" checked> إظهار أختام ISO على الشهادة</label>
       <p id="ready-status" class="ready-status" role="status">أدخل البيانات ثم اضغط «معاينة الشهادة».</p>
       <p class="draft-note">يتم حفظ المسودة تلقائيًا على هذا الجهاز فقط.</p>
-      <p class="hint">زر «تحميل الشهادة PDF» يفتح نافذة الطباعة الأصلية في كل الأجهزة؛ اختر «حفظ كـ PDF» للحفظ بنفس شكل المعاينة بدون إعادة رسم للنصوص.</p>
+      <p class="hint">زر «تحميل الشهادة PDF» يفتح نافذة الطباعة الأصلية؛ اختر «حفظ كـ PDF» للحفظ بنفس شكل المعاينة. ويمكنك استخدام زر PNG للحصول على صورة عالية الجودة.</p>
       <div id="row-out" class="row-out"><strong>انسخ هذا الصف والصقه في Google Sheet بدءًا من العمود A (الساعات في آخر عمود):</strong><pre id="row-text"></pre></div>
     </section>
     <div class="certificate-wrap">
@@ -243,6 +243,7 @@
       $('certificate').classList.toggle('seals-hidden',!$('show-seals').checked);
       $('print').disabled=false;
       $('export-pdf').disabled=false;
+      $('download-png').disabled=false;
       setReadyState(true);
       return true;
     }
@@ -267,16 +268,54 @@
       $('type').selectedIndex=0;
       $('issue-date').value=[today.getFullYear(),String(today.getMonth()+1).padStart(2,'0'),String(today.getDate()).padStart(2,'0')].join('-');
       $('qr').replaceChildren(Object.assign(document.createElement('span'),{textContent:'QR'}));
-      $('print').disabled=true;$('export-pdf').disabled=true;$('row-out').style.display='none';$('row-text').textContent='';
+      $('print').disabled=true;$('export-pdf').disabled=true;$('download-png').disabled=true;$('row-out').style.display='none';$('row-text').textContent='';
       $('show-seals').checked=true;$('certificate').classList.remove('seals-hidden');setReadyState(false);
       saveDraft();
     });
+    let pngLoader;
+    function loadPdfLibrary(){
+      if(window.html2pdf)return Promise.resolve();
+      if(pngLoader)return pngLoader;
+      pngLoader=new Promise((resolve,reject)=>{
+        const script=document.createElement('script');
+        script.src='html2pdf.bundle.min.js';
+        script.onload=resolve;
+        script.onerror=()=>reject(new Error('PNG rendering library failed to load'));
+        document.head.appendChild(script);
+      });
+      return pngLoader;
+    }
+    async function downloadPng(){
+      if(!refresh())return;
+      let clone;
+      try{
+        await loadPdfLibrary();
+        await document.fonts.ready;
+        await Promise.all([document.fonts.load('400 16px "IBM Plex Sans Arabic"'),document.fonts.load('700 16px "IBM Plex Sans Arabic"'),document.fonts.load('700 16px Cairo')]);
+        const source=$('certificate');
+        clone=source.cloneNode(true);
+        clone.style.cssText='position:absolute;left:0;top:0;z-index:0;pointer-events:none;width:793px;height:1122px;min-width:793px;max-width:793px;aspect-ratio:auto;margin:0;box-shadow:none;background:#fffdf8;overflow:hidden';
+        clone.querySelectorAll('picture.fast-picture source[type="image/webp"]').forEach(source=>source.remove());
+        document.body.appendChild(clone);
+        await Promise.all([...clone.querySelectorAll('img')].map(image=>image.decode().catch(()=>{})));
+        const sourceCanvases=source.querySelectorAll('canvas');
+        const cloneCanvases=clone.querySelectorAll('canvas');
+        sourceCanvases.forEach((canvas,index)=>{const target=cloneCanvases[index];if(target){target.width=canvas.width;target.height=canvas.height;target.getContext('2d').drawImage(canvas,0,0);}});
+        const canvas=await html2pdf().set({html2canvas:{scale:3,useCORS:true,backgroundColor:'#fffdf8',letterRendering:false,logging:false,x:0,y:0,width:793,height:1122,scrollX:0,scrollY:0,windowWidth:793,windowHeight:1122}}).from(clone).toCanvas().get('canvas');
+        const blob=await new Promise(resolve=>canvas.toBlob(resolve,'image/png'));
+        if(!blob)throw new Error('PNG creation failed');
+        const number=$('number').value.trim().replace(/[^a-z0-9_-]+/gi,'-')||'certificate';
+        const url=URL.createObjectURL(blob);const link=document.createElement('a');link.href=url;link.download=number+'.png';link.rel='noopener';document.body.appendChild(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
+      }catch(error){console.error('PNG export failed',error);alert('تعذر إنشاء صورة PNG. استخدم الطباعة أو حفظ PDF كبديل.');}
+      finally{if(clone)clone.remove();}
+    }
     function exportPdf(){
       if(!refresh())return;
       if(typeof window.print==='function'){window.print();return;}
       alert('استخدم زر الطباعة في المتصفح ثم اختر «حفظ كـ PDF».');
     }
     $('export-pdf').addEventListener('click',exportPdf);
+    $('download-png').addEventListener('click',downloadPng);
     $('print').addEventListener('click',()=>{if(refresh())window.print();});
     $('copy-row').addEventListener('click',async()=>{
       ensureCertificateNumber();
