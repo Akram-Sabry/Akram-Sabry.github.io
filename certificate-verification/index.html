@@ -138,7 +138,7 @@
       });
       actions.appendChild(copyButton); 
 
-      // === زر تحميل بطاقة الشهادة كصورة PNG مع ضبط التنسيق بالكامل ===
+      // === زر تحميل بطاقة الشهادة كصورة PNG مع تعديل هيكل الطباعة لتجنب أي مشاكل ===
       const downloadImgBtn = document.createElement('button');
       downloadImgBtn.type = 'button';
       downloadImgBtn.className = 'share-button primary';
@@ -149,11 +149,30 @@
         downloadImgBtn.disabled = true;
 
         html2canvas(card, { 
-          scale: 3,             // زيادة مقياس الجودة لتصبح فائقة الوضوح
+          scale: 3,
           useCORS: true, 
           allowTaint: true, 
           backgroundColor: '#ffffff',
-          windowWidth: 800      // تثبيت عرض الصفحة الافتراضي أثناء التقاط الصورة لتجنب تغير التخطيط
+          onclone: (clonedDoc) => {
+            // ضبط التنسيق داخل النسخة الملتقطة لتظهر النصوص مرتبطة ومنظمة بدقة
+            const clonedCard = clonedDoc.querySelector('article');
+            if (clonedCard) {
+              clonedCard.style.width = '700px';
+              clonedCard.style.margin = '0 auto';
+              clonedCard.style.boxShadow = 'none';
+            }
+            const clonedFields = clonedDoc.querySelectorAll('.field');
+            clonedFields.forEach(f => {
+              f.style.display = 'flex';
+              f.style.justifyContent = 'space-between';
+              f.style.padding = '12px 15px';
+            });
+            const clonedLabels = clonedDoc.querySelectorAll('.label');
+            clonedLabels.forEach(l => {
+              l.style.minWidth = '160px';
+              l.style.textAlign = 'right';
+            });
+          }
         }).then(canvas => {
           const link = document.createElement('a');
           link.href = canvas.toDataURL('image/png');
@@ -170,7 +189,7 @@
         });
       });
       actions.appendChild(downloadImgBtn);
-      // ========================================================
+      // =========================================================================
 
       panel.append(panelTitle,privacy,actions,feedback); resultBox.appendChild(panel);
     }
