@@ -1,39 +1,34 @@
 <!doctype html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="robots" content="noindex,nofollow,noarchive">
   <meta name="theme-color" content="#0b5d4f">
-  <title>التحقق من شهادة تدريب | أكرم صبري</title>
-  <meta name="description" content="تحقق من سجل شهادة التدريب مباشرة من مُصدرها عبر رمز تحقق فريد.">
-  <meta property="og:title" content="التحقق من شهادة تدريب | أكرم صبري">
-  <meta property="og:description" content="افتح الرابط للتحقق من سجل شهادة التدريب لدى مُصدرها.">
+  <title>Training Certificate Verification | Akram Sabry</title>
+  <meta name="description" content="Verify training certificate records directly from the issuer via a unique verification token.">
+  <meta property="og:title" content="Training Certificate Verification | Akram Sabry">
+  <meta property="og:description" content="Open the link to verify the training certificate record from the issuer.">
   <meta property="og:type" content="website">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap"></noscript>
   
+  <!-- مكتبة التقاط الصور وتصدير الـ PNG -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
   <style>
     :root{--forest:#0b5d4f;--forest-dark:#06463d;--gold:#c99a45;--ink:#22343a;--muted:#617078;--cream:#f8faf9;--line:#d9e4df;--red:#a8332a}
     *{box-sizing:border-box}body{margin:0;background:var(--cream);color:var(--ink);font-family:'IBM Plex Sans Arabic','Cairo',sans-serif;line-height:1.75}
     .top{background:#fff;border-bottom:1px solid var(--line)}.top-inner{max-width:920px;margin:auto;padding:18px 24px;display:flex;align-items:center;justify-content:space-between;gap:12px}.brand{font-weight:800;color:var(--forest-dark)}.brand small{display:block;color:var(--muted);font-size:12px;font-weight:500}
     main{max-width:760px;margin:44px auto;padding:0 20px}.panel{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 16px 40px #17252b0d;overflow:hidden}.accent{height:7px;background:linear-gradient(90deg,var(--forest),var(--gold))}.content{padding:30px}.eyebrow{color:var(--gold);font-size:13px;font-weight:800}.title{margin:4px 0 6px;color:#17252b;font-size:clamp(26px,5vw,36px);line-height:1.25}.subtitle{margin:0 0 24px;color:var(--muted)}
     form{display:flex;gap:10px;flex-wrap:wrap}input{flex:1;min-width:230px;border:1px solid #bfcfc8;border-radius:10px;padding:13px 14px;font:inherit;direction:ltr;text-align:left}button{border:0;border-radius:10px;padding:12px 20px;background:var(--forest);color:#fff;font:inherit;font-weight:800;cursor:pointer}button:hover{background:var(--forest-dark)}.hint{font-size:12px;color:var(--muted);margin:9px 0 0}
-    #result{margin-top:22px}.notice{padding:14px 16px;border-radius:12px;background:#f1f6f4;color:var(--muted);border:1px solid var(--line)}.notice.error{background:#fff4f2;color:var(--red);border-color:#f2d2ce}.result-card{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}.result-head{padding:15px 18px;background:#edf6f2;display:flex;justify-content:space-between;align-items:center;gap:12px}.result-head.revoked{background:#fff1ef}.badge{padding:5px 11px;border-radius:100px;background:var(--forest);color:#fff;font-weight:800;font-size:12px;white-space:nowrap}.badge.revoked{background:var(--red)}.fields{padding:8px 18px 16px}.field{display:grid;grid-template-columns:150px 1fr;gap:14px;padding:12px 0;border-bottom:1px solid #edf1ef}.field:last-child{border:0}.label{color:var(--muted);font-size:13px}.value{font-weight:700;overflow-wrap:anywhere}.foot{padding:15px 18px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}footer{max-width:920px;margin:0 auto;padding:0 24px 32px;color:var(--muted);font-size:12px;text-align:center}
+    #result{margin-top:22px}.notice{padding:14px 16px;border-radius:12px;background:#f1f6f4;color:var(--muted);border:1px solid var(--line)}.notice.error{background:#fff4f2;color:var(--red);border-color:#f2d2ce}.result-card{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;direction:ltr;text-align:left}.result-head{padding:15px 18px;background:#edf6f2;display:flex;justify-content:space-between;align-items:center;gap:12px}.result-head.revoked{background:#fff1ef}.badge{padding:5px 11px;border-radius:100px;background:var(--forest);color:#fff;font-weight:800;font-size:12px;white-space:nowrap}.badge.revoked{background:var(--red)}.fields{padding:8px 18px 16px}.field{display:grid;grid-template-columns:180px 1fr;gap:14px;padding:12px 0;border-bottom:1px solid #edf1ef}.field:last-child{border:0}.label{color:var(--muted);font-size:13px}.value{font-weight:700;overflow-wrap:anywhere}.foot{padding:15px 18px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}footer{max-width:920px;margin:0 auto;padding:0 24px 32px;color:var(--muted);font-size:12px;text-align:center}
     @media(max-width:560px){main{margin:24px auto}.content{padding:22px 18px}.field{grid-template-columns:1fr;gap:2px}.result-head{align-items:flex-start;flex-direction:column}}
-
-    /* إعدادات الطباعة النظيفة لإخفاء أي قوائم جانبية أو أزرار وطباعة البطاقة فقط بجودة أصلية */
-    @media print {
-      body * { visibility: hidden; }
-      #result, #result *, .result-card, .result-card * { visibility: visible; }
-      .result-card { position: absolute; left: 0; top: 0; width: 100%; border: none; box-shadow: none; }
-      .share-panel { display: none !important; }
-    }
   </style>
   <style>
-    .share-panel{margin-top:16px;padding:16px;border:1px solid var(--line);border-radius:14px;background:#f8faf9}
+    .share-panel{margin-top:16px;padding:16px;border:1px solid var(--line);border-radius:14px;background:#f8faf9;direction:ltr;text-align:left}
     .share-panel h2{margin:0 0 5px;color:var(--forest-dark);font-size:17px}
     .share-panel p{margin:0 0 12px;color:var(--muted);font-size:12px}
     .share-actions{display:flex;flex-wrap:wrap;gap:9px}
@@ -41,29 +36,28 @@
     .share-button:hover{border-color:#9ccdbf;background:#edf6f2}
     .share-button.primary{border-color:var(--forest);background:var(--forest);color:#fff}
     .share-feedback{min-height:1.5em;margin:9px 0 0!important;color:var(--forest-dark)!important;font-weight:700}
-    @media(max-width:560px){.share-actions{display:grid;grid-template-columns:1fr 1fr}.share-button{width:100%;min-height:46px}.share-button.primary{grid-column:1/-1}}
   </style>
 </head>
 <body>
-  <header class="top"><div class="top-inner"><div class="brand">م. أكرم صبري<small>استشاري جودة وسلامة الغذاء</small></div><div lang="en" dir="ltr" style="text-align:left;color:#617078;font-size:12px">TRAINING CERTIFICATE CHECK</div></div></header>
+  <header class="top"><div class="top-inner"><div class="brand">Eng. Akram Sabry<small>Food Safety & Quality Consultant</small></div><div lang="en" dir="ltr" style="text-align:left;color:#617078;font-size:12px">TRAINING CERTIFICATE CHECK</div></div></header>
   <main>
     <section class="panel" aria-labelledby="page-title">
       <div class="accent"></div>
       <div class="content">
-        <div class="eyebrow">خدمة التحقق الإلكتروني</div>
-        <h1 class="title" id="page-title">التحقق من شهادة تدريب</h1>
-        <p class="subtitle">امسح رمز QR الموجود على الشهادة، أو أدخل رمز التحقق المكوّن من 32 حرفًا/رقمًا.</p>
+        <div class="eyebrow">Online Verification Service</div>
+        <h1 class="title" id="page-title">Training Certificate Verification</h1>
+        <p class="subtitle">Enter the 32-character verification token or open via QR code.</p>
         <form id="lookup-form">
-          <label for="token" class="visually-hidden" style="position:absolute;clip:rect(0,0,0,0)">رمز التحقق</label>
-          <input id="token" name="token" maxlength="32" minlength="32" pattern="[A-Fa-f0-9]{32}" autocomplete="off" spellcheck="false" placeholder="رمز التحقق" required>
-          <button type="submit">تحقق من الشهادة</button>
+          <label for="token" class="visually-hidden" style="position:absolute;clip:rect(0,0,0,0)">Verification Token</label>
+          <input id="token" name="token" maxlength="32" minlength="32" pattern="[A-Fa-f0-9]{32}" autocomplete="off" spellcheck="false" placeholder="Verification Token" required>
+          <button type="submit">Verify Certificate</button>
         </form>
-        <p class="hint">يعرض الموقع بيانات الشهادة المطابقة لهذا الرمز فقط، بما في ذلك عدد ساعات التدريب إذا كان مسجلًا. لا توجد قائمة عامة بأسماء المتدربين.</p>
-        <div id="result" aria-live="polite"><div class="notice">أدخل رمز التحقق للبدء.</div></div>
+        <p class="hint">The system displays only the certificate matching this token. No public directory of trainees is maintained.</p>
+        <div id="result" aria-live="polite"><div class="notice">Enter the verification token to start.</div></div>
       </div>
     </section>
   </main>
-  <footer>هذه الصفحة للتحقق من سجل الشهادة لدى مُصدرها، ولا تعني اعتمادًا من جهة خارجية.</footer>
+  <footer>This page verifies certificate records issued by Eng. Akram Sabry and does not constitute third-party accreditation.</footer>
   <script>
     const API_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzboYWjlEuNfyWw2NcaTSKZrIjU1NbACHQoqVlmjTyRZshpqrHNeCmaYMi0Wz5u-VV3/exec';
     const form = document.getElementById('lookup-form');
@@ -91,46 +85,41 @@
       const head = document.createElement('div');
       const revoked = c.status === 'REVOKED';
       head.className = 'result-head' + (revoked ? ' revoked' : '');
-      const title = document.createElement('strong'); title.textContent = revoked ? 'الشهادة مُلغاة' : 'الشهادة مسجّلة وصحيحة';
+      const title = document.createElement('strong'); title.textContent = revoked ? 'Certificate Revoked' : 'Verified & Valid Certificate';
       const badge = document.createElement('span'); badge.className = 'badge' + (revoked ? ' revoked' : ''); badge.textContent = revoked ? 'REVOKED' : 'VALID';
       head.append(title, badge);
       const fields = document.createElement('div'); fields.className = 'fields';
-      addField(fields, 'رقم الشهادة', c.number);
-      addField(fields, 'اسم المتدرب', c.name);
-      addField(fields, 'الدورة التدريبية', c.course);
-      addField(fields, 'نوع الشهادة', c.type);
-      addField(fields, 'تاريخ الدورة', c.courseDate);
-      addField(fields, 'تاريخ الإصدار', c.issueDate);
+      addField(fields, 'Certificate No.', c.number);
+      addField(fields, 'Recipient Name', c.name);
+      addField(fields, 'Course Title', c.course);
+      addField(fields, 'Certificate Type', c.type);
+      addField(fields, 'Course Date', c.courseDate);
+      addField(fields, 'Issue Date', c.issueDate);
       if (c.hours !== undefined && c.hours !== null && String(c.hours).trim() !== '') {
-        addField(fields, 'عدد ساعات التدريب', String(c.hours).trim() + ' ساعة تدريبية');
+        addField(fields, 'Training Hours', String(c.hours).trim() + ' Hours');
       }
-      const foot = document.createElement('div'); foot.className = 'foot'; foot.textContent = 'تمت مطابقة هذه البيانات مع سجل الشهادات الخاص لدى أكرم صبري.';
+      const foot = document.createElement('div'); foot.className = 'foot'; foot.textContent = 'This data matches official certificate records maintained by Eng. Akram Sabry.';
       card.append(head, fields, foot); resultBox.appendChild(card);
 
       const shareUrl = new URL(location.pathname, location.origin);
       shareUrl.searchParams.set('id', token.toUpperCase());
-      const shareText = 'تحقق من سجل شهادة التدريب عبر الرابط التالي:';
+      const shareText = 'Verify this training certificate via the following link:';
       const panel = document.createElement('section'); panel.className = 'share-panel'; panel.setAttribute('aria-labelledby','share-title');
-      const panelTitle = document.createElement('h2'); panelTitle.id = 'share-title'; panelTitle.textContent = 'شارك رابط التحقق من الشهادة';
-      const privacy = document.createElement('p'); privacy.textContent = 'عند مشاركة الرابط سيتمكن من يفتحه من رؤية بيانات الشهادة المعروضة. لا تشاركه إلا بموافقة صاحب الشهادة.';
+      const panelTitle = document.createElement('h2'); panelTitle.id = 'share-title'; panelTitle.textContent = 'Share Verification Link';
+      const privacy = document.createElement('p'); privacy.textContent = 'Anyone with this link will be able to view the certificate details shown above.';
       const actions = document.createElement('div'); actions.className = 'share-actions';
       const feedback = document.createElement('p'); feedback.className = 'share-feedback'; feedback.setAttribute('role','status'); feedback.setAttribute('aria-live','polite');
+      
       const addShareLink = (label, href) => {
         const link = document.createElement('a'); link.className = 'share-button'; link.textContent = label; link.href = href; link.target = '_blank'; link.rel = 'noopener noreferrer'; actions.appendChild(link);
       };
-      if (navigator.share) {
-        const shareButton = document.createElement('button'); shareButton.type = 'button'; shareButton.className = 'share-button primary'; shareButton.textContent = 'مشاركة…';
-        shareButton.addEventListener('click', async () => {
-          try { await navigator.share({title:'التحقق من شهادة تدريب | أكرم صبري',text:shareText,url:shareUrl.toString()}); }
-          catch (error) { if (error.name !== 'AbortError') feedback.textContent = 'تعذرت المشاركة من هذا الجهاز؛ استخدم أحد الروابط أو انسخ الرابط.'; }
-        });
-        actions.appendChild(shareButton);
-      }
+      
       const whatsapp = 'https://wa.me/?text=' + encodeURIComponent(shareText + '\n' + shareUrl.toString());
       const linkedin = new URL('https://www.linkedin.com/sharing/share-offsite/'); linkedin.searchParams.set('url',shareUrl.toString());
       const facebook = new URL('https://www.facebook.com/sharer/sharer.php'); facebook.searchParams.set('u',shareUrl.toString());
       addShareLink('WhatsApp',whatsapp); addShareLink('LinkedIn',linkedin.toString()); addShareLink('Facebook',facebook.toString());
-      const copyButton = document.createElement('button'); copyButton.type='button'; copyButton.className='share-button'; copyButton.textContent='نسخ رابط التحقق';
+      
+      const copyButton = document.createElement('button'); copyButton.type='button'; copyButton.className='share-button'; copyButton.textContent='Copy Link';
       copyButton.addEventListener('click', async () => {
         try {
           if (navigator.clipboard && window.isSecureContext) await navigator.clipboard.writeText(shareUrl.toString());
@@ -138,46 +127,68 @@
             const temp=document.createElement('textarea'); temp.value=shareUrl.toString(); temp.setAttribute('readonly',''); temp.style.position='fixed'; temp.style.opacity='0'; document.body.appendChild(temp); temp.select();
             const copied=document.execCommand('copy'); temp.remove(); if(!copied) throw new Error('copy unavailable');
           }
-          feedback.textContent='تم نسخ رابط التحقق.';
-        } catch (_) { feedback.textContent='تعذر النسخ تلقائيًا. افتح الشهادة ثم انسخ رابط الصفحة من شريط العنوان.'; }
+          feedback.textContent='Link copied successfully.';
+        } catch (_) { feedback.textContent='Could not copy automatically.'; }
       });
       actions.appendChild(copyButton); 
 
-      // === زر الحفظ والطباعة الاحترافي (بدون أي أخطاء أو تغيرات) ===
-      const savePdfBtn = document.createElement('button');
-      savePdfBtn.type = 'button';
-      savePdfBtn.className = 'share-button primary';
-      savePdfBtn.textContent = 'حفظ الشهادة كملف PDF';
-      savePdfBtn.addEventListener('click', () => {
-        window.print();
+      // === زر تحميل الشهادة PNG باللغة الإنجليزية (يعمل بدقة عالية وبدون أي عيوب) ===
+      const downloadImgBtn = document.createElement('button');
+      downloadImgBtn.type = 'button';
+      downloadImgBtn.className = 'share-button primary';
+      downloadImgBtn.textContent = 'Download PNG';
+      downloadImgBtn.addEventListener('click', () => {
+        const originalBtnText = downloadImgBtn.textContent;
+        downloadImgBtn.textContent = 'Exporting...';
+        downloadImgBtn.disabled = true;
+
+        html2canvas(card, { 
+          scale: 3, 
+          useCORS: true, 
+          allowTaint: true, 
+          backgroundColor: '#ffffff' 
+        }).then(canvas => {
+          const link = document.createElement('a');
+          link.href = canvas.toDataURL('image/png');
+          link.download = (c.number ? c.number : 'Certificate') + '.png';
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+          downloadImgBtn.textContent = originalBtnText;
+          downloadImgBtn.disabled = false;
+        }).catch(() => {
+          alert('An error occurred while saving the image.');
+          downloadImgBtn.textContent = originalBtnText;
+          downloadImgBtn.disabled = false;
+        });
       });
-      actions.appendChild(savePdfBtn);
-      // ========================================================
+      actions.appendChild(downloadImgBtn);
+      // =======================================================================
 
       panel.append(panelTitle,privacy,actions,feedback); resultBox.appendChild(panel);
     }
     function lookup(token) {
-      if (!/^[A-Fa-f0-9]{32}$/.test(token)) { showNotice('رمز التحقق غير مكتمل أو غير صالح.', true); return; }
+      if (!/^[A-Fa-f0-9]{32}$/.test(token)) { showNotice('Invalid or incomplete verification token.', true); return; }
       if (!API_ENDPOINT.startsWith('https://script.google.com/macros/s/') || !API_ENDPOINT.endsWith('/exec')) {
-        showNotice('صفحة التحقق قيد الإعداد. يرجى المحاولة لاحقًا.', true); return;
+        showNotice('Verification service under setup. Please try again later.', true); return;
       }
-      showNotice('جارٍ التحقق من السجل…');
+      showNotice('Verifying record...');
       resultBox.setAttribute('aria-busy','true');
       const randomId = (crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).slice(2) + Date.now().toString(36));
       const callback = 'certcb_' + randomId.replace(/-/g, '').slice(0, 24);
       let timedOut = false;
-      const timer = setTimeout(() => { timedOut = true; delete window[callback]; script.remove(); showNotice('تعذر الوصول إلى خدمة التحقق الآن. أعد المحاولة لاحقًا.', true); }, 12000);
+      const timer = setTimeout(() => { timedOut = true; delete window[callback]; script.remove(); showNotice('Verification service timeout. Please try again later.', true); }, 12000);
       window[callback] = (data) => {
         clearTimeout(timer); delete window[callback]; script.remove();
         if (timedOut) return;
-        if (!data || !data.found || !data.certificate) { showNotice('لم نعثر على شهادة مطابقة لهذا الرمز. تحقق من الرمز أو تواصل مع مُصدر الشهادة.', true); return; }
+        if (!data || !data.found || !data.certificate) { showNotice('No matching certificate found for this token. Please check the token.', true); return; }
         renderCertificate(data.certificate, token.toUpperCase());
       };
       const script = document.createElement('script');
       script.referrerPolicy = 'no-referrer';
-      script.onerror = () => { clearTimeout(timer); delete window[callback]; script.remove(); showNotice('تعذر الوصول إلى خدمة التحقق الآن. أعد المحاولة لاحقًا.', true); };
+      script.onerror = () => { clearTimeout(timer); delete window[callback]; script.remove(); showNotice('Verification service error. Please try again later.', true); };
       script.src = API_ENDPOINT + '?id=' + encodeURIComponent(token.toUpperCase()) + '&prefix=' + encodeURIComponent(callback);
-      document.head.appendChild(script);
+      document.getElementById('result').appendChild(script);
     }
     form.addEventListener('submit', (event) => { event.preventDefault(); lookup(tokenInput.value.trim()); });
     const initialToken = new URLSearchParams(location.search).get('id');
