@@ -287,31 +287,14 @@
         await Promise.all([document.fonts.load('400 16px "IBM Plex Sans Arabic"'),document.fonts.load('700 16px "IBM Plex Sans Arabic"'),document.fonts.load('700 16px Cairo')]);
         const source=$('certificate');
         clone=source.cloneNode(true);
-        
-        // تعديل أبعاد وزوايا النسخة المنسوخة لتظهر مطابقة تماماً وبدون أي تداخل في الحروف
-        clone.style.cssText='position:absolute;left:-9999px;top:0;z-index:0;pointer-events:none;width:793px;height:1122px;min-width:793px;max-width:793px;aspect-ratio:auto;margin:0;box-shadow:none;background:#fffdf8;overflow:hidden;direction:rtl;';
-        
+        clone.style.cssText='position:absolute;left:0;top:0;z-index:0;pointer-events:none;width:793px;height:1122px;min-width:793px;max-width:793px;aspect-ratio:auto;margin:0;box-shadow:none;background:#fffdf8;overflow:hidden';
         clone.querySelectorAll('picture.fast-picture source[type="image/webp"]').forEach(source=>source.remove());
         document.body.appendChild(clone);
         await Promise.all([...clone.querySelectorAll('img')].map(image=>image.decode().catch(()=>{})));
         const sourceCanvases=source.querySelectorAll('canvas');
         const cloneCanvases=clone.querySelectorAll('canvas');
         sourceCanvases.forEach((canvas,index)=>{const target=cloneCanvases[index];if(target){target.width=canvas.width;target.height=canvas.height;target.getContext('2d').drawImage(canvas,0,0);}});
-        
-        // تعديل الإعدادات هنا لضمان خروج الصورة بدقة عالية وثبات تام للنصوص
-        const canvas=await html2pdf().set({
-          margin: 0,
-          html2canvas:{
-            scale: 3,
-            useCORS: true,
-            backgroundColor: '#fffdf8',
-            letterRendering: true,
-            logging: false,
-            windowWidth: 793,
-            windowHeight: 1122
-          }
-        }).from(clone).toCanvas().get('canvas');
-
+        const canvas=await html2pdf().set({html2canvas:{scale:3,useCORS:true,backgroundColor:'#fffdf8',letterRendering:false,logging:false,x:0,y:0,width:793,height:1122,scrollX:0,scrollY:0,windowWidth:793,windowHeight:1122}}).from(clone).toCanvas().get('canvas');
         const blob=await new Promise(resolve=>canvas.toBlob(resolve,'image/png'));
         if(!blob)throw new Error('PNG creation failed');
         const number=$('number').value.trim().replace(/[^a-z0-9_-]+/gi,'-')||'certificate';
