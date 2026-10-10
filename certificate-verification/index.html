@@ -14,6 +14,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap"></noscript>
+  
+  <!-- إضافة مكتبة التقاط الصور -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
   <style>
     :root{--forest:#0b5d4f;--forest-dark:#06463d;--gold:#c99a45;--ink:#22343a;--muted:#617078;--cream:#f8faf9;--line:#d9e4df;--red:#a8332a}
     *{box-sizing:border-box}body{margin:0;background:var(--cream);color:var(--ink);font-family:'IBM Plex Sans Arabic','Cairo',sans-serif;line-height:1.75}
@@ -134,7 +138,37 @@
           feedback.textContent='تم نسخ رابط التحقق.';
         } catch (_) { feedback.textContent='تعذر النسخ تلقائيًا. افتح الشهادة ثم انسخ رابط الصفحة من شريط العنوان.'; }
       });
-      actions.appendChild(copyButton); panel.append(panelTitle,privacy,actions,feedback); resultBox.appendChild(panel);
+      actions.appendChild(copyButton); 
+
+      // === إضافة زر حفظ بطاقة الشهادة كصورة PNG عالية الجودة ===
+      const downloadImgBtn = document.createElement('button');
+      downloadImgBtn.type = 'button';
+      downloadImgBtn.className = 'share-button primary';
+      downloadImgBtn.textContent = 'تحميل الشهادة PNG';
+      downloadImgBtn.addEventListener('click', () => {
+        const originalBtnText = downloadImgBtn.textContent;
+        downloadImgBtn.textContent = 'جاري التصدير...';
+        downloadImgBtn.disabled = true;
+
+        html2canvas(card, { scale: 2, useCORS: true, allowTaint: true, backgroundColor: '#ffffff' }).then(canvas => {
+          const link = document.createElement('a');
+          link.href = canvas.toDataURL('image/png');
+          link.download = (c.number ? c.number : 'Certificate') + '.png';
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+          downloadImgBtn.textContent = originalBtnText;
+          downloadImgBtn.disabled = false;
+        }).catch(() => {
+          alert('حدث خطأ أثناء حفظ الصورة.');
+          downloadImgBtn.textContent = originalBtnText;
+          downloadImgBtn.disabled = false;
+        });
+      });
+      actions.appendChild(downloadImgBtn);
+      // ========================================================
+
+      panel.append(panelTitle,privacy,actions,feedback); resultBox.appendChild(panel);
     }
     function lookup(token) {
       if (!/^[A-Fa-f0-9]{32}$/.test(token)) { showNotice('رمز التحقق غير مكتمل أو غير صالح.', true); return; }
