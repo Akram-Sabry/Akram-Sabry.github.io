@@ -24,7 +24,7 @@
     .top{background:#fff;border-bottom:1px solid var(--line)}.top-inner{max-width:920px;margin:auto;padding:18px 24px;display:flex;align-items:center;justify-content:space-between;gap:12px}.brand{font-weight:800;color:var(--forest-dark)}.brand small{display:block;color:var(--muted);font-size:12px;font-weight:500}
     main{max-width:760px;margin:44px auto;padding:0 20px}.panel{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 16px 40px #17252b0d;overflow:hidden}.accent{height:7px;background:linear-gradient(90deg,var(--forest),var(--gold))}.content{padding:30px}.eyebrow{color:var(--gold);font-size:13px;font-weight:800}.title{margin:4px 0 6px;color:#17252b;font-size:clamp(26px,5vw,36px);line-height:1.25}.subtitle{margin:0 0 24px;color:var(--muted)}
     form{display:flex;gap:10px;flex-wrap:wrap}input{flex:1;min-width:230px;border:1px solid #bfcfc8;border-radius:10px;padding:13px 14px;font:inherit;direction:ltr;text-align:left}button{border:0;border-radius:10px;padding:12px 20px;background:var(--forest);color:#fff;font:inherit;font-weight:800;cursor:pointer}button:hover{background:var(--forest-dark)}.hint{font-size:12px;color:var(--muted);margin:9px 0 0}
-    #result{margin-top:22px}.notice{padding:14px 16px;border-radius:12px;background:#f1f6f4;color:var(--muted);border:1px solid var(--line)}.notice.error{background:#fff4f2;color:var(--red);border-color:#f2d2ce}.result-card{border:1px solid var(--line);border-radius:14px;overflow:hidden}.result-head{padding:15px 18px;background:#edf6f2;display:flex;justify-content:space-between;align-items:center;gap:12px}.result-head.revoked{background:#fff1ef}.badge{padding:5px 11px;border-radius:100px;background:var(--forest);color:#fff;font-weight:800;font-size:12px;white-space:nowrap}.badge.revoked{background:var(--red)}.fields{padding:8px 18px 16px}.field{display:grid;grid-template-columns:150px 1fr;gap:14px;padding:12px 0;border-bottom:1px solid #edf1ef}.field:last-child{border:0}.label{color:var(--muted);font-size:13px}.value{font-weight:700;overflow-wrap:anywhere}.foot{padding:15px 18px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}footer{max-width:920px;margin:0 auto;padding:0 24px 32px;color:var(--muted);font-size:12px;text-align:center}
+    #result{margin-top:22px}.notice{padding:14px 16px;border-radius:12px;background:#f1f6f4;color:var(--muted);border:1px solid var(--line)}.notice.error{background:#fff4f2;color:var(--red);border-color:#f2d2ce}.result-card{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}.result-head{padding:15px 18px;background:#edf6f2;display:flex;justify-content:space-between;align-items:center;gap:12px}.result-head.revoked{background:#fff1ef}.badge{padding:5px 11px;border-radius:100px;background:var(--forest);color:#fff;font-weight:800;font-size:12px;white-space:nowrap}.badge.revoked{background:var(--red)}.fields{padding:8px 18px 16px}.field{display:grid;grid-template-columns:150px 1fr;gap:14px;padding:12px 0;border-bottom:1px solid #edf1ef}.field:last-child{border:0}.label{color:var(--muted);font-size:13px}.value{font-weight:700;overflow-wrap:anywhere}.foot{padding:15px 18px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}footer{max-width:920px;margin:0 auto;padding:0 24px 32px;color:var(--muted);font-size:12px;text-align:center}
     @media(max-width:560px){main{margin:24px auto}.content{padding:22px 18px}.field{grid-template-columns:1fr;gap:2px}.result-head{align-items:flex-start;flex-direction:column}}
   </style>
   <style>
@@ -60,7 +60,6 @@
   </main>
   <footer>هذه الصفحة للتحقق من سجل الشهادة لدى مُصدرها، ولا تعني اعتمادًا من جهة خارجية.</footer>
   <script>
-    // Public read-only Apps Script endpoint; it returns only the certificate matching one token.
     const API_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzboYWjlEuNfyWw2NcaTSKZrIjU1NbACHQoqVlmjTyRZshpqrHNeCmaYMi0Wz5u-VV3/exec';
     const form = document.getElementById('lookup-form');
     const tokenInput = document.getElementById('token');
@@ -103,7 +102,6 @@
       const foot = document.createElement('div'); foot.className = 'foot'; foot.textContent = 'تمت مطابقة هذه البيانات مع سجل الشهادات الخاص لدى أكرم صبري.';
       card.append(head, fields, foot); resultBox.appendChild(card);
 
-      // Share a verifiable URL only after a matching certificate record is found.
       const shareUrl = new URL(location.pathname, location.origin);
       shareUrl.searchParams.set('id', token.toUpperCase());
       const shareText = 'تحقق من سجل شهادة التدريب عبر الرابط التالي:';
@@ -140,7 +138,7 @@
       });
       actions.appendChild(copyButton); 
 
-      // === إضافة زر حفظ بطاقة الشهادة كصورة PNG عالية الجودة ===
+      // === زر تحميل بطاقة الشهادة كصورة PNG مع ضبط التنسيق بالكامل ===
       const downloadImgBtn = document.createElement('button');
       downloadImgBtn.type = 'button';
       downloadImgBtn.className = 'share-button primary';
@@ -150,7 +148,13 @@
         downloadImgBtn.textContent = 'جاري التصدير...';
         downloadImgBtn.disabled = true;
 
-        html2canvas(card, { scale: 2, useCORS: true, allowTaint: true, backgroundColor: '#ffffff' }).then(canvas => {
+        html2canvas(card, { 
+          scale: 3,             // زيادة مقياس الجودة لتصبح فائقة الوضوح
+          useCORS: true, 
+          allowTaint: true, 
+          backgroundColor: '#ffffff',
+          windowWidth: 800      // تثبيت عرض الصفحة الافتراضي أثناء التقاط الصورة لتجنب تغير التخطيط
+        }).then(canvas => {
           const link = document.createElement('a');
           link.href = canvas.toDataURL('image/png');
           link.download = (c.number ? c.number : 'Certificate') + '.png';
