@@ -64,6 +64,18 @@
     const tokenInput = document.getElementById('token');
     const resultBox = document.getElementById('result');
 
+    // دالة لترجمة أو تحويل النصوص العربية الواردة من الشيت إلى إنجليزية تلقائياً لضمان سلامة التصدير
+    function translateText(text) {
+      if (!text) return '—';
+      const map = {
+        'حضور البرنامج التدريبي': 'Attendance Program',
+        'إتمام متطلبات البرنامج التدريبي': 'Completion of Training Requirements',
+        'حضور': 'Attendance',
+        'إتمام': 'Completion'
+      };
+      return map[text] || text;
+    }
+
     function showNotice(message, error=false) {
       resultBox.removeAttribute('aria-busy');
       resultBox.replaceChildren();
@@ -92,7 +104,7 @@
       addField(fields, 'Certificate No.', c.number);
       addField(fields, 'Recipient Name', c.name);
       addField(fields, 'Course Title', c.course);
-      addField(fields, 'Certificate Type', c.type);
+      addField(fields, 'Certificate Type', translateText(c.type));
       addField(fields, 'Course Date', c.courseDate);
       addField(fields, 'Issue Date', c.issueDate);
       if (c.hours !== undefined && c.hours !== null && String(c.hours).trim() !== '') {
@@ -132,7 +144,7 @@
       });
       actions.appendChild(copyButton); 
 
-      // === زر تحميل الشهادة PNG باللغة الإنجليزية (يعمل بدقة عالية وبدون أي عيوب) ===
+      // === زر تحميل الشهادة PNG باللغة الإنجليزية بالكامل بدقة فائقة ===
       const downloadImgBtn = document.createElement('button');
       downloadImgBtn.type = 'button';
       downloadImgBtn.className = 'share-button primary';
