@@ -138,7 +138,7 @@
       });
       actions.appendChild(copyButton); 
 
-      // === زر تحميل بطاقة الشهادة كصورة PNG مع تعديل هيكل الطباعة لتجنب أي مشاكل ===
+      // === زر تحميل البطاقة كصورة PNG مع عزل تام وتثبيت العرض والخطوط ===
       const downloadImgBtn = document.createElement('button');
       downloadImgBtn.type = 'button';
       downloadImgBtn.className = 'share-button primary';
@@ -154,23 +154,31 @@
           allowTaint: true, 
           backgroundColor: '#ffffff',
           onclone: (clonedDoc) => {
-            // ضبط التنسيق داخل النسخة الملتقطة لتظهر النصوص مرتبطة ومنظمة بدقة
             const clonedCard = clonedDoc.querySelector('article');
             if (clonedCard) {
-              clonedCard.style.width = '700px';
+              clonedCard.style.width = '750px';
               clonedCard.style.margin = '0 auto';
-              clonedCard.style.boxShadow = 'none';
+              clonedCard.style.direction = 'rtl';
+              clonedCard.style.fontFamily = "'Cairo', 'IBM Plex Sans Arabic', sans-serif";
             }
-            const clonedFields = clonedDoc.querySelectorAll('.field');
-            clonedFields.forEach(f => {
-              f.style.display = 'flex';
-              f.style.justifyContent = 'space-between';
-              f.style.padding = '12px 15px';
+            // تحويل الحقول إلى نظام تباعد نظيف وواضح لا يتأثر بأبعاد الشاشة
+            const clonedRows = clonedDoc.querySelectorAll('.field');
+            clonedRows.forEach(row => {
+              row.style.display = 'block';
+              row.style.padding = '14px 20px';
+              row.style.borderBottom = '1px solid #edf1ef';
             });
             const clonedLabels = clonedDoc.querySelectorAll('.label');
-            clonedLabels.forEach(l => {
-              l.style.minWidth = '160px';
-              l.style.textAlign = 'right';
+            clonedLabels.forEach(lbl => {
+              lbl.style.color = '#617078';
+              lbl.style.fontSize = '13px';
+              lbl.style.marginBottom = '4px';
+            });
+            const clonedValues = clonedDoc.querySelectorAll('.value');
+            clonedValues.forEach(val => {
+              val.style.color = '#22343a';
+              val.style.fontSize = '16px';
+              val.style.fontWeight = '700';
             });
           }
         }).then(canvas => {
@@ -189,7 +197,7 @@
         });
       });
       actions.appendChild(downloadImgBtn);
-      // =========================================================================
+      // ===================================================================
 
       panel.append(panelTitle,privacy,actions,feedback); resultBox.appendChild(panel);
     }
