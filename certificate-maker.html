@@ -6,7 +6,6 @@
   <title>منشئ شهادات أكاديمية خطوة | أكرم صبري</title>
   <meta name="robots" content="noindex,follow">
   <style>
-
     :root{--forest:#183f36;--forest-dark:#102e28;--gold:#b69348;--gold-light:#e6d8b4;--ink:#252c29;--muted:#68736d;--line:#d9d4c6;--cream:#f2f1eb;--paper:#fffdf8}
     *{box-sizing:border-box}
     body{margin:0;background:radial-gradient(circle at 12% 12%,#e8eee8 0,transparent 32%),var(--cream);color:var(--ink);font-family:'IBM Plex Sans Arabic','Cairo',sans-serif;line-height:1.65}
@@ -91,9 +90,9 @@
   </style>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa+Ink:wght@400;700&amp;family=Cairo:wght@400;600;700;800&amp;family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&amp;display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa+Ink:wght@400;700&amp;family=Cairo:wght@400;600;700;800&amp;family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&amp;display=swap" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa+Ink:wght@400;700&amp;family=Cairo:wght@400;600;700;800&amp;family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&amp;display=swap"></noscript>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa+Ink:wght@400;700&amp;family=Cairo:wght@400;600;700;800&amp;family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa+Ink:wght@400;700&amp;family=Cairo:wght@400;600;700;800&amp;family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa+Ink:wght@400;700&amp;family=Cairo:wght@400;600;700;800&amp;family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap"></noscript>
   <script src="qrcode.min.js" defer></script>
 </head>
 <body>
@@ -231,8 +230,7 @@
       const type=$('type').value;
       $('p-name').textContent=$('recipient').value.trim();
       $('p-course').textContent=$('course').value.trim();
-      $('p-course-en').textContent='';
-      $('p-statement').textContent=type;
+      $('p-course-en').textContent='';$('p-statement').textContent=type;
       $('p-hours').textContent=$('hours').value.trim()+' ساعة تدريبية / training hours';
       $('p-course-date').textContent=prettyDate($('course-date').value);
       $('p-issue-date').textContent=prettyDate($('issue-date').value);
@@ -240,35 +238,30 @@
       const qr=$('qr'); qr.replaceChildren();
       if(typeof QRCode==='undefined'){alert('لم يتم تحميل مكتبة QR. أعد تحميل الصفحة أو تحقق من اتصال الملفات.');return false;}
       new QRCode(qr,{text:VERIFY_BASE+'?id='+encodeURIComponent($('token').value.trim().toUpperCase()),width:220,height:220,colorDark:'#183f36',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.M});
-      $('certificate').classList.toggle('seals-hidden',!$('show-seals').checked);
-      $('print').disabled=false;
+      $('certificate').classList.toggle('seals-hidden',!$('show-seals').checked);$('print').disabled=false;
       $('export-pdf').disabled=false;
       $('download-png').disabled=false;
       setReadyState(true);
       return true;
     }
     ['recipient','course','type','hours','course-date','issue-date','token'].forEach(id=>$(id).addEventListener(id==='type'?'change':'input',()=>{$('number').value='';fieldError(id,'');setReadyState(false);saveDraft();}));
-    $('new-token').addEventListener('click',()=>{$('token').value=randomToken();$('number').value='';fieldError('token','');setReadyState(false);saveDraft();});
-    $('copy-token').addEventListener('click',async()=>{
+    $('new-token').addEventListener('click',()=>{$('token').value=randomToken();$('number').value='';fieldError('token','');setReadyState(false);saveDraft();});$('copy-token').addEventListener('click',async()=>{
       const token=$('token').value.trim().toUpperCase();
       if(!token){alert('ولّد رمز التحقق أولًا.');return;}
       try{await navigator.clipboard.writeText(token);}catch(e){const ta=document.createElement('textarea');ta.value=token;document.body.appendChild(ta);ta.select();document.execCommand('copy');ta.remove();}
       alert('تم نسخ رمز التحقق.');
     });
     $('show-seals').addEventListener('change',()=>{$('certificate').classList.toggle('seals-hidden',!$('show-seals').checked);saveDraft();});
-    $('refresh').addEventListener('click',refresh);
-    $('sample-data').addEventListener('click',()=>{
+    $('refresh').addEventListener('click',refresh);$('sample-data').addEventListener('click',()=>{
       const date=[today.getFullYear(),String(today.getMonth()+1).padStart(2,'0'),String(today.getDate()).padStart(2,'0')].join('-');
       $('recipient').value='أحمد محمد';$('course').value='تحليل المخاطر وسلامة الغذاء';$('type').selectedIndex=0;$('number').value='';$('hours').value='24';$('course-date').value=date;$('issue-date').value=date;$('token').value=randomToken();
       fields.forEach(id=>fieldError(id,''));saveDraft();refresh();
     });
     $('reset-form').addEventListener('click',()=>{
       if(!confirm('هل تريد مسح كل بيانات الشهادة؟'))return;
-      ['recipient','course','number','hours','course-date','issue-date','token'].forEach(id=>$(id).value='');
-      $('type').selectedIndex=0;
+      ['recipient','course','number','hours','course-date','issue-date','token'].forEach(id=>$(id).value='');$('type').selectedIndex=0;
       $('issue-date').value=[today.getFullYear(),String(today.getMonth()+1).padStart(2,'0'),String(today.getDate()).padStart(2,'0')].join('-');
-      $('qr').replaceChildren(Object.assign(document.createElement('span'),{textContent:'QR'}));
-      $('print').disabled=true;$('export-pdf').disabled=true;$('download-png').disabled=true;$('row-out').style.display='none';$('row-text').textContent='';
+      $('qr').replaceChildren(Object.assign(document.createElement('span'),{textContent:'QR'}));$('print').disabled=true;$('export-pdf').disabled=true;$('download-png').disabled=true;$('row-out').style.display='none';$('row-text').textContent='';
       $('show-seals').checked=true;$('certificate').classList.remove('seals-hidden');setReadyState(false);
       saveDraft();
     });
@@ -294,14 +287,31 @@
         await Promise.all([document.fonts.load('400 16px "IBM Plex Sans Arabic"'),document.fonts.load('700 16px "IBM Plex Sans Arabic"'),document.fonts.load('700 16px Cairo')]);
         const source=$('certificate');
         clone=source.cloneNode(true);
-        clone.style.cssText='position:absolute;left:0;top:0;z-index:0;pointer-events:none;width:793px;height:1122px;min-width:793px;max-width:793px;aspect-ratio:auto;margin:0;box-shadow:none;background:#fffdf8;overflow:hidden';
+        
+        // تعديل أبعاد وزوايا النسخة المنسوخة لتظهر مطابقة تماماً وبدون أي تداخل في الحروف
+        clone.style.cssText='position:absolute;left:-9999px;top:0;z-index:0;pointer-events:none;width:793px;height:1122px;min-width:793px;max-width:793px;aspect-ratio:auto;margin:0;box-shadow:none;background:#fffdf8;overflow:hidden;direction:rtl;';
+        
         clone.querySelectorAll('picture.fast-picture source[type="image/webp"]').forEach(source=>source.remove());
         document.body.appendChild(clone);
         await Promise.all([...clone.querySelectorAll('img')].map(image=>image.decode().catch(()=>{})));
         const sourceCanvases=source.querySelectorAll('canvas');
         const cloneCanvases=clone.querySelectorAll('canvas');
         sourceCanvases.forEach((canvas,index)=>{const target=cloneCanvases[index];if(target){target.width=canvas.width;target.height=canvas.height;target.getContext('2d').drawImage(canvas,0,0);}});
-        const canvas=await html2pdf().set({html2canvas:{scale:3,useCORS:true,backgroundColor:'#fffdf8',letterRendering:false,logging:false,x:0,y:0,width:793,height:1122,scrollX:0,scrollY:0,windowWidth:793,windowHeight:1122}}).from(clone).toCanvas().get('canvas');
+        
+        // تعديل الإعدادات هنا لضمان خروج الصورة بدقة عالية وثبات تام للنصوص
+        const canvas=await html2pdf().set({
+          margin: 0,
+          html2canvas:{
+            scale: 3,
+            useCORS: true,
+            backgroundColor: '#fffdf8',
+            letterRendering: true,
+            logging: false,
+            windowWidth: 793,
+            windowHeight: 1122
+          }
+        }).from(clone).toCanvas().get('canvas');
+
         const blob=await new Promise(resolve=>canvas.toBlob(resolve,'image/png'));
         if(!blob)throw new Error('PNG creation failed');
         const number=$('number').value.trim().replace(/[^a-z0-9_-]+/gi,'-')||'certificate';
@@ -314,17 +324,14 @@
       if(typeof window.print==='function'){window.print();return;}
       alert('استخدم زر الطباعة في المتصفح ثم اختر «حفظ كـ PDF».');
     }
-    $('export-pdf').addEventListener('click',exportPdf);
-    $('download-png').addEventListener('click',downloadPng);
-    $('print').addEventListener('click',()=>{if(refresh())window.print();});
-    $('copy-row').addEventListener('click',async()=>{
+    $('export-pdf').addEventListener('click',exportPdf);$('download-png').addEventListener('click',downloadPng);
+    $('print').addEventListener('click',()=>{if(refresh())window.print();});$('copy-row').addEventListener('click',async()=>{
       ensureCertificateNumber();
       if(!validateInputs()||!valid())return;
       const values=[$('token').value.trim().toUpperCase(),$('number').value.trim(),$('recipient').value.trim(),$('course').value.trim(),$('type').value,$('course-date').value,$('issue-date').value,'VALID',$('hours').value.trim()];
       const text=values.join('\t');
       try{await navigator.clipboard.writeText(text);}catch(e){const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand('copy');ta.remove();}
-      $('row-text').textContent=values.join(' | ');
-      $('row-out').style.display='block';
+      $('row-text').textContent=values.join(' \vert{} ');$('row-out').style.display='block';
     });
     loadDraft();
   </script>
