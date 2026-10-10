@@ -114,7 +114,7 @@
       <label class="seals-toggle"><input id="show-seals" type="checkbox" checked> إظهار أختام ISO على الشهادة</label>
       <p id="ready-status" class="ready-status" role="status">أدخل البيانات ثم اضغط «معاينة الشهادة».</p>
       <p class="draft-note">يتم حفظ المسودة تلقائيًا على هذا الجهاز فقط.</p>
-      <p class="hint">على الهاتف، زر «تحميل الشهادة PDF» يفتح نافذة الطباعة لتختار «حفظ كـ PDF». على الكمبيوتر يُنزّل الملف مباشرة.</p>
+      <p class="hint">زر «تحميل الشهادة PDF» يفتح نافذة الطباعة الأصلية في كل الأجهزة؛ اختر «حفظ كـ PDF» للحفظ بنفس شكل المعاينة بدون إعادة رسم للنصوص.</p>
       <div id="row-out" class="row-out"><strong>انسخ هذا الصف والصقه في Google Sheet بدءًا من العمود A (الساعات في آخر عمود):</strong><pre id="row-text"></pre></div>
     </section>
     <div class="certificate-wrap">
@@ -271,63 +271,10 @@
       $('show-seals').checked=true;$('certificate').classList.remove('seals-hidden');setReadyState(false);
       saveDraft();
     });
-    let pdfLoader;
-    function loadPdfLibrary(){
-      if(window.html2pdf) return Promise.resolve();
-      if(pdfLoader) return pdfLoader;
-      pdfLoader=new Promise((resolve,reject)=>{
-        const script=document.createElement('script');
-        script.src='html2pdf.bundle.min.js';
-        script.onload=resolve;
-        script.onerror=()=>reject(new Error('PDF library failed to load'));
-        document.head.appendChild(script);
-      });
-      return pdfLoader;
-    }
-    async function exportPdf(){
-      if(!refresh()) return;
-      const mobileDevice=window.matchMedia('(max-width: 850px)').matches||/Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent)||(navigator.maxTouchPoints>1&&/MacIntel/.test(navigator.platform));
-      // html2canvas clips the fixed-width canvas on narrow mobile viewports; use native A4 print there.
-      if(mobileDevice&&typeof window.print==='function'){window.print();return;}
-      try{await loadPdfLibrary();}catch(error){console.error(error);alert('لم يتم تحميل أداة PDF. استخدم زر الطباعة كبديل.');return;}
-      const source=$('certificate');
-      await document.fonts.ready;
-      await Promise.all([
-        document.fonts.load('400 16px "IBM Plex Sans Arabic"'),
-        document.fonts.load('700 16px "IBM Plex Sans Arabic"'),
-        document.fonts.load('700 16px Cairo')
-      ]);
-      const clone=source.cloneNode(true);
-      clone.classList.add('pdf-export-certificate');
-      // html2canvas in this bundled exporter cannot parse the radial-gradient screen background.
-      Object.assign(clone.style,{position:'absolute',left:'0',top:'0',zIndex:'0',pointerEvents:'none',width:'793px',height:'1122px',minWidth:'793px',maxWidth:'793px',aspectRatio:'auto',margin:'0',boxShadow:'none',background:'#fffdf8',overflow:'hidden'});
-      // jsPDF cannot embed WebP sources; use original PNG fallbacks only in the export clone.
-      clone.querySelectorAll('picture.fast-picture source[type="image/webp"]').forEach(source=>source.remove());
-      document.body.appendChild(clone);
-      await Promise.all([...clone.querySelectorAll('img')].map(image=>image.decode().catch(()=>{})));
-      const sourceCanvases=source.querySelectorAll('canvas');
-      const cloneCanvases=clone.querySelectorAll('canvas');
-      sourceCanvases.forEach((canvas,index)=>{
-        const target=cloneCanvases[index];
-        if(target){target.width=canvas.width;target.height=canvas.height;target.getContext('2d').drawImage(canvas,0,0);}
-      });
-      const number=$('number').value.trim().replace(/[^a-z0-9_-]+/gi,'-')||'certificate';
-      try{
-        const options={margin:0,filename:number+'.pdf',image:{type:'jpeg',quality:0.98},html2canvas:{scale:2,useCORS:true,backgroundColor:'#fffdf8',letterRendering:false,logging:false,x:0,y:0,width:793,height:1122,scrollX:0,scrollY:0,windowWidth:793,windowHeight:1122},jsPDF:{unit:'mm',format:'a4',orientation:'portrait',compress:true},pagebreak:{mode:[]}};
-        // Generate a Blob and trigger the browser download explicitly instead of relying on
-        // FileSaver's implicit download, which can be blocked or ignored on some laptops.
-        const pdfBlob=await html2pdf().set(options).from(clone).outputPdf('blob');
-        const downloadUrl=URL.createObjectURL(pdfBlob);
-        const link=document.createElement('a');
-        link.href=downloadUrl;
-        link.download=options.filename;
-        link.rel='noopener';
-        document.body.appendChild(link);
-        link.click();
-        link.remove();
-        setTimeout(()=>URL.revokeObjectURL(downloadUrl),1000);
-      }catch(error){console.error('PDF export failed',error);alert('تعذر تنزيل ملف PDF. استخدم زر الطباعة كبديل.');}
-      finally{clone.remove();}
+    function exportPdf(){
+      if(!refresh())return;
+      if(typeof window.print==='function'){window.print();return;}
+      alert('استخدم زر الطباعة في المتصفح ثم اختر «حفظ كـ PDF».');
     }
     $('export-pdf').addEventListener('click',exportPdf);
     $('print').addEventListener('click',()=>{if(refresh())window.print();});
