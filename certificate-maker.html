@@ -295,7 +295,7 @@
       const clone=source.cloneNode(true);
       clone.classList.add('pdf-export-certificate');
       // html2canvas in this bundled exporter cannot parse the radial-gradient screen background.
-      Object.assign(clone.style,{position:'fixed',left:'0',top:'0',zIndex:'-1',pointerEvents:'none',width:'793px',height:'1122px',minWidth:'0',maxWidth:'none',aspectRatio:'auto',margin:'0',boxShadow:'none',background:'#fffdf8'});
+      Object.assign(clone.style,{position:'absolute',left:'0',top:'0',zIndex:'0',pointerEvents:'none',width:'793px',height:'1122px',minWidth:'793px',maxWidth:'793px',aspectRatio:'auto',margin:'0',boxShadow:'none',background:'#fffdf8',overflow:'hidden'});
       // jsPDF cannot embed WebP sources; use original PNG fallbacks only in the export clone.
       clone.querySelectorAll('picture.fast-picture source[type="image/webp"]').forEach(source=>source.remove());
       document.body.appendChild(clone);
@@ -308,7 +308,7 @@
       });
       const number=$('number').value.trim().replace(/[^a-z0-9_-]+/gi,'-')||'certificate';
       try{
-        const options={margin:0,filename:number+'.pdf',image:{type:'jpeg',quality:0.98},html2canvas:{scale:3,useCORS:true,backgroundColor:'#fffdf8',letterRendering:true,logging:false,scrollX:0,scrollY:0,windowWidth:793,windowHeight:1122},jsPDF:{unit:'mm',format:'a4',orientation:'portrait',compress:true},pagebreak:{mode:['avoid-all']}};
+        const options={margin:0,filename:number+'.pdf',image:{type:'jpeg',quality:0.98},html2canvas:{scale:2,useCORS:true,backgroundColor:'#fffdf8',letterRendering:true,logging:false,x:0,y:0,width:793,height:1122,scrollX:0,scrollY:0,windowWidth:793,windowHeight:1122},jsPDF:{unit:'mm',format:'a4',orientation:'portrait',compress:true},pagebreak:{mode:[]}};
         // Generate a Blob and trigger the browser download explicitly instead of relying on
         // FileSaver's implicit download, which can be blocked or ignored on some laptops.
         const pdfBlob=await html2pdf().set(options).from(clone).outputPdf('blob');
