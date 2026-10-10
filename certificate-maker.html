@@ -28,6 +28,17 @@
     .certificate{position:relative;isolation:isolate;width:min(100%,760px);aspect-ratio:57/80;margin:0 auto;background:radial-gradient(ellipse at 50% 0%,#f3ead7 0,transparent 32%),var(--paper);border:1px solid var(--gold);box-shadow:0 20px 55px #102e2818;padding:28px 46px;display:flex;flex-direction:column;align-items:center;text-align:center;overflow:hidden}
     .certificate::before{content:'';position:absolute;inset:13px;border:2px solid var(--forest);pointer-events:none;z-index:-1}
     .certificate::after{content:'';position:absolute;inset:20px;border:1px solid #b6934880;pointer-events:none;z-index:-1}
+    .decor{position:absolute;z-index:0;pointer-events:none;overflow:hidden}
+    .decor span{position:absolute;display:block;border-radius:50%;transform:rotate(22deg)}
+    .decor-top{inset:0 0 auto auto;width:48%;height:22%}
+    .decor-top span:nth-child(1){width:145%;height:42%;right:-55%;top:-20%;background:var(--forest-dark)}
+    .decor-top span:nth-child(2){width:140%;height:22%;right:-52%;top:16%;background:var(--gold)}
+    .decor-top span:nth-child(3){width:132%;height:18%;right:-48%;top:31%;background:var(--forest)}
+    .decor-bottom{inset:auto auto 0 0;width:48%;height:22%;transform:rotate(180deg)}
+    .decor-bottom span:nth-child(1){width:145%;height:42%;right:-55%;top:-20%;background:var(--forest-dark)}
+    .decor-bottom span:nth-child(2){width:140%;height:22%;right:-52%;top:16%;background:var(--gold)}
+    .decor-bottom span:nth-child(3){width:132%;height:18%;right:-48%;top:31%;background:var(--forest)}
+    .watermark{position:absolute;z-index:1;left:50%;top:48%;width:44%;height:auto;transform:translate(-50%,-50%);opacity:.055;filter:grayscale(1);pointer-events:none}
     .corner{position:absolute;width:40px;height:40px;border-color:var(--gold);z-index:1}
     .corner.tl{top:9px;left:9px;border-top:4px solid;border-left:4px solid}.corner.tr{top:9px;right:9px;border-top:4px solid;border-right:4px solid}
     .corner.bl{bottom:9px;left:9px;border-bottom:4px solid;border-left:4px solid}.corner.br{bottom:9px;right:9px;border-bottom:4px solid;border-right:4px solid}
@@ -96,6 +107,9 @@
     <div class="certificate-wrap">
       <article class="certificate" id="certificate" aria-label="معاينة الشهادة">
         <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+        <div class="decor decor-top" aria-hidden="true"><span></span><span></span><span></span></div>
+        <div class="decor decor-bottom" aria-hidden="true"><span></span><span></span><span></span></div>
+        <img class="watermark" src="assets/khotwa-logo.jpg" alt="" aria-hidden="true" width="512" height="512" loading="eager">
         <img class="accreditation-logo" src="assets/egac-accredited.jpg" alt="EGAC Accredited certification CAB #318105" width="686" height="736" loading="eager">
         <div class="brand"><img class="brand-logo" src="assets/khotwa-logo.jpg" alt="شعار أكاديمية خطوة" width="64" height="64" loading="eager"><div class="brand-text">أكاديمية خطوة<small>للتعليم والجودة · Training &amp; Quality</small></div></div>
         <h2>شهادة تدريب<small>TRAINING CERTIFICATE</small></h2>
