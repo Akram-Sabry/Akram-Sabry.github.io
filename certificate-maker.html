@@ -292,6 +292,11 @@
       try{await loadPdfLibrary();}catch(error){console.error(error);alert('لم يتم تحميل أداة PDF. استخدم زر الطباعة كبديل.');return;}
       const source=$('certificate');
       await document.fonts.ready;
+      await Promise.all([
+        document.fonts.load('400 16px "IBM Plex Sans Arabic"'),
+        document.fonts.load('700 16px "IBM Plex Sans Arabic"'),
+        document.fonts.load('700 16px Cairo')
+      ]);
       const clone=source.cloneNode(true);
       clone.classList.add('pdf-export-certificate');
       // html2canvas in this bundled exporter cannot parse the radial-gradient screen background.
@@ -308,7 +313,7 @@
       });
       const number=$('number').value.trim().replace(/[^a-z0-9_-]+/gi,'-')||'certificate';
       try{
-        const options={margin:0,filename:number+'.pdf',image:{type:'jpeg',quality:0.98},html2canvas:{scale:2,useCORS:true,backgroundColor:'#fffdf8',letterRendering:true,logging:false,x:0,y:0,width:793,height:1122,scrollX:0,scrollY:0,windowWidth:793,windowHeight:1122},jsPDF:{unit:'mm',format:'a4',orientation:'portrait',compress:true},pagebreak:{mode:[]}};
+        const options={margin:0,filename:number+'.pdf',image:{type:'jpeg',quality:0.98},html2canvas:{scale:2,useCORS:true,backgroundColor:'#fffdf8',letterRendering:false,logging:false,x:0,y:0,width:793,height:1122,scrollX:0,scrollY:0,windowWidth:793,windowHeight:1122},jsPDF:{unit:'mm',format:'a4',orientation:'portrait',compress:true},pagebreak:{mode:[]}};
         // Generate a Blob and trigger the browser download explicitly instead of relying on
         // FileSaver's implicit download, which can be blocked or ignored on some laptops.
         const pdfBlob=await html2pdf().set(options).from(clone).outputPdf('blob');
