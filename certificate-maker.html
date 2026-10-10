@@ -17,6 +17,7 @@
     .field{margin:0 0 13px}.field label{display:block;font-size:13px;font-weight:700;margin-bottom:5px}
     .field input,.field select{width:100%;border:1px solid #d0d9d2;border-radius:10px;padding:10px 11px;font:inherit;background:#fff}
     .field input:focus,.field select:focus{outline:2px solid #b693483d;border-color:var(--gold)}
+    .field.invalid input,.field.invalid select{border-color:#b45b52;outline-color:#b45b5233}.field-error{display:none;margin-top:4px;color:#a64b43;font-size:11px;line-height:1.4}.field.invalid .field-error{display:block}
     .field input[type=date]{direction:ltr;text-align:left}.token-row{display:flex;gap:7px}.token-row input{flex:1;min-width:0;direction:ltr;text-align:left;font-family:monospace}
     .token-row button,.actions button,.copy-button{border:0;border-radius:10px;padding:10px 13px;font:inherit;font-weight:800;cursor:pointer;transition:transform .15s ease,filter .15s ease}
     .token-row button:hover,.actions button:hover,.copy-button:hover{filter:brightness(.97);transform:translateY(-1px)}
@@ -24,6 +25,7 @@
     .actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}.actions button:disabled{opacity:.45;cursor:not-allowed}
     .ready-status{margin:10px 0 0!important;color:var(--muted);font-size:12px!important}.ready-status.ready{color:var(--forest);font-weight:800}
     .seals-toggle{display:flex;align-items:center;gap:7px;margin:10px 0 0;color:var(--muted);font-size:12px}.seals-toggle input{accent-color:var(--forest)}
+    .draft-note{font-size:11px!important;color:#758078!important;margin:5px 0 0!important}
     .hint{font-size:12px!important;line-height:1.6}.row-out{display:none;margin-top:14px}
     .row-out pre{white-space:pre-wrap;overflow-wrap:anywhere;direction:ltr;text-align:left;background:#f3f5f2;border-radius:9px;padding:10px;font-size:11px}
     .copy-button{background:#f5efe1;color:#644d1e}.certificate-wrap{max-width:100%;overflow:auto;padding:0 4px 14px;-webkit-overflow-scrolling:touch;overscroll-behavior-inline:contain}.certificate{touch-action:pan-x pan-y}
@@ -60,6 +62,7 @@
     .course{color:var(--forest);font-size:clamp(16px,2vw,24px);font-weight:800;line-height:1.3;margin:0}
     .course-en{color:var(--muted);font-size:clamp(9px,1vw,12px);direction:ltr;margin:1px 0 0}
     .appreciation{position:relative;z-index:2;max-width:86%;margin:18px 0 0;color:#65736b;font-size:clamp(10px,1.15vw,13px);line-height:1.7}
+    .certificate-message{position:relative;z-index:2;width:82%;margin:16px 0 0;padding:12px 24px;border-top:1px solid #d9c596;border-bottom:1px solid #d9c596;color:#65736b;font-size:clamp(10px,1.15vw,13px);line-height:1.8}.certificate-message small{display:block;margin-top:3px;color:#8c7955;font:11px/1.5 Georgia,serif;direction:ltr}
     .details{position:relative;z-index:2;width:96%;display:grid;grid-template-columns:repeat(3,1fr);justify-content:center;gap:8px;margin:12px 0;font-size:clamp(9px,1.05vw,12px)}
     .iso-seals{position:relative;z-index:2;width:96%;min-height:50px;flex-shrink:0;display:flex;justify-content:center;align-items:center;gap:3px;margin:10px 0 4px;overflow:visible}.iso-seals img{flex:0 0 auto;width:clamp(32px,4.2vw,58px);height:auto;max-height:45px;object-fit:contain}
     .detail{min-width:0;padding:7px 8px;border:1px solid #e3dece;border-radius:3px;background:#fffdf8cc;color:var(--muted)}
@@ -106,9 +109,10 @@
       <div class="field"><label for="issue-date">تاريخ الإصدار / Issue date</label><input id="issue-date" type="date" required></div>
       <div class="field"><label for="token">رمز تحقق عشوائي (32 خانة) / Verification token</label><div class="token-row"><input id="token" maxlength="32" minlength="32" pattern="[A-Fa-f0-9]{32}" autocomplete="off" required><button type="button" id="new-token" class="secondary">توليد</button><button type="button" id="copy-token" class="secondary">نسخ</button></div></div>
       <p class="hint">رمز التحقق يُنشأ عشوائيًا على جهازك. رقم الشهادة يُنشأ تلقائيًا عند أول تحديث للمعاينة، والتسلسل محفوظ في هذا المتصفح فقط؛ استخدم الجهاز والمتصفح نفسيهما، وراجع جدول السجل قبل الإصدار من جهاز آخر.</p>
-      <div class="actions"><button id="refresh" class="primary" type="button">معاينة الشهادة</button><button id="copy-row" class="copy-button" type="button">نسخ صف السجل</button><button id="export-pdf" class="secondary" type="button" disabled>تحميل الشهادة PDF</button><button id="print" class="secondary" type="button" disabled>طباعة / حفظ PDF</button><button id="reset-form" class="secondary" type="button">مسح البيانات</button></div>
+      <div class="actions"><button id="refresh" class="primary" type="button">معاينة الشهادة</button><button id="sample-data" class="copy-button" type="button">بيانات تجريبية</button><button id="copy-row" class="copy-button" type="button">نسخ صف السجل</button><button id="export-pdf" class="secondary" type="button" disabled>تحميل الشهادة PDF</button><button id="print" class="secondary" type="button" disabled>طباعة / حفظ PDF</button><button id="reset-form" class="secondary" type="button">مسح البيانات</button></div>
       <label class="seals-toggle"><input id="show-seals" type="checkbox" checked> إظهار أختام ISO على الشهادة</label>
       <p id="ready-status" class="ready-status" role="status">أدخل البيانات ثم اضغط «معاينة الشهادة».</p>
+      <p class="draft-note">يتم حفظ المسودة تلقائيًا على هذا الجهاز فقط.</p>
       <p class="hint">على الهاتف، زر «تحميل الشهادة PDF» يفتح نافذة الطباعة لتختار «حفظ كـ PDF». على الكمبيوتر يُنزّل الملف مباشرة.</p>
       <div id="row-out" class="row-out"><strong>انسخ هذا الصف والصقه في Google Sheet بدءًا من العمود A (الساعات في آخر عمود):</strong><pre id="row-text"></pre></div>
     </section>
@@ -136,6 +140,7 @@
           <picture class="fast-picture"><source type="image/webp" srcset="assets/performance/certificate/seal-iso-45001.webp"><img src="ISO_45001_Occupational_Health_Safety_2018.png" alt="ISO 45001 Occupational Health and Safety" width="410" height="410"></picture>
         </div>
         <p class="appreciation">تقديرًا لجهوده وإتمامه متطلبات البرنامج التدريبي بنجاح</p>
+        <p class="certificate-message">نقدّر التزامه بالتعلم والتطوير المستمر، ونتمنى له دوام النجاح والتميز في مسيرته المهنية.<small>We appreciate this achievement and wish continued success in the learning journey.</small></p>
         <div class="bottom">
           <div class="signature-block" aria-label="اسم المُصدر بخط زخرفي"><picture class="fast-picture"><source type="image/webp" srcset="assets/performance/certificate/signature.webp"><img class="signature-image" src="assets/akram-signature.png" alt="توقيع أكرم صبري" width="700" height="222"></picture><strong>م. أكرم صبري · المُصدر</strong></div>
           <div class="qr-panel"><div class="qr" id="qr"><span style="font:10px Arial;color:#617078">QR</span></div><div class="serial" id="p-number">CERTIFICATE NO.</div><div class="verification-note">امسح الرمز للتحقق من سجل الشهادة</div></div>
@@ -149,9 +154,16 @@
     const VERIFY_BASE = 'https://akram-sabry.github.io/certificate-verification/';
     const $ = (id) => document.getElementById(id);
     const fields = ['recipient','course','type','number','hours','course-date','issue-date','token'];
+    const draftKey='khotwa:certificate-draft:v2';
     const today = new Date();
     $('issue-date').value = [today.getFullYear(),String(today.getMonth()+1).padStart(2,'0'),String(today.getDate()).padStart(2,'0')].join('-');
     function randomToken(){const bytes=new Uint8Array(16);crypto.getRandomValues(bytes);return Array.from(bytes,b=>b.toString(16).padStart(2,'0')).join('').toUpperCase();}
+    function saveDraft(){
+      try{const draft=Object.fromEntries(fields.map(id=>[id,$(id).value]));draft.showSeals=$('show-seals').checked;localStorage.setItem(draftKey,JSON.stringify(draft));}catch(error){console.warn('Draft could not be saved',error);}
+    }
+    function loadDraft(){
+      try{const draft=JSON.parse(localStorage.getItem(draftKey)||'null');if(!draft)return;fields.forEach(id=>{if(typeof draft[id]==='string')$(id).value=draft[id];});if(typeof draft.showSeals==='boolean')$('show-seals').checked=draft.showSeals;$('certificate').classList.toggle('seals-hidden',!$('show-seals').checked);}catch(error){console.warn('Draft could not be loaded',error);}
+    }
     const requiredBeforeNumber = fields.filter(id=>id!=='number');
     function courseCode(){
       const title=$('course').value;
@@ -182,6 +194,31 @@
       const hours=Number($('hours').value);
       return fields.every(id=>$(id).value.trim()) && Number.isFinite(hours) && hours>0 && hours<=999 && /^[A-Fa-f0-9]{32}$/.test($('token').value.trim());
     }
+    function fieldError(id,message){
+      const field=$(id).closest('.field');
+      if(!field)return;
+      field.classList.toggle('invalid',Boolean(message));
+      let error=field.querySelector('.field-error');
+      if(!error){error=document.createElement('div');error.className='field-error';field.appendChild(error);}
+      error.textContent=message||'';
+    }
+    function validateInputs(){
+      const checks=[
+        ['recipient','اسم المتدرب مطلوب.'],['course','اسم الدورة مطلوب.'],['hours','أدخل عدد ساعات صحيحًا من 1 إلى 999.'],
+        ['course-date','تاريخ الدورة مطلوب.'],['issue-date','تاريخ الإصدار مطلوب.'],['token','ولّد رمز تحقق من 32 خانة أولًا.']
+      ];
+      fields.forEach(id=>fieldError(id,''));
+      let firstInvalid=null;
+      checks.forEach(([id,message])=>{
+        const value=$(id).value.trim();let error='';
+        if(!value)error=message;
+        else if(id==='hours'&&(!Number.isFinite(Number(value))||Number(value)<=0||Number(value)>999))error=message;
+        else if(id==='token'&&!/^[A-Fa-f0-9]{32}$/.test(value))error=message;
+        if(error){fieldError(id,error);if(!firstInvalid)firstInvalid=$(id);}
+      });
+      if(firstInvalid){firstInvalid.focus();setReadyState(false,'راجع الحقول المعلّمة لإكمال الشهادة.');return false;}
+      return true;
+    }
     function setReadyState(ready,message){
       const status=$('ready-status');
       status.textContent=message||(ready?'الشهادة جاهزة للتحميل والطباعة.':'أدخل البيانات ثم اضغط «معاينة الشهادة».');
@@ -189,7 +226,7 @@
     }
     function refresh(){
       ensureCertificateNumber();
-      if(!valid()){alert('أكمل البيانات وتأكد أن عدد الساعات رقم أكبر من صفر (حتى 999) ورمز التحقق 32 خانة.');return false;}
+      if(!validateInputs()||!valid())return false;
       const type=$('type').value;
       $('p-name').textContent=$('recipient').value.trim();
       $('p-course').textContent=$('course').value.trim();
@@ -208,16 +245,21 @@
       setReadyState(true);
       return true;
     }
-    ['recipient','course','type','hours','course-date','issue-date','token'].forEach(id=>$(id).addEventListener(id==='type'?'change':'input',()=>{$('number').value='';setReadyState(false);}));
-    $('new-token').addEventListener('click',()=>{$('token').value=randomToken();$('number').value='';setReadyState(false);});
+    ['recipient','course','type','hours','course-date','issue-date','token'].forEach(id=>$(id).addEventListener(id==='type'?'change':'input',()=>{$('number').value='';fieldError(id,'');setReadyState(false);saveDraft();}));
+    $('new-token').addEventListener('click',()=>{$('token').value=randomToken();$('number').value='';fieldError('token','');setReadyState(false);saveDraft();});
     $('copy-token').addEventListener('click',async()=>{
       const token=$('token').value.trim().toUpperCase();
       if(!token){alert('ولّد رمز التحقق أولًا.');return;}
       try{await navigator.clipboard.writeText(token);}catch(e){const ta=document.createElement('textarea');ta.value=token;document.body.appendChild(ta);ta.select();document.execCommand('copy');ta.remove();}
       alert('تم نسخ رمز التحقق.');
     });
-    $('show-seals').addEventListener('change',()=>$('certificate').classList.toggle('seals-hidden',!$('show-seals').checked));
+    $('show-seals').addEventListener('change',()=>{$('certificate').classList.toggle('seals-hidden',!$('show-seals').checked);saveDraft();});
     $('refresh').addEventListener('click',refresh);
+    $('sample-data').addEventListener('click',()=>{
+      const date=[today.getFullYear(),String(today.getMonth()+1).padStart(2,'0'),String(today.getDate()).padStart(2,'0')].join('-');
+      $('recipient').value='أحمد محمد';$('course').value='تحليل المخاطر وسلامة الغذاء';$('type').selectedIndex=0;$('number').value='';$('hours').value='24';$('course-date').value=date;$('issue-date').value=date;$('token').value=randomToken();
+      fields.forEach(id=>fieldError(id,''));saveDraft();refresh();
+    });
     $('reset-form').addEventListener('click',()=>{
       if(!confirm('هل تريد مسح كل بيانات الشهادة؟'))return;
       ['recipient','course','number','hours','course-date','issue-date','token'].forEach(id=>$(id).value='');
@@ -226,6 +268,7 @@
       $('qr').replaceChildren(Object.assign(document.createElement('span'),{textContent:'QR'}));
       $('print').disabled=true;$('export-pdf').disabled=true;$('row-out').style.display='none';$('row-text').textContent='';
       $('show-seals').checked=true;$('certificate').classList.remove('seals-hidden');setReadyState(false);
+      saveDraft();
     });
     let pdfLoader;
     function loadPdfLibrary(){
@@ -284,13 +327,14 @@
     $('print').addEventListener('click',()=>{if(refresh())window.print();});
     $('copy-row').addEventListener('click',async()=>{
       ensureCertificateNumber();
-      if(!valid()){alert('أكمل كل البيانات أولًا.');return;}
+      if(!validateInputs()||!valid())return;
       const values=[$('token').value.trim().toUpperCase(),$('number').value.trim(),$('recipient').value.trim(),$('course').value.trim(),$('type').value,$('course-date').value,$('issue-date').value,'VALID',$('hours').value.trim()];
       const text=values.join('\t');
       try{await navigator.clipboard.writeText(text);}catch(e){const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand('copy');ta.remove();}
       $('row-text').textContent=values.join(' | ');
       $('row-out').style.display='block';
     });
+    loadDraft();
   </script>
 </body>
 </html>
