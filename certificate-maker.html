@@ -110,7 +110,7 @@
       <div class="field"><label for="token">رمز تحقق عشوائي (32 خانة) / Verification token</label><div class="token-row"><input id="token" maxlength="32" minlength="32" pattern="[A-Fa-f0-9]{32}" autocomplete="off" required><button type="button" id="new-token" class="secondary">توليد</button><button type="button" id="copy-token" class="secondary">نسخ</button></div></div>
       <p class="hint">رمز التحقق يُنشأ عشوائيًا على جهازك. رقم الشهادة يُنشأ تلقائيًا عند أول تحديث للمعاينة، والتسلسل محفوظ في هذا المتصفح فقط؛ استخدم الجهاز والمتصفح نفسيهما، وراجع جدول السجل قبل الإصدار من جهاز آخر.</p>
       <div class="actions"><button id="refresh" class="primary" type="button">معاينة الشهادة</button><button id="sample-data" class="copy-button" type="button">بيانات تجريبية</button><button id="copy-row" class="copy-button" type="button">نسخ صف السجل</button><button id="export-pdf" class="secondary" type="button" disabled>تحميل الشهادة PDF</button><button id="download-png" class="secondary" type="button" disabled>تحميل PNG عالي الجودة</button><button id="print" class="secondary" type="button" disabled>طباعة / حفظ PDF</button><button id="reset-form" class="secondary" type="button">مسح البيانات</button></div>
-      <label class="seals-toggle"><input id="show-seals" type="checkbox" checked> إظهار أختام ISO على الشهادة</label>
+      <label class="seals-toggle"><input id="show-seals" type="checkbox" checked> إظهار أختام المعايير على الشهادة</label>
       <p id="ready-status" class="ready-status" role="status">أدخل البيانات ثم اضغط «معاينة الشهادة».</p>
       <p class="draft-note">يتم حفظ المسودة تلقائيًا على هذا الجهاز فقط.</p>
       <p class="hint">زر «تحميل الشهادة PDF» يفتح نافذة الطباعة الأصلية؛ اختر «حفظ كـ PDF» للحفظ بنفس شكل المعاينة. ويمكنك استخدام زر PNG للحصول على صورة عالية الجودة.</p>
@@ -133,11 +133,11 @@
         <p class="statement" id="p-statement">لإتمام متطلبات البرنامج التدريبي / for completing the training requirements</p>
         <div class="course-panel"><div class="course" id="p-course">اسم الدورة التدريبية</div><div class="course-en" id="p-course-en" dir="ltr"></div></div>
         <div class="details"><div class="detail"><span>عدد الساعات / Training hours</span><strong id="p-hours">—</strong></div><div class="detail"><span>تاريخ الدورة / Course date</span><strong id="p-course-date">—</strong></div><div class="detail"><span>تاريخ الإصدار / Issue date</span><strong id="p-issue-date">—</strong></div></div>
-        <div class="iso-seals" aria-label="أختام ومعايير ISO">
-          <picture class="fast-picture"><source type="image/webp" srcset="assets/performance/certificate/seal-iso-9001.webp"><img src="ISO_9001_Quality_Management_2015.png" alt="ISO 9001 Quality Management" width="410" height="379"></picture>
-          <picture class="fast-picture"><source type="image/webp" srcset="assets/performance/certificate/seal-iso-21001.webp"><img src="ISO_21001_Educational_Organizations_Management_2018.png" alt="ISO 21001 Educational Organizations Management" width="410" height="379"></picture>
-          <picture class="fast-picture"><source type="image/webp" srcset="assets/performance/certificate/seal-iso-27001.webp"><img src="ISO_27001_Information_Security_2013.png" alt="ISO 27001 Information Security" width="410" height="379"></picture>
-          <picture class="fast-picture"><source type="image/webp" srcset="assets/performance/certificate/seal-iso-45001.webp"><img src="ISO_45001_Occupational_Health_Safety_2018.png" alt="ISO 45001 Occupational Health and Safety" width="410" height="410"></picture>
+        <div class="iso-seals" aria-label="أختام معايير الجودة وسلامة الغذاء">
+          <img src="assets/iso-seals/seal-iso-22000.png" alt="ISO 22000 Food Safety Management System" width="311" height="277">
+          <img src="assets/iso-seals/seal-haccp.png" alt="HACCP Hazard Analysis and Critical Control Point" width="300" height="297">
+          <img src="assets/iso-seals/seal-gmp.png" alt="GMP Good Manufacturing Practice" width="302" height="304">
+          <img src="assets/performance/certificate/seal-iso-21001.webp" alt="ISO 21001 Educational Organizations Management" width="256" height="237">
         </div>
         <p class="appreciation">تقديرًا لجهوده وإتمامه متطلبات البرنامج التدريبي بنجاح</p>
         <p class="certificate-message">نقدّر التزامه بالتعلم والتطوير المستمر، ونتمنى له دوام النجاح والتميز في مسيرته المهنية.<small>We appreciate this achievement and wish continued success in the learning journey.</small></p>
