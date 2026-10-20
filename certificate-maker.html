@@ -72,6 +72,9 @@
     .signature-mark{display:none}.signature-image{display:block;width:min(100%,190px);height:auto;object-fit:contain;margin:0 auto 2px}
     .signature-line{width:min(76%,190px);border-bottom:1px solid #9fa99f;margin:1px 0 3px}
     .signature-block strong{font-size:11px}.signature-block small{font-size:8px;color:var(--muted)}
+    .lecturer-name-signature{display:flex;flex-direction:column;align-items:center;width:100%;margin-top:4px;padding-top:3px;border-top:1px solid #d9c596;line-height:1.1}
+    .lecturer-name-signature span{color:var(--muted);font:6.5px/1.2 'IBM Plex Sans Arabic',sans-serif}
+    .lecturer-name-signature strong{max-width:100%;overflow-wrap:anywhere;color:var(--forest-dark);font:400 20px/1.15 'Aref Ruqaa Ink',serif;text-align:center}
     .qr-panel{display:flex;flex-direction:column;align-items:center;gap:3px;direction:rtl}
     .qr{width:68px;height:68px;padding:3px;background:#fff;border:1px solid var(--gold-light);border-radius:7px;display:grid;place-items:center}
     .qr canvas,.qr img{width:60px!important;height:60px!important}
@@ -102,6 +105,8 @@
       <p>املأ البيانات، سجّل الصف في Google Sheet الخاص، ثم اطبع الشهادة أو احفظها PDF.</p>
       <div class="field"><label for="recipient">اسم المتدرب / Recipient name</label><input id="recipient" autocomplete="off" required></div>
       <div class="field"><label for="course">اسم الدورة / Course title</label><input id="course" autocomplete="off" required></div>
+      <div class="field"><label for="lecturer">اسم المحاضر / Lecturer name</label><input id="lecturer" autocomplete="off" placeholder="اسم المحاضر" required></div>
+      <p class="hint">سيظهر الاسم بخط يدوي زخرفي عام؛ هذا تنسيق بصري وليس توقيعًا فعليًا.</p>
       <div class="field"><label for="type">نوع الشهادة / Certificate type</label><select id="type"><option value="إتمام متطلبات البرنامج التدريبي / Completed training requirements">إتمام متطلبات البرنامج التدريبي / Completion</option><option value="حضور البرنامج التدريبي / Attended the training program">حضور البرنامج التدريبي / Attendance</option></select></div>
       <div class="field"><label for="number">رقم الشهادة / Certificate number</label><input id="number" placeholder="يُنشأ تلقائيًا عند تحديث المعاينة" autocomplete="off" readonly aria-readonly="true" required></div>
       <div class="field"><label for="hours">عدد ساعات التدريب / Training hours</label><input id="hours" type="number" min="1" max="999" step="0.5" placeholder="مثال: 24" required></div>
@@ -114,7 +119,7 @@
       <p id="ready-status" class="ready-status" role="status">أدخل البيانات ثم اضغط «معاينة الشهادة».</p>
       <p class="draft-note">يتم حفظ المسودة تلقائيًا على هذا الجهاز فقط.</p>
       <p class="hint">زر «تحميل الشهادة PDF» يفتح نافذة الطباعة الأصلية؛ اختر «حفظ كـ PDF» للحفظ بنفس شكل المعاينة. ويمكنك استخدام زر PNG للحصول على صورة عالية الجودة.</p>
-      <div id="row-out" class="row-out"><strong>انسخ هذا الصف والصقه في Google Sheet بدءًا من العمود A (الساعات في آخر عمود):</strong><pre id="row-text"></pre></div>
+      <div id="row-out" class="row-out"><strong>انسخ هذا الصف والصقه في Google Sheet بدءًا من العمود A (الساعات قبل الأخيرة واسم المحاضر في العمود الأخير):</strong><pre id="row-text"></pre></div>
     </section>
     <div class="certificate-wrap">
       <article class="certificate" id="certificate" aria-label="معاينة الشهادة">
@@ -141,7 +146,7 @@
         <p class="appreciation">تقديرًا لجهوده وإتمامه متطلبات البرنامج التدريبي بنجاح</p>
         <p class="certificate-message">نقدّر التزامه بالتعلم والتطوير المستمر، ونتمنى له دوام النجاح والتميز في مسيرته المهنية.<small>We appreciate this achievement and wish continued success in the learning journey.</small></p>
         <div class="bottom">
-          <div class="signature-block" aria-label="اسم المُصدر بخط زخرفي"><picture class="fast-picture"><source type="image/webp" srcset="assets/performance/certificate/signature.webp"><img class="signature-image" src="assets/akram-signature.png" alt="توقيع أكرم صبري" width="700" height="222"></picture><strong>م. أكرم صبري · المُصدر</strong></div>
+          <div class="signature-block" aria-label="توقيع المُصدر واسم المحاضر"><picture class="fast-picture"><source type="image/webp" srcset="assets/performance/certificate/signature.webp"><img class="signature-image" src="assets/akram-signature.png" alt="توقيع أكرم صبري" width="700" height="222"></picture><strong>م. أكرم صبري · المُصدر</strong><div class="lecturer-name-signature" aria-label="اسم المحاضر بخط يدوي زخرفي"><span>المحاضر / Lecturer</span><strong id="p-lecturer-signature">اسم المحاضر</strong></div></div>
           <div class="qr-panel"><div class="qr" id="qr"><span style="font:10px Arial;color:#617078">QR</span></div><div class="serial" id="p-number">CERTIFICATE NO.</div><div class="verification-note">امسح الرمز للتحقق من سجل الشهادة</div><small class="template-version">Certificate template v2.0</small></div>
           <picture class="fast-picture"><source type="image/webp" srcset="assets/performance/certificate/approved-stamp.webp"><img class="issuer-stamp" src="assets/approved-stamp.png" alt="ختم معتمد أكاديمية خطوة" width="700" height="322"></picture>
         </div>
@@ -152,7 +157,7 @@
   <script>
     const VERIFY_BASE = 'https://akram-sabry.github.io/certificate-verification/';
     const $ = (id) => document.getElementById(id);
-    const fields = ['recipient','course','type','number','hours','course-date','issue-date','token'];
+    const fields = ['recipient','course','lecturer','type','number','hours','course-date','issue-date','token'];
     const draftKey='khotwa:certificate-draft:v2';
     const today = new Date();
     $('issue-date').value = [today.getFullYear(),String(today.getMonth()+1).padStart(2,'0'),String(today.getDate()).padStart(2,'0')].join('-');
@@ -189,6 +194,7 @@
       return true;
     }
     function prettyDate(value){if(!value)return '—';const [y,m,d]=value.split('-').map(Number);return new Intl.DateTimeFormat('ar-EG',{day:'numeric',month:'long',year:'numeric'}).format(new Date(y,m-1,d));}
+    function updateLecturerSignature(){const name=$('lecturer').value.trim();$('p-lecturer-signature').textContent=name||'اسم المحاضر';}
     function valid(){
       const hours=Number($('hours').value);
       return fields.every(id=>$(id).value.trim()) && Number.isFinite(hours) && hours>0 && hours<=999 && /^[A-Fa-f0-9]{32}$/.test($('token').value.trim());
@@ -203,7 +209,7 @@
     }
     function validateInputs(){
       const checks=[
-        ['recipient','اسم المتدرب مطلوب.'],['course','اسم الدورة مطلوب.'],['hours','أدخل عدد ساعات صحيحًا من 1 إلى 999.'],
+        ['recipient','اسم المتدرب مطلوب.'],['course','اسم الدورة مطلوب.'],['lecturer','اسم المحاضر مطلوب.'],['hours','أدخل عدد ساعات صحيحًا من 1 إلى 999.'],
         ['course-date','تاريخ الدورة مطلوب.'],['issue-date','تاريخ الإصدار مطلوب.'],['token','ولّد رمز تحقق من 32 خانة أولًا.']
       ];
       fields.forEach(id=>fieldError(id,''));
@@ -228,6 +234,7 @@
       if(!validateInputs()||!valid())return false;
       const type=$('type').value;
       $('p-name').textContent=$('recipient').value.trim();
+      updateLecturerSignature();
       $('p-course').textContent=$('course').value.trim();
       $('p-course-en').textContent='';$('p-statement').textContent=type;
       $('p-hours').textContent=$('hours').value.trim()+' ساعة تدريبية / training hours';
@@ -243,7 +250,7 @@
       setReadyState(true);
       return true;
     }
-    ['recipient','course','type','hours','course-date','issue-date','token'].forEach(id=>$(id).addEventListener(id==='type'?'change':'input',()=>{$('number').value='';fieldError(id,'');setReadyState(false);saveDraft();}));
+    ['recipient','course','lecturer','type','hours','course-date','issue-date','token'].forEach(id=>$(id).addEventListener(id==='type'?'change':'input',()=>{$('number').value='';fieldError(id,'');if(id==='lecturer')updateLecturerSignature();setReadyState(false);saveDraft();}));
     $('new-token').addEventListener('click',()=>{$('token').value=randomToken();$('number').value='';fieldError('token','');setReadyState(false);saveDraft();});$('copy-token').addEventListener('click',async()=>{
       const token=$('token').value.trim().toUpperCase();
       if(!token){alert('ولّد رمز التحقق أولًا.');return;}
@@ -253,12 +260,12 @@
     $('show-seals').addEventListener('change',()=>{$('certificate').classList.toggle('seals-hidden',!$('show-seals').checked);saveDraft();});
     $('refresh').addEventListener('click',refresh);$('sample-data').addEventListener('click',()=>{
       const date=[today.getFullYear(),String(today.getMonth()+1).padStart(2,'0'),String(today.getDate()).padStart(2,'0')].join('-');
-      $('recipient').value='أحمد محمد';$('course').value='تحليل المخاطر وسلامة الغذاء';$('type').selectedIndex=0;$('number').value='';$('hours').value='24';$('course-date').value=date;$('issue-date').value=date;$('token').value=randomToken();
+      $('recipient').value='أحمد محمد';$('course').value='تحليل المخاطر وسلامة الغذاء';$('lecturer').value='م. أكرم صبري';$('type').selectedIndex=0;$('number').value='';$('hours').value='24';$('course-date').value=date;$('issue-date').value=date;$('token').value=randomToken();
       fields.forEach(id=>fieldError(id,''));saveDraft();refresh();
     });
     $('reset-form').addEventListener('click',()=>{
       if(!confirm('هل تريد مسح كل بيانات الشهادة؟'))return;
-      ['recipient','course','number','hours','course-date','issue-date','token'].forEach(id=>$(id).value='');$('type').selectedIndex=0;
+      ['recipient','course','lecturer','number','hours','course-date','issue-date','token'].forEach(id=>$(id).value='');$('type').selectedIndex=0;updateLecturerSignature();
       $('issue-date').value=[today.getFullYear(),String(today.getMonth()+1).padStart(2,'0'),String(today.getDate()).padStart(2,'0')].join('-');
       $('qr').replaceChildren(Object.assign(document.createElement('span'),{textContent:'QR'}));$('print').disabled=true;$('export-pdf').disabled=true;$('download-png').disabled=true;$('row-out').style.display='none';$('row-text').textContent='';
       $('show-seals').checked=true;$('certificate').classList.remove('seals-hidden');setReadyState(false);
@@ -310,12 +317,12 @@
     $('print').addEventListener('click',()=>{if(refresh())window.print();});$('copy-row').addEventListener('click',async()=>{
       ensureCertificateNumber();
       if(!validateInputs()||!valid())return;
-      const values=[$('token').value.trim().toUpperCase(),$('number').value.trim(),$('recipient').value.trim(),$('course').value.trim(),$('type').value,$('course-date').value,$('issue-date').value,'VALID',$('hours').value.trim()];
+      const values=[$('token').value.trim().toUpperCase(),$('number').value.trim(),$('recipient').value.trim(),$('course').value.trim(),$('type').value,$('course-date').value,$('issue-date').value,'VALID',$('hours').value.trim(),$('lecturer').value.trim()];
       const text=values.join('\t');
       try{await navigator.clipboard.writeText(text);}catch(e){const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand('copy');ta.remove();}
       $('row-text').textContent=values.join(' \vert{} ');$('row-out').style.display='block';
     });
-    loadDraft();
+    loadDraft();updateLecturerSignature();
   </script>
 </body>
 </html>
