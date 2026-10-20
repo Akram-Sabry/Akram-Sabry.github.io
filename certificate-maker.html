@@ -91,23 +91,30 @@
     .certificate.seals-hidden .iso-seals{display:none}
     .issuer-stamp{position:relative;width:180px;height:auto;max-width:100%;margin:0 auto 3px;display:block;object-fit:contain;transform:rotate(0deg)}
     .issuer-stamp::before{content:none}.stamp-top,.stamp-bottom,.stamp-type{display:none}
-    .certificate.design-modern{background:#fff;border:1px solid #e2e9e4;box-shadow:0 18px 48px #102e2810}
-    .certificate.design-modern::before{inset:12px;border:1px solid #e5ebe7}
-    .certificate.design-modern::after{display:none}
-    .certificate.design-modern>.decor,.certificate.design-modern>.corner,.certificate.design-modern>.watermark{display:none}
-    .certificate.design-modern .certificate-head{border-bottom-color:#e9efeb;padding-bottom:12px}
-    .certificate.design-modern h2 small{color:var(--forest)}
-    .certificate.design-modern .divider{background:linear-gradient(90deg,transparent,#97b0a5 18%,#97b0a5 82%,transparent)}
-    .certificate.design-modern .divider::after{background:#fff;color:var(--forest)}
-    .certificate.design-modern .person{border-bottom:1px solid #dce8e1;color:#183f36}
-    .certificate.design-modern .course-panel{border:0;border-inline-start:3px solid var(--forest);border-inline-end:0;border-radius:10px;background:#f6f8f6;box-shadow:none}
-    .certificate.design-modern .detail{border-color:#e5ebe7;border-radius:10px;background:#fff}
-    .certificate.design-modern .certificate-message{border-color:#e5ebe7}
+    .certificate.design-modern{background:linear-gradient(135deg,#fffefb 0%,#fffdf8 68%,#f7f0e2 100%);border:1px solid #b69348;box-shadow:0 18px 48px #102e2818}
+    .certificate.design-modern::before{inset:13px;border:1px solid #b69348}
+    .certificate.design-modern::after{display:block;inset:19px;border:1px solid #183f361f}
+    .certificate.design-modern>.decor{display:block}
+    .certificate.design-modern>.watermark{opacity:.025;filter:grayscale(.9)}
+    .certificate.design-modern .corner{display:block;width:26px;height:26px;border-color:#b69348;border-width:2px;z-index:1}
+    .certificate.design-modern .decor span{display:none}
+    .certificate.design-modern .decor-top,.certificate.design-modern .decor-bottom{width:28%;height:58px;background:linear-gradient(135deg,transparent 67%,var(--gold) 67% 72%,transparent 72%),linear-gradient(135deg,transparent 55%,#426a5d 55% 60%,transparent 60%),linear-gradient(135deg,transparent 38%,var(--forest-dark) 38%)}
+    .certificate.design-modern .decor-top{inset:0 0 auto auto;transform:none}
+    .certificate.design-modern .decor-bottom{inset:auto auto 0 0;transform:rotate(180deg)}
+    .certificate.design-modern .certificate-head{border-bottom-color:#d9c596;padding-bottom:12px}
+    .certificate.design-modern h2 small{color:var(--gold)}
+    .certificate.design-modern .divider{background:linear-gradient(90deg,transparent,#b69348 18%,#b69348 82%,transparent)}
+    .certificate.design-modern .divider::after{background:#fffdf8;color:var(--gold)}
+    .certificate.design-modern .person{border-bottom:1px solid #c6a75c;color:#183f36}
+    .certificate.design-modern .course-panel{border:1px solid #e1d1a8;border-inline-start:4px solid var(--gold);border-inline-end:4px solid var(--gold);border-radius:7px;background:#fbf7ec;box-shadow:0 6px 16px #80652a12}
+    .certificate.design-modern .detail{border-color:#e1d8c1;border-radius:8px;background:#fffdf8}
+    .certificate.design-modern .certificate-message{border-color:#d9c596}
     .certificate.design-modern .iso-seals{gap:8px}
     .certificate.design-modern .iso-seals img{width:56px;height:42px;max-height:42px}
-    .certificate.design-modern .bottom{border-top-color:#e5ebe7}
-    .certificate.design-modern .qr-panel{background:#f7f9f8;border:1px solid #e2e9e4;border-radius:12px;padding:6px 4px}
-    @media print{.certificate.design-modern::before{inset:5mm;border:.35mm solid #e5ebe7}.certificate.design-modern .qr-panel{padding:1mm;border:.25mm solid #e2e9e4;border-radius:2mm}}
+    .certificate.design-modern .bottom{border-top-color:#d9c596}
+    .certificate.design-modern .qr-panel{background:#fbf7ec;border:1px solid #dec98f;border-radius:10px;padding:6px 4px}
+    @media(max-width:560px){.certificate.design-modern .decor-top,.certificate.design-modern .decor-bottom{width:24%;height:42px}.certificate.design-modern .corner{width:20px;height:20px}}
+    @media print{.certificate.design-modern::before{inset:4.5mm;border:.35mm solid #b69348}.certificate.design-modern::after{display:block;inset:6mm;border:.25mm solid #183f3622}.certificate.design-modern .decor-top,.certificate.design-modern .decor-bottom{width:28%;height:15mm}.certificate.design-modern .qr-panel{padding:1mm;border:.25mm solid #dec98f;border-radius:2mm}}
     .controls-note{max-width:1460px;margin:0 auto 24px;padding:0 20px;color:var(--muted);font-size:12px}
     @media(max-width:850px){.toolbar{grid-template-columns:1fr;padding:0 12px;margin:14px auto}.certificate{width:100%;padding:22px 28px}.certificate-wrap{padding-bottom:16px}}
     @media(max-width:560px){.form-panel{padding:18px}.actions{display:grid;grid-template-columns:1fr}.actions button{width:100%}.token-row{align-items:stretch}.token-row button{white-space:nowrap}.certificate-wrap{margin-inline:-2px}.certificate-head{gap:8px;padding-inline:0}.brand-text{font-size:13px}.accreditation-logo{width:68px;height:74px}.hint{font-size:11px!important}}
@@ -133,7 +140,7 @@
       <div class="field"><label for="course">اسم الدورة / Course title</label><input id="course" autocomplete="off" required></div>
       <div class="field"><label for="lecturer">اسم المحاضر / Lecturer name</label><input id="lecturer" autocomplete="off" placeholder="اسم المحاضر" required></div>
       <p class="hint">إذا أدخلت اسم «أكرم صبري» يظهر توقيعه المحفوظ؛ والأسماء الأخرى تظهر بخط يدوي زخرفي عام، وليس كتوقيع فعلي.</p>
-      <div class="field"><label for="design-style">نمط الشهادة / Certificate style</label><select id="design-style"><option value="modern" selected>عصري بسيط / Modern minimal</option><option value="classic">كلاسيكي / Classic</option></select></div>
+      <div class="field"><label for="design-style">نمط الشهادة / Certificate style</label><select id="design-style"><option value="modern" selected>عصري فاخر / Modern premium</option><option value="classic">كلاسيكي / Classic</option></select></div>
       <div class="field"><label for="type">نوع الشهادة / Certificate type</label><select id="type"><option value="إتمام متطلبات البرنامج التدريبي / Completed training requirements">إتمام متطلبات البرنامج التدريبي / Completion</option><option value="حضور البرنامج التدريبي / Attended the training program">حضور البرنامج التدريبي / Attendance</option></select></div>
       <div class="field"><label for="number">رقم الشهادة / Certificate number</label><input id="number" placeholder="يُنشأ تلقائيًا عند تحديث المعاينة" autocomplete="off" readonly aria-readonly="true" required></div>
       <div class="field"><label for="hours">عدد ساعات التدريب / Training hours</label><input id="hours" type="number" min="1" max="999" step="0.5" placeholder="مثال: 24" required></div>
@@ -177,7 +184,7 @@
             <div class="signature-block" aria-label="توقيع المُصدر"><picture class="fast-picture"><source type="image/webp" srcset="assets/performance/certificate/signature.webp"><img class="signature-image" src="assets/akram-signature.png" alt="توقيع أكرم صبري" width="700" height="222"></picture><strong>م. أكرم صبري · المُصدر</strong></div>
             <picture class="fast-picture"><source type="image/webp" srcset="assets/performance/certificate/approved-stamp.webp"><img class="issuer-stamp" src="assets/approved-stamp.png" alt="ختم معتمد أكاديمية خطوة" width="700" height="322"></picture>
           </div>
-          <div class="qr-panel"><div class="qr" id="qr"><span style="font:10px Arial;color:#617078">QR</span></div><div class="serial" id="p-number">CERTIFICATE NO.</div><div class="verification-note">امسح الرمز للتحقق من سجل الشهادة</div><small class="template-version">Certificate template v2.1</small></div>
+          <div class="qr-panel"><div class="qr" id="qr"><span style="font:10px Arial;color:#617078">QR</span></div><div class="serial" id="p-number">CERTIFICATE NO.</div><div class="verification-note">امسح الرمز للتحقق من سجل الشهادة</div><small class="template-version">Certificate template v2.2</small></div>
           <div class="lecturer-signature-block" id="lecturer-signature-block" aria-label="اسم المحاضر بخط يدوي زخرفي"><span>المحاضر / Lecturer</span><img class="lecturer-auth-signature" id="p-lecturer-signature-image" src="assets/akram-signature.png" alt="توقيع أكرم صبري" width="700" height="222" aria-hidden="true"><strong class="lecturer-name-text" id="p-lecturer-signature">اسم المحاضر</strong></div>
         </div>
       </article>
@@ -327,7 +334,7 @@
         await Promise.all([document.fonts.load('400 16px "IBM Plex Sans Arabic"'),document.fonts.load('700 16px "IBM Plex Sans Arabic"'),document.fonts.load('700 16px Cairo')]);
         const source=$('certificate');
         clone=source.cloneNode(true);
-        const outputBackground=source.classList.contains('design-modern')?'#fff':'#fffdf8';
+        const outputBackground=source.classList.contains('design-modern')?'#fffefb':'#fffdf8';
         clone.style.cssText=`position:absolute;left:0;top:0;z-index:0;pointer-events:none;width:793px;height:1122px;min-width:793px;max-width:793px;aspect-ratio:auto;margin:0;box-shadow:none;background:${outputBackground};overflow:hidden`;
         clone.querySelectorAll('picture.fast-picture source[type="image/webp"]').forEach(source=>source.remove());
         document.body.appendChild(clone);
