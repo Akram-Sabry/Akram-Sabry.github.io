@@ -87,7 +87,7 @@
     function addField(container, label, value) {
       const row = document.createElement('div'); row.className = 'field';
       const name = document.createElement('div'); name.className = 'label'; name.textContent = label;
-      const val = document.createElement('div'); val.className = 'value'; val.textContent = value || '—';
+      const val = document.createElement('div'); val.className = 'value'; val.textContent = value || '—'; val.dir = 'auto'; val.style.textAlign = 'start';
       row.append(name, val); container.appendChild(row);
     }
     function renderCertificate(c, token) {
@@ -104,6 +104,8 @@
       addField(fields, 'Certificate No.', c.number);
       addField(fields, 'Recipient Name', c.name);
       addField(fields, 'Course Title', c.course);
+      const lecturer = c.lecturer ?? c.lecturerName ?? c.lecturer_name ?? c.instructor ?? c.instructorName ?? c.trainer;
+      addField(fields, 'Lecturer Name', lecturer);
       addField(fields, 'Certificate Type', translateText(c.type));
       addField(fields, 'Course Date', c.courseDate);
       addField(fields, 'Issue Date', c.issueDate);
