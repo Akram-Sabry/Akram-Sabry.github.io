@@ -15,6 +15,13 @@ Core areas:
 - GMP/GHP and documentation control
 - Food safety and quality training
 
+## Food safety standards and terminology reference
+
+- Arabic guide: https://akram-sabry.github.io/food-safety-updates.html
+- English guide: https://akram-sabry.github.io/en/food-safety-updates.html
+- Covers current ISO 22000 and ISO 22002 edition status, ISO 9001:2026, food safety culture, allergen cross-contact, environmental monitoring, food defense, and traceability terminology, with official ISO, Codex, and FDA source links.
+- Edition status and terminology last reviewed 20 October 2026; readers should check source pages for subsequent changes and verify applicability to their own jurisdiction.
+
 Contact:
 - WhatsApp/Phone: +201155780461
 - Email: akramsabry257@gmail.com
