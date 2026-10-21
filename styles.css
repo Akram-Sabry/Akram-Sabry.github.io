@@ -385,3 +385,12 @@ body { font-size: 16px; }
 .brand-logo { display: block; width: 76px; height: 48px; padding: 2px 3px; border: 1px solid var(--line); border-radius: 9px; background: var(--white); object-fit: contain; }
 .reference-home-action { display: flex; justify-content: center; margin-top: 24px; }
 @media (max-width: 650px) { .brand-logo { width: 62px; height: 42px; } }
+
+
+/* Selected work logo gallery */
+.portfolio-grid { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:14px; }
+.portfolio-mark { display:grid; place-items:center; min-height:154px; padding:16px; margin:0; border:1px solid var(--line); border-radius:16px; background:var(--white); transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease; }
+.portfolio-mark:hover { transform:translateY(-4px); border-color:#a7d2c7; box-shadow:var(--shadow); }
+.portfolio-mark img { width:100%; height:112px; object-fit:contain; }
+@media (max-width:920px) { .portfolio-grid { grid-template-columns:repeat(3,minmax(0,1fr)); } }
+@media (max-width:650px) { .portfolio-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; } .portfolio-mark { min-height:126px; padding:11px; } .portfolio-mark img { height:92px; } }
