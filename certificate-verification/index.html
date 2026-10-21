@@ -37,6 +37,11 @@
     .share-button:hover{border-color:#9ccdbf;background:#edf6f2}
     .share-button.primary{border-color:var(--forest);background:var(--forest);color:#fff}
     .share-feedback{min-height:1.5em;margin:9px 0 0!important;color:var(--forest-dark)!important;font-weight:700}
+    .token-label{display:block;flex-basis:100%;font-size:14px;font-weight:700}
+    .verification-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+    button.secondary-button{border:1px solid var(--line);background:#fff;color:var(--forest-dark)}button.secondary-button:hover{background:#edf6f2}
+    .qr-video{display:block;width:100%;max-height:360px;margin-top:12px;border-radius:12px;background:#17252b;object-fit:cover}.qr-video[hidden],#scan-stop[hidden]{display:none}
+    .scan-status{min-height:1.5em;margin:8px 0 0;color:var(--forest-dark);font-size:13px}.scan-instructions{margin:8px 0 0;color:var(--muted);font-size:12px}
   </style>
 </head>
 <body>
@@ -47,13 +52,20 @@
       <div class="content">
         <div class="eyebrow">Online Verification Service</div>
         <h1 class="title" id="page-title">Training Certificate Verification</h1>
-        <p class="subtitle">Enter the 32-character verification token or open via QR code.</p>
+        <p class="subtitle" dir="auto">أدخل رمز التحقق السري المكوّن من 32 خانة، أو امسح رمز QR بالكاميرا. / Enter the 32-character secret verification code or scan the QR code.</p>
         <form id="lookup-form">
-          <label for="token" class="visually-hidden" style="position:absolute;clip:rect(0,0,0,0)">Verification Token</label>
-          <input id="token" name="token" maxlength="32" minlength="32" pattern="[A-Fa-f0-9]{32}" autocomplete="off" spellcheck="false" placeholder="Verification Token" required>
-          <button type="submit">Verify Certificate</button>
+          <label for="token" class="token-label" dir="auto">رمز التحقق السري / Secret verification code (32 characters)</label>
+          <input id="token" name="token" maxlength="32" minlength="32" pattern="[A-Fa-f0-9]{32}" autocomplete="off" spellcheck="false" placeholder="32-character secret code" required>
+          <button type="submit">تحقق من الشهادة / Verify Certificate</button>
         </form>
-        <p class="hint">The system displays only the certificate matching this token. No public directory of trainees is maintained.</p>
+        <div class="verification-actions">
+          <button id="scan-start" class="secondary-button" type="button">مسح QR بالكاميرا / Scan QR with camera</button>
+          <button id="scan-stop" class="secondary-button" type="button" hidden>إيقاف الكاميرا / Stop camera</button>
+        </div>
+        <video id="qr-video" class="qr-video" playsinline muted autoplay hidden aria-label="Live QR code scanner"></video>
+        <p id="scan-status" class="scan-status" role="status" aria-live="polite" dir="auto"></p>
+        <p class="scan-instructions" dir="auto">يمكنك أيضًا مسح رمز الشهادة بكاميرا الهاتف لفتح التحقق مباشرة. قراءة الصورة تتم داخل المتصفح ولا تُرفع إلى الخادم. يلزم الرمز السري أو QR؛ رقم الشهادة التسلسلي وحده لا يكفي للتحقق. / A phone camera can open the verification link directly. Image scanning stays in your browser and is not uploaded. Use the secret token or QR; the serial number alone is not accepted.</p>
+        <p class="hint" dir="auto">يُعرض سجل الشهادة المطابق للرمز فقط، ولا يوجد دليل عام للمتدربين. / Only the matching certificate is shown; no public trainee directory is maintained.</p>
         <div id="result" aria-live="polite"><div class="notice">Enter the verification token to start.</div></div>
       </div>
     </section>
@@ -206,8 +218,15 @@
       document.getElementById('result').appendChild(script);
     }
     form.addEventListener('submit', (event) => { event.preventDefault(); lookup(tokenInput.value.trim()); });
+    document.addEventListener('certificate-token-scanned', (event) => {
+      const token = event.detail && event.detail.token;
+      if (!token || !/^[A-Fa-f0-9]{32}$/.test(token)) return;
+      tokenInput.value = token.toUpperCase();
+      lookup(tokenInput.value);
+    });
     const initialToken = new URLSearchParams(location.search).get('id');
     if (initialToken) { tokenInput.value = initialToken; lookup(initialToken); }
   </script>
+  <script src="qr-scanner.js"></script>
 </body>
 </html>
