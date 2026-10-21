@@ -54,6 +54,21 @@
   const status = document.querySelector('#form-status');
   const fallback = document.querySelector('#whatsapp-fallback');
   const whatsappNumber = '201155780461';
+  const serviceSelect = contactForm?.querySelector('#service');
+  const providerServiceField = contactForm?.querySelector('#provider-service-field');
+  const providerServiceSelect = contactForm?.querySelector('#provider-service');
+
+  function updateProviderServiceField() {
+    if (!serviceSelect || !providerServiceField || !providerServiceSelect) return;
+    const isCoordination = serviceSelect.selectedOptions[0]?.dataset.supportCoordination === 'true';
+    providerServiceField.hidden = !isCoordination;
+    providerServiceSelect.required = isCoordination;
+    serviceSelect.setAttribute('aria-expanded', String(isCoordination));
+    if (!isCoordination) providerServiceSelect.value = '';
+  }
+
+  serviceSelect?.addEventListener('change', updateProviderServiceField);
+  updateProviderServiceField();
 
   function normalizeEgyptianMobile(value) {
     const latin = String(value)
@@ -82,12 +97,14 @@
     const data = new FormData(contactForm);
     const name = String(data.get('name') || '').trim();
     const service = String(data.get('service') || '').trim();
+    const providerService = String(data.get('providerService') || '').trim();
     const details = String(data.get('details') || '').trim();
     const message = [
       'Hello Akram, I would like to enquire about a service.',
       `Name/company: ${name}`,
       `Contact number: ${normalizedPhone}`,
       `Service: ${service}`,
+      providerService ? `Support service needed: ${providerService}` : '',
       details ? `Brief description: ${details}` : ''
     ].filter(Boolean).join('\n');
     const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;

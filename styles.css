@@ -128,16 +128,25 @@ details[open] summary::after { content: '−'; }
 .contact-box { display: grid; grid-template-columns: .9fr 1.1fr; gap: 25px; padding: 28px; border: 1px solid #b9d9d0; border-radius: 22px; background: linear-gradient(135deg, var(--forest-soft), var(--white)); }
 .contact-box h2 { margin-bottom: 10px; }
 .contact-box > div > p { color: var(--muted); }
+#contact-form { padding: 22px; border: 1px solid var(--line); border-radius: 16px; background: var(--white); box-shadow: 0 12px 30px rgba(23,37,43,.07); }
+.form-intro { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; padding: 12px 14px; border-radius: 12px; background: var(--forest-soft); }
+.form-intro-mark { display: grid; place-items: center; flex: 0 0 38px; width: 38px; height: 38px; border-radius: 12px; color: var(--white); background: var(--forest); font-size: 12px; font-weight: 800; }
+.form-intro strong, .form-intro > div > span { display: block; }
+.form-intro strong { color: var(--navy); font-size: 14px; }
+.form-intro > div > span { margin-top: 2px; color: var(--muted); font-size: 12px; line-height: 1.5; }
 .contact-details { display: grid; gap: 10px; margin-top: 23px; }
 .contact-details a { padding: 12px 14px; border: 1px solid var(--line); border-radius: 10px; background: var(--white); color: var(--forest); font-weight: 700; }
 .form-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 13px; }
 .form-field { display: grid; gap: 5px; }
 .form-field.full { grid-column: 1 / -1; }
+#provider-service-field { padding: 14px; border: 1px solid #cfe4dc; border-radius: 12px; background: #f4faf7; }
+#provider-service-field[hidden] { display: none; }
 label { color: var(--navy); font-size: 13px; font-weight: 700; }
 input, select, textarea { width: 100%; border: 1px solid var(--line); border-radius: 9px; padding: 11px 12px; color: var(--ink); background: var(--white); outline: none; }
 textarea { min-height: 110px; resize: vertical; }
 input:focus, select:focus, textarea:focus { border-color: var(--forest); box-shadow: 0 0 0 3px rgba(11,93,79,.11); }
 .form-submit { width: 100%; margin-top: 14px; }
+@media (max-width: 650px) { #contact-form { padding: 16px; } .form-intro { align-items: flex-start; padding: 11px; } }
 
 .site-footer { padding: 28px 0 38px; background: var(--white); color: var(--muted); font-size: 13px; }
 .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; }

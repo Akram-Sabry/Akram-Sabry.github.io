@@ -290,35 +290,60 @@
 
     <section class="section" id="contact">
       <div class="container contact-box reveal">
-        <div><span class="eyebrow">CONSULTING &amp; TRAINING</span><h2>Let’s find the right next step</h2><p>Tell us briefly about your business or the training program you are looking for. A WhatsApp message will be prepared for you to review before sending.</p><div class="contact-details"><a href="tel:+201155780461">Call: +20 11 5578 0461</a><a href="https://wa.me/201155780461" target="_blank" rel="noopener">Message on WhatsApp</a><a href="mailto:akramsabry257@gmail.com">akramsabry257@gmail.com</a></div></div>
+        <div><span class="eyebrow">CONSULTING &amp; SERVICE COORDINATION</span><h2>What support do you need?</h2><p>Request food-safety and quality consulting or help finding a suitable support provider. Choose the type of need; a WhatsApp message will be prepared for you to review before sending.</p><div class="contact-details"><a href="tel:+201155780461">Call: +20 11 5578 0461</a><a href="https://wa.me/201155780461" target="_blank" rel="noopener">Message on WhatsApp</a><a href="mailto:akramsabry257@gmail.com">akramsabry257@gmail.com</a></div></div>
         <form id="contact-form">
+          <div class="form-intro">
+            <span class="form-intro-mark" aria-hidden="true">01</span>
+            <div><strong>Start by choosing a service</strong><span>A WhatsApp draft will be prepared for you to review before sending.</span></div>
+          </div>
           <div class="form-grid">
+            <div class="form-field full">
+              <label for="service">Service needed</label>
+              <select id="service" name="service" required aria-controls="provider-service-field" aria-expanded="false" aria-describedby="service-hint">
+                <option value="" disabled selected>Select a service</option>
+                <optgroup label="Consulting and training">
+                  <option value="Food safety and quality systems consulting (HACCP / ISO / BRCGS)">Food safety and quality systems consulting (HACCP / ISO / BRCGS)</option>
+                  <option value="NFSA requirements or inspection readiness">NFSA requirements or inspection readiness</option>
+                  <option value="Internal audit or supplier assessment">Internal audit or supplier assessment</option>
+                  <option value="Training program or capability building">Training program or capability building</option>
+                </optgroup>
+                <optgroup label="Support services">
+                  <option value="Coordination with a support provider" data-support-coordination="true">Coordination with a support provider</option>
+                </optgroup>
+                <optgroup label="Other">
+                  <option value="General enquiry">General enquiry</option>
+                </optgroup>
+              </select>
+              <small id="service-hint" class="muted">If you choose support-provider coordination, select the specific service below.</small>
+            </div>
+            <div class="form-field full" id="provider-service-field" hidden>
+              <label for="provider-service">Which support service do you need?</label>
+              <select id="provider-service" name="providerService" aria-describedby="provider-service-hint">
+                <option value="" disabled selected>Select a service area</option>
+                <option value="Pest control">Pest control</option>
+                <option value="Equipment and instrument calibration">Equipment and instrument calibration</option>
+                <option value="Cleaning products and chemicals">Cleaning products and chemicals</option>
+                <option value="Accredited laboratory testing">Accredited laboratory testing</option>
+                <option value="Grant or funding organizations and programs">Grant or funding organizations and programs</option>
+                <option value="Other support service">Other support service</option>
+              </select>
+              <small id="provider-service-hint" class="muted">Choose the closest match; you can add details below.</small>
+            </div>
             <div class="form-field">
               <label for="name">Name / company</label>
-              <input id="name" name="name" type="text" autocomplete="name" required>
+              <input id="name" name="name" type="text" autocomplete="name" placeholder="Your name and facility" required>
             </div>
             <div class="form-field">
               <label for="phone">Phone number</label>
-              <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" aria-describedby="phone-hint" required>
-              <small id="phone-hint" class="muted">Enter an Egyptian mobile number, e.g. 01012345678 or +201012345678</small>
+              <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="01012345678" aria-describedby="phone-hint" required>
+              <small id="phone-hint" class="muted">Egyptian mobile, e.g. 01012345678 or +201012345678</small>
             </div>
-            <div class="form-field">
-              <label for="service">Service needed</label>
-              <select id="service" name="service" required>
-                <option value="" disabled selected>Select a service</option>
-                <option value="Food business consulting and readiness">Food business consulting and readiness</option>
-                <option value="NFSA readiness or inspection preparation">NFSA readiness or inspection preparation</option>
-                <option value="Training program">Training program</option>
-                <option value="Internal audit">Internal audit</option>
-                <option value="General enquiry">General enquiry</option>
-              </select>
-            </div>
-            <div class="form-field">
-              <label for="details">Briefly describe your need <span class="optional">(optional)</span></label>
-              <textarea id="details" name="details" rows="4" placeholder="Optional: tell us about your challenge, audit date, or course of interest"></textarea>
+            <div class="form-field full">
+              <label for="details">Additional details <span class="optional">(optional)</span></label>
+              <textarea id="details" name="details" rows="4" placeholder="Share your facility, city, issue, or inspection date—whichever applies"></textarea>
             </div>
           </div>
-          <button class="button button-primary form-submit" type="submit">Review WhatsApp message</button>
+          <button class="button button-primary form-submit" type="submit">Prepare WhatsApp message</button>
           <p class="privacy-note">Your information is not sent to a website server. It is used to prepare a WhatsApp message that you can review before sending.</p>
           <p id="form-status" class="muted" role="status" aria-live="polite"></p>
           <a id="whatsapp-fallback" href="#" target="_blank" rel="noopener noreferrer" hidden>If WhatsApp does not open, click here</a>

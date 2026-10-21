@@ -286,35 +286,60 @@
 
     <section class="section" id="contact">
       <div class="container contact-box reveal">
-        <div><span class="eyebrow">استشارات وتدريب</span><h2>ما الخطوة المناسبة لاحتياجك؟</h2><p>أرسل نبذة قصيرة عن نشاطك أو الدورة التي تبحث عنها. ستُجهّز رسالة واتساب بالمعلومات التي تدخلها لمراجعتها قبل الإرسال.</p><div class="contact-details"><a href="tel:+201155780461">اتصال مباشر: 01155780461</a><a href="https://wa.me/201155780461" target="_blank" rel="noopener">مراسلة عبر واتساب</a><a href="mailto:akramsabry257@gmail.com">akramsabry257@gmail.com</a></div></div>
+        <div><span class="eyebrow">استشارات وتنسيق خدمات</span><h2>ما الدعم المناسب لاحتياجك؟</h2><p>اطلب استشارة في الجودة وسلامة الغذاء، أو المساعدة في الوصول إلى مقدم خدمة مساندة. اختر نوع الطلب؛ وسنجهّز رسالة واتساب بالمعلومات التي تدخلها لتراجعها قبل الإرسال.</p><div class="contact-details"><a href="tel:+201155780461">اتصال مباشر: 01155780461</a><a href="https://wa.me/201155780461" target="_blank" rel="noopener">مراسلة عبر واتساب</a><a href="mailto:akramsabry257@gmail.com">akramsabry257@gmail.com</a></div></div>
         <form id="contact-form">
+          <div class="form-intro">
+            <span class="form-intro-mark" aria-hidden="true">01</span>
+            <div><strong>ابدأ باختيار الخدمة</strong><span>ستُجهّز رسالة واتساب للمراجعة قبل الإرسال.</span></div>
+          </div>
           <div class="form-grid">
+            <div class="form-field full">
+              <label for="service">نوع الخدمة</label>
+              <select id="service" name="service" required aria-controls="provider-service-field" aria-expanded="false" aria-describedby="service-hint">
+                <option value="" disabled selected>اختر الخدمة</option>
+                <optgroup label="استشارات وتدريب">
+                  <option value="استشارة في أنظمة HACCP وISO وBRCGS">استشارة في أنظمة HACCP وISO وBRCGS</option>
+                  <option value="تأهيل NFSA أو الجاهزية للتفتيش">تأهيل NFSA أو الجاهزية للتفتيش</option>
+                  <option value="مراجعة داخلية أو تقييم مورد">مراجعة داخلية أو تقييم مورد</option>
+                  <option value="دورة تدريبية أو بناء قدرات">دورة تدريبية أو بناء قدرات</option>
+                </optgroup>
+                <optgroup label="الخدمات المساندة">
+                  <option value="التنسيق مع مقدم خدمة مساندة" data-support-coordination="true">التنسيق مع مقدم خدمة مساندة</option>
+                </optgroup>
+                <optgroup label="أخرى">
+                  <option value="استفسار عام">استفسار عام</option>
+                </optgroup>
+              </select>
+              <small id="service-hint" class="muted">عند اختيار التنسيق مع جهة مساندة، حدّد نوع الخدمة في الحقل التالي.</small>
+            </div>
+            <div class="form-field full" id="provider-service-field" hidden>
+              <label for="provider-service">ما الخدمة المساندة التي تحتاجها؟</label>
+              <select id="provider-service" name="providerService" aria-describedby="provider-service-hint">
+                <option value="" disabled selected>اختر المجال</option>
+                <option value="مكافحة الآفات">مكافحة الآفات</option>
+                <option value="معايرة الأجهزة والمعدات">معايرة الأجهزة والمعدات</option>
+                <option value="المنظفات ومواد التنظيف">المنظفات ومواد التنظيف</option>
+                <option value="تحاليل مخبرية لدى معامل معتمدة">تحاليل مخبرية لدى معامل معتمدة</option>
+                <option value="جهات أو برامج منح وتمويل">جهات أو برامج منح وتمويل</option>
+                <option value="خدمة مساندة أخرى">خدمة مساندة أخرى</option>
+              </select>
+              <small id="provider-service-hint" class="muted">اختر المجال الأقرب لاحتياجك، ويمكنك توضيح التفاصيل أدناه.</small>
+            </div>
             <div class="form-field">
               <label for="name">الاسم / اسم الشركة</label>
-              <input id="name" name="name" type="text" autocomplete="name" required>
+              <input id="name" name="name" type="text" autocomplete="name" placeholder="اسمك واسم منشأتك" required>
             </div>
             <div class="form-field">
               <label for="phone">رقم الهاتف</label>
-              <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" aria-describedby="phone-hint" required>
-              <small id="phone-hint" class="muted">أدخل رقم محمول مصري، مثل 01012345678 أو +201012345678</small>
+              <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="01012345678" aria-describedby="phone-hint" required>
+              <small id="phone-hint" class="muted">رقم محمول مصري، مثل 01012345678 أو +201012345678</small>
             </div>
-            <div class="form-field">
-              <label for="service">نوع الخدمة</label>
-              <select id="service" name="service" required>
-                <option value="" disabled selected>اختر الخدمة</option>
-                <option value="استشارة وتأهيل مصنع">استشارة وتأهيل مصنع</option>
-                <option value="تأهيل NFSA أو جاهزية للتفتيش">تأهيل NFSA أو جاهزية للتفتيش</option>
-                <option value="دورة تدريبية">دورة تدريبية</option>
-                <option value="مراجعة داخلية">مراجعة داخلية</option>
-                <option value="استفسار عام">استفسار عام</option>
-              </select>
-            </div>
-            <div class="form-field">
-              <label for="details">نبذة عن الاحتياج <span class="optional">(اختياري)</span></label>
-              <textarea id="details" name="details" rows="4" placeholder="اختياري: اذكر التحدي أو موعد التفتيش أو الدورة التي تهمك"></textarea>
+            <div class="form-field full">
+              <label for="details">تفاصيل إضافية <span class="optional">(اختياري)</span></label>
+              <textarea id="details" name="details" rows="4" placeholder="اذكر نشاط المنشأة أو المدينة أو المشكلة أو موعد التفتيش، حسب ما ينطبق"></textarea>
             </div>
           </div>
-          <button class="button button-primary form-submit" type="submit">راجع الرسالة في واتساب</button>
+          <button class="button button-primary form-submit" type="submit">جهّز رسالة واتساب للمراجعة</button>
           <p class="privacy-note">لن تُرسل البيانات من الموقع إلى خادم. ستُستخدم فقط لتجهيز رسالة واتساب، ويمكنك مراجعتها قبل إرسالها.</p>
           <p id="form-status" class="muted" role="status" aria-live="polite"></p>
           <a id="whatsapp-fallback" href="#" target="_blank" rel="noopener noreferrer" hidden>إذا لم يفتح واتساب تلقائيًا، اضغط هنا</a>
