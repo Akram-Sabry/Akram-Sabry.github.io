@@ -21,11 +21,12 @@
   <style>
     :root{--forest:#0b5d4f;--forest-dark:#06463d;--gold:#c99a45;--ink:#22343a;--muted:#617078;--cream:#f8faf9;--line:#d9e4df;--red:#a8332a}
     *{box-sizing:border-box}body{margin:0;background:var(--cream);color:var(--ink);font-family:'IBM Plex Sans Arabic','Cairo',sans-serif;line-height:1.75}
-    .top{background:#fff;border-bottom:1px solid var(--line)}.top-inner{max-width:920px;margin:auto;padding:18px 24px;display:flex;align-items:center;justify-content:space-between;gap:12px}.brand{font-weight:800;color:var(--forest-dark)}.brand small{display:block;color:var(--muted);font-size:12px;font-weight:500}
+    .top{background:#fff;border-bottom:1px solid var(--line)}.top-inner{max-width:920px;margin:auto;padding:18px 24px;display:flex;align-items:center;justify-content:space-between;gap:12px}.brand{font-weight:800;color:var(--forest-dark);text-decoration:none}.brand small{display:block;color:var(--muted);font-size:12px;font-weight:500}
+    .top-actions{display:flex;flex-direction:column;align-items:flex-end;gap:5px}.home-link,.footer-home-link{display:inline-flex;align-items:center;color:var(--forest);font-size:13px;font-weight:700;text-decoration:none}.home-link:hover,.footer-home-link:hover{color:var(--forest-dark);text-decoration:underline}
     main{max-width:760px;margin:44px auto;padding:0 20px}.panel{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 16px 40px #17252b0d;overflow:hidden}.accent{height:7px;background:linear-gradient(90deg,var(--forest),var(--gold))}.content{padding:30px}.eyebrow{color:var(--gold);font-size:13px;font-weight:800}.title{margin:4px 0 6px;color:#17252b;font-size:clamp(26px,5vw,36px);line-height:1.25}.subtitle{margin:0 0 24px;color:var(--muted)}
     form{display:flex;gap:10px;flex-wrap:wrap}input{flex:1;min-width:230px;border:1px solid #bfcfc8;border-radius:10px;padding:13px 14px;font:inherit;direction:ltr;text-align:left}button{border:0;border-radius:10px;padding:12px 20px;background:var(--forest);color:#fff;font:inherit;font-weight:800;cursor:pointer}button:hover{background:var(--forest-dark)}.hint{font-size:12px;color:var(--muted);margin:9px 0 0}
     #result{margin-top:22px}.notice{padding:14px 16px;border-radius:12px;background:#f1f6f4;color:var(--muted);border:1px solid var(--line)}.notice.error{background:#fff4f2;color:var(--red);border-color:#f2d2ce}.result-card{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;direction:ltr;text-align:left}.result-head{padding:15px 18px;background:#edf6f2;display:flex;justify-content:space-between;align-items:center;gap:12px}.result-head.revoked{background:#fff1ef}.badge{padding:5px 11px;border-radius:100px;background:var(--forest);color:#fff;font-weight:800;font-size:12px;white-space:nowrap}.badge.revoked{background:var(--red)}.fields{padding:8px 18px 16px}.field{display:grid;grid-template-columns:180px 1fr;gap:14px;padding:12px 0;border-bottom:1px solid #edf1ef}.field:last-child{border:0}.label{color:var(--muted);font-size:13px}.value{font-weight:700;overflow-wrap:anywhere}.foot{padding:15px 18px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}footer{max-width:920px;margin:0 auto;padding:0 24px 32px;color:var(--muted);font-size:12px;text-align:center}
-    @media(max-width:560px){main{margin:24px auto}.content{padding:22px 18px}.field{grid-template-columns:1fr;gap:2px}.result-head{align-items:flex-start;flex-direction:column}}
+    @media(max-width:560px){.top-inner{align-items:flex-start;flex-wrap:wrap}.top-actions{align-items:flex-start}main{margin:24px auto}.content{padding:22px 18px}.field{grid-template-columns:1fr;gap:2px}.result-head{align-items:flex-start;flex-direction:column}}
   </style>
   <style>
     .share-panel{margin-top:16px;padding:16px;border:1px solid var(--line);border-radius:14px;background:#f8faf9;direction:ltr;text-align:left}
@@ -39,7 +40,7 @@
   </style>
 </head>
 <body>
-  <header class="top"><div class="top-inner"><div class="brand">Eng. Akram Sabry<small>Food Safety & Quality Consultant</small></div><div lang="en" dir="ltr" style="text-align:left;color:#617078;font-size:12px">TRAINING CERTIFICATE CHECK</div></div></header>
+  <header class="top"><div class="top-inner"><a class="brand" href="../" aria-label="Return to the main website">Eng. Akram Sabry<small>Food Safety & Quality Consultant</small></a><div class="top-actions"><div lang="en" dir="ltr" style="text-align:left;color:#617078;font-size:12px">TRAINING CERTIFICATE CHECK</div><a class="home-link" href="../"><span lang="ar" dir="rtl">العودة إلى الموقع الرئيسي</span><span aria-hidden="true"> · </span><span lang="en" dir="ltr">Back to main website</span></a></div></div></header>
   <main>
     <section class="panel" aria-labelledby="page-title">
       <div class="accent"></div>
@@ -57,7 +58,7 @@
       </div>
     </section>
   </main>
-  <footer>This page verifies certificate records issued by Eng. Akram Sabry and does not constitute third-party accreditation.</footer>
+  <footer>This page verifies certificate records issued by Eng. Akram Sabry and does not constitute third-party accreditation. <a class="footer-home-link" href="../" lang="ar" dir="rtl">العودة إلى الموقع الرئيسي</a></footer>
   <script>
     const API_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzboYWjlEuNfyWw2NcaTSKZrIjU1NbACHQoqVlmjTyRZshpqrHNeCmaYMi0Wz5u-VV3/exec';
     const form = document.getElementById('lookup-form');
