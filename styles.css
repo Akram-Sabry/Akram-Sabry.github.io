@@ -326,6 +326,7 @@ body { font-size: 16px; }
 .course-content-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
 .course-detail-card h2 { font-size:24px; }
 .course-detail-card h3 { font-size:17px; }
+.service-detail-cta { margin-top:18px; }
 .course-list { display:grid; gap:10px; padding-inline-start:22px; margin:0; color:var(--ink); }
 .course-list li { padding-inline-start:3px; }
 .course-numbered { padding-inline-start:25px; }

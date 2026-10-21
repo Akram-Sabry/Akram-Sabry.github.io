@@ -98,6 +98,8 @@
     const name = String(data.get('name') || '').trim();
     const service = String(data.get('service') || '').trim();
     const providerService = String(data.get('providerService') || '').trim();
+    const location = String(data.get('location') || '').trim();
+    const targetDate = String(data.get('preferredDate') || '').trim();
     const details = String(data.get('details') || '').trim();
     const message = [
       'مرحبًا مهندس أكرم، أرغب في الاستفسار عن خدمة.',
@@ -105,6 +107,8 @@
       `رقم التواصل: ${normalizedPhone}`,
       `الخدمة: ${service}`,
       providerService ? `الخدمة المساندة المطلوبة: ${providerService}` : '',
+      location ? `المحافظة/المدينة: ${location}` : '',
+      targetDate ? `موعد الحاجة التقريبي: ${targetDate}` : '',
       details ? `نبذة عن الاحتياج: ${details}` : ''
     ].filter(Boolean).join('\n');
     const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
