@@ -39,6 +39,7 @@
     .share-feedback{min-height:1.5em;margin:9px 0 0!important;color:var(--forest-dark)!important;font-weight:700}
     .token-label{display:block;flex-basis:100%;font-size:14px;font-weight:700}
     .verification-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+    .image-scan{margin-top:14px;padding:14px;border:1px dashed #bfcfc8;border-radius:12px;background:#f8faf9}.image-scan label{display:block;margin-bottom:8px;font-weight:700}.image-scan input{display:block;width:100%;min-width:0;padding:9px;background:#fff}
     button.secondary-button{border:1px solid var(--line);background:#fff;color:var(--forest-dark)}button.secondary-button:hover{background:#edf6f2}
     .qr-video{display:block;width:100%;max-height:360px;margin-top:12px;border-radius:12px;background:#17252b;object-fit:cover}.qr-video[hidden],#scan-stop[hidden]{display:none}
     .scan-status{min-height:1.5em;margin:8px 0 0;color:var(--forest-dark);font-size:13px}.scan-instructions{margin:8px 0 0;color:var(--muted);font-size:12px}
@@ -62,9 +63,13 @@
           <button id="scan-start" class="secondary-button" type="button">مسح QR بالكاميرا / Scan QR with camera</button>
           <button id="scan-stop" class="secondary-button" type="button" hidden>إيقاف الكاميرا / Stop camera</button>
         </div>
+        <div class="image-scan">
+          <label for="qr-image" dir="auto">أو اختر صورة / لقطة شاشة تحتوي على QR / Or choose an image or screenshot with a QR code</label>
+          <input id="qr-image" type="file" accept="image/*">
+        </div>
         <video id="qr-video" class="qr-video" playsinline muted autoplay hidden aria-label="Live QR code scanner"></video>
         <p id="scan-status" class="scan-status" role="status" aria-live="polite" dir="auto"></p>
-        <p class="scan-instructions" dir="auto">يمكنك أيضًا مسح رمز الشهادة بكاميرا الهاتف لفتح التحقق مباشرة. قراءة الصورة تتم داخل المتصفح ولا تُرفع إلى الخادم. يلزم الرمز السري أو QR؛ رقم الشهادة التسلسلي وحده لا يكفي للتحقق. / A phone camera can open the verification link directly. Image scanning stays in your browser and is not uploaded. Use the secret token or QR; the serial number alone is not accepted.</p>
+        <p class="scan-instructions" dir="auto">ارفع صورة الشهادة أو لقطة الشاشة؛ ستتم القراءة داخل المتصفح دون رفع الصورة. إذا كان QR يحتوي على رابط تحقق صالح لهذا الموقع فسيُفتح التحقق تلقائيًا. / Upload a certificate image or screenshot; it is read in your browser and not uploaded. A valid QR link for this site opens verification automatically.</p>
         <p class="hint" dir="auto">يُعرض سجل الشهادة المطابق للرمز فقط، ولا يوجد دليل عام للمتدربين. / Only the matching certificate is shown; no public trainee directory is maintained.</p>
         <div id="result" aria-live="polite"><div class="notice">Enter the verification token to start.</div></div>
       </div>

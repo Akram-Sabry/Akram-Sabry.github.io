@@ -2,6 +2,7 @@
   const startButton = document.getElementById('scan-start');
   const stopButton = document.getElementById('scan-stop');
   const video = document.getElementById('qr-video');
+  const imageInput = document.getElementById('qr-image');
   const status = document.getElementById('scan-status');
   if (!startButton || !stopButton || !video || !status) return;
 
@@ -52,6 +53,56 @@
     return tokenPattern.test(token) ? token.toUpperCase() : null;
   }
 
+  function openVerification(token) {
+    const url = new URL('./', location.href);
+    url.searchParams.set('id', token.toUpperCase());
+    location.assign(url.toString());
+  }
+
+  async function decodeImage(file) {
+    if (!file || !file.type.startsWith('image/')) {
+      message('اختر ملف صورة صالحًا.', 'Please choose a valid image file.');
+      return;
+    }
+    message('جارٍ قراءة الصورة داخل المتصفح…', 'Reading the image in your browser…');
+    try {
+      await loadDecoder();
+      let bitmap;
+      if ('createImageBitmap' in window) {
+        bitmap = await createImageBitmap(file);
+      } else {
+        bitmap = await new Promise((resolve, reject) => {
+          const objectUrl = URL.createObjectURL(file);
+          const image = new Image();
+          image.onload = () => { URL.revokeObjectURL(objectUrl); resolve(image); };
+          image.onerror = () => { URL.revokeObjectURL(objectUrl); reject(new Error('Image could not be opened')); };
+          image.src = objectUrl;
+        });
+      }
+
+      const scale = Math.min(1, 1800 / Math.max(bitmap.width, bitmap.height));
+      canvas.width = Math.max(1, Math.round(bitmap.width * scale));
+      canvas.height = Math.max(1, Math.round(bitmap.height * scale));
+      context.drawImage(bitmap, 0, 0, canvas.width, canvas.height);
+      if (typeof bitmap.close === 'function') bitmap.close();
+      const pixels = context.getImageData(0, 0, canvas.width, canvas.height);
+      const result = window.jsQR(pixels.data, pixels.width, pixels.height, { inversionAttempts: 'attemptBoth' });
+      if (!result) {
+        message('لم نعثر على QR واضح في الصورة. جرّب صورة أوضح.', 'No clear QR code found. Try a sharper image.');
+        return;
+      }
+      const token = tokenFromQr(result.data);
+      if (!token) {
+        message('QR موجود، لكنه لا يحتوي على رابط تحقق صالح لهذا الموقع.', 'A QR was found, but it is not a valid verification link for this site.');
+        return;
+      }
+      message('تمت قراءة QR، جارٍ فتح صفحة التحقق…', 'QR read; opening certificate verification…');
+      openVerification(token);
+    } catch (_) {
+      message('تعذرت قراءة الصورة. جرّب لقطة شاشة أو صورة بصيغة أخرى.', 'Could not read the image. Try another screenshot or image format.');
+    }
+  }
+
   function stopScanner(statusMessage = '') {
     active = false;
     if (scanTimer !== null) {
@@ -99,7 +150,7 @@
 
   async function startScanner() {
     if (!window.isSecureContext || !navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
-      message('الكاميرا غير متاحة هنا؛ أدخل الرمز السري أو استخدم كاميرا الهاتف لمسح QR.', 'Camera scanning is unavailable; enter the token or use your phone camera to open the QR link.');
+      message('الكاميرا غير متاحة هنا؛ أدخل الرمز أو ارفع صورة QR.', 'Camera scanning is unavailable; enter the token or upload a QR image.');
       return;
     }
 
@@ -122,16 +173,17 @@
     } catch (error) {
       stopScanner();
       if (error && error.name === 'NotAllowedError') {
-        message('لم يُسمح باستخدام الكاميرا. أدخل الرمز أو اسمح بالوصول إليها من إعدادات المتصفح.', 'Camera permission was denied. Enter the token or allow camera access in browser settings.');
+        message('لم يُسمح باستخدام الكاميرا. أدخل الرمز أو ارفع صورة QR.', 'Camera permission was denied. Enter the token or upload a QR image.');
       } else if (error && error.name === 'NotFoundError') {
-        message('لم يتم العثور على كاميرا متاحة. أدخل الرمز السري أو امسح QR بكاميرا الهاتف.', 'No camera was found. Enter the token or scan with your phone camera.');
+        message('لم يتم العثور على كاميرا متاحة. يمكنك رفع صورة QR.', 'No camera was found. You can upload a QR image.');
       } else {
-        message('تعذر تشغيل الماسح. يمكنك إدخال الرمز السري أو مسح QR بكاميرا الهاتف.', 'The scanner could not start. Enter the token or scan with your phone camera.');
+        message('تعذر تشغيل الماسح. يمكنك إدخال الرمز أو رفع صورة QR.', 'The scanner could not start. Enter the token or upload a QR image.');
       }
     }
   }
 
   startButton.addEventListener('click', startScanner);
+  if (imageInput) imageInput.addEventListener('change', () => decodeImage(imageInput.files && imageInput.files[0]));
   stopButton.addEventListener('click', () => stopScanner('تم إيقاف الكاميرا. / Camera stopped.'));
   document.addEventListener('visibilitychange', () => {
     if (document.hidden && active) stopScanner('تم إيقاف الكاميرا عند مغادرة الصفحة. / Camera stopped while leaving the page.');
