@@ -149,7 +149,7 @@ def page_html(program: dict, lang: str) -> str:
     </div></section>
     <section class="section"><div class="container course-references"><h2>{'مراجع رسمية عامة' if lang == 'ar' else 'General official references'}</h2><p>{'للتعرف على المراجع الأصلية ذات الصلة؛ وهي ليست بديلًا عن متطلبات الجهة المختصة أو نسخة المعيار المرخصة.' if lang == 'ar' else 'For context on relevant primary references; these do not replace competent-authority requirements or an authorized copy of a standard.'}</p><ul>{source_links(data['sources'])}</ul><a class="button button-primary" href="{e(wa)}" target="_blank" rel="noopener noreferrer">{e(cta)}</a></div></section>
   </main>
-  <footer class="site-footer"><div class="container footer-inner"><p>{e(footer)}</p><div class="footer-links"><a href="https://www.linkedin.com/in/akram-sabry-a543a3239" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="{e(home)}">{e('الصفحة الرئيسية' if lang == 'ar' else 'Home')}</a><a href="{e(hub)}">{e('كل البرامج' if lang == 'ar' else 'All programs')}</a></div></div></footer>
+  <footer class="site-footer"><div class="container footer-inner"><p>{e(footer)}</p><div class="footer-links"><a href="https://www.linkedin.com/in/eng-akram-sabry-a543a3239/" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="{e(home)}">{e('الصفحة الرئيسية' if lang == 'ar' else 'Home')}</a><a href="{e(hub)}">{e('كل البرامج' if lang == 'ar' else 'All programs')}</a></div></div></footer>
   <script src="{script}" defer></script>
 </body>
 </html>
@@ -198,7 +198,7 @@ def hub_html(lang: str) -> str:
 {header(lang, home, "index.html", lang_url, wa)}
 <main id="main"><section class="course-hero"><div class="container"><span class="eyebrow">{e(labels[4])}</span><h1>{e(hero)}</h1><p class="course-description">{e(intro)}</p><p class="course-note">{e(note)}</p></div></section>
 <section class="section section-white"><div class="container"><div class="section-heading"><h2>{e(labels[1])}</h2><p>{e(list_intro)}</p></div><div class="grid-3">{''.join(cards)}</div><div class="training-cta"><div><strong>{e(labels[3])}</strong><span>{e(note)}</span></div><a class="button button-primary" href="{e(wa)}" target="_blank" rel="noopener noreferrer">{e(labels[2])}</a></div></div></section></main>
-<footer class="site-footer"><div class="container footer-inner"><p>{e(footer)}</p><div class="footer-links"><a href="{e(home)}">{e(labels[0])}</a><a href="https://www.linkedin.com/in/akram-sabry-a543a3239" target="_blank" rel="noopener noreferrer">LinkedIn</a></div></div></footer><script src="{script}" defer></script></body></html>'''
+<footer class="site-footer"><div class="container footer-inner"><p>{e(footer)}</p><div class="footer-links"><a href="{e(home)}">{e(labels[0])}</a><a href="https://www.linkedin.com/in/eng-akram-sabry-a543a3239/" target="_blank" rel="noopener noreferrer">LinkedIn</a></div></div></footer><script src="{script}" defer></script></body></html>'''
 
 
 for program in DATA["programs"]:
