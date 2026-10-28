@@ -417,3 +417,10 @@ body { font-size: 16px; }
 .case-study-note { margin-top:12px !important; font-size:13px !important; }
 @media (max-width:920px) { .portfolio-grid { grid-template-columns:repeat(3,minmax(0,1fr)); } }
 @media (max-width:650px) { .portfolio-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; } .portfolio-mark { min-height:126px; padding:11px; } .portfolio-mark img { height:92px; } }
+
+/* Collaboration partner profile marks */
+.collaboration-partners { display:flex; flex-wrap:wrap; gap:12px; margin:16px 0; }
+.collaboration-partner { display:flex; align-items:center; gap:10px; padding:8px 12px; border:1px solid var(--line); border-radius:12px; background:var(--white); color:var(--ink); text-decoration:none; transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease; }
+.collaboration-partner:hover { transform:translateY(-2px); border-color:#a7d2c7; box-shadow:var(--shadow); }
+.collaboration-partner img { width:64px; height:64px; flex:0 0 64px; object-fit:contain; }
+.collaboration-partner span { font-weight:700; }
