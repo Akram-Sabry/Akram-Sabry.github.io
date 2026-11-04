@@ -111,7 +111,8 @@ h3 { margin-bottom: 8px; font-size: 20px; }
 
 .testimonial-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 17px; }
 .testimonial { overflow: hidden; padding: 0; }
-.testimonial img { display: block; width: 100%; height: auto; aspect-ratio: auto; object-fit: contain; background: #fff; }
+#testimonials .testimonial picture { display: block; width: 100%; height: auto; max-height: none; overflow: visible; }
+#testimonials .testimonial picture img { display: block !important; width: 100% !important; max-width: 100%; height: auto !important; max-height: none !important; aspect-ratio: auto !important; object-fit: contain !important; object-position: center; background: #fff; }
 .testimonial-body { padding: 18px; }
 .testimonial-body span { color: var(--forest); font-size: 12px; font-weight: 800; }
 .testimonial-body p { margin: 7px 0 0; color: var(--muted); font-size: 13px; }
