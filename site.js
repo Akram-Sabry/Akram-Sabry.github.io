@@ -32,6 +32,22 @@
   const year = document.querySelector('#year');
   if (year) year.textContent = String(new Date().getFullYear());
 
+  // Track key conversion clicks when Google Analytics is connected later.
+  document.addEventListener('click', event => {
+    const link = event.target.closest('a[href]');
+    if (!link) return;
+    const href = link.href || '';
+    let eventName = '';
+    if (href.includes('wa.me/')) eventName = 'whatsapp_click';
+    else if (/AKRAM.*CV\.pdf/i.test(href)) eventName = 'cv_download';
+    else if (href.includes('linkedin.com/')) eventName = 'linkedin_click';
+    if (!eventName) return;
+    const payload = { event_category: 'engagement', event_label: link.textContent.trim() || href };
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: eventName, ...payload });
+    if (typeof window.gtag === 'function') window.gtag('event', eventName, payload);
+  });
+
   const revealItems = document.querySelectorAll('.reveal');
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (reducedMotion || !('IntersectionObserver' in window)) {
