@@ -391,6 +391,10 @@ body { font-size: 16px; }
 
 .exam-list { display:grid; gap:16px; }
 .exam-card { display:grid; grid-template-columns:56px minmax(0,1fr) auto; align-items:center; gap:18px; border-inline-start:4px solid var(--gold); }
+.exam-card.nfsa-exam-card { grid-template-columns:56px minmax(0,1fr) minmax(140px,190px) auto; }
+.nfsa-poster { display:block; width:100%; max-width:190px; overflow:hidden; border:1px solid var(--line); border-radius:14px; background:var(--white); box-shadow:var(--shadow); }
+.nfsa-poster img { display:block; width:100%; height:auto; }
+.nfsa-poster:focus-visible { outline:3px solid var(--gold); outline-offset:3px; }
 .exam-number { display:grid; place-items:center; width:48px; height:48px; border-radius:14px; color:var(--forest); background:var(--forest-soft); font-size:15px; font-weight:900; }
 .exam-tag { display:inline-flex; align-items:center; min-height:25px; padding:3px 9px; border-radius:99px; color:var(--forest); background:var(--forest-soft); font-size:10px; font-weight:800; letter-spacing:.35px; }
 .exam-copy h3 { margin:8px 0; }
@@ -401,8 +405,16 @@ body { font-size: 16px; }
 .exam-launch { flex:0 0 auto; white-space:nowrap; }
 .exam-results-link { justify-self:center; color:var(--forest); font-size:12px; font-weight:800; text-decoration:underline; text-underline-offset:3px; }
 .english-site .exam-copy { text-align:left; }
+@media (max-width:920px) {
+  .exam-card.nfsa-exam-card { grid-template-columns:44px minmax(0,1fr) 150px; }
+  .nfsa-exam-card .nfsa-poster { grid-column:3; grid-row:1; max-width:150px; }
+  .nfsa-exam-card .exam-actions { grid-column:2/4; grid-row:2; justify-self:end; display:flex; flex-wrap:wrap; align-items:center; }
+}
 @media (max-width:650px) {
   .exam-card { grid-template-columns:44px minmax(0,1fr); align-items:start; gap:12px; padding:18px; }
+  .exam-card.nfsa-exam-card { grid-template-columns:44px minmax(0,1fr); }
+  .nfsa-exam-card .nfsa-poster { grid-column:2; grid-row:auto; width:min(100%,280px); max-width:280px; justify-self:center; }
+  .nfsa-exam-card .exam-actions { grid-column:2; grid-row:auto; display:grid; justify-self:stretch; width:100%; }
   .exam-number { width:40px; height:40px; }
   .exam-copy h3 { font-size:18px; }
   .exam-actions { grid-column:2; width:100%; margin-top:2px; }
